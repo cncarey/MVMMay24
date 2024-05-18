@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://by52cb0uia3yf"]
+[gd_scene load_steps=16 format=3 uid="uid://by52cb0uia3yf"]
 
 [ext_resource type="Texture2D" uid="uid://bh8r6lijixolq" path="res://Assets/Character_Sprite_Sheet.png" id="1_q384h"]
 [ext_resource type="Script" path="res://Characters/MainCharacter.gd" id="1_vig4w"]
+[ext_resource type="Script" path="res://Components/hurtbox_component.gd" id="3_s2kgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm53p"]
 
@@ -387,6 +388,7 @@ position_smoothing_enabled = true
 
 [node name="HazardDetector" type="Area2D" parent="."]
 collision_layer = 5
+script = ExtResource("3_s2kgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
 shape = SubResource("CapsuleShape2D_l0cp0")

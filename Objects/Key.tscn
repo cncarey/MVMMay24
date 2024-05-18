@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0l5is5q2f0au"]
+
+[ext_resource type="PackedScene" uid="uid://diy8qh6tf7sco" path="res://Objects/PickUp.tscn" id="1_vt2lm"]
+[ext_resource type="Script" path="res://Objects/Key.gd" id="2_2dsr6"]
+[ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="3_crb88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xs21"]
+size = Vector2(10, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgs0v"]
+size = Vector2(12, 8)
+
+[node name="Key" instance=ExtResource("1_vt2lm")]
+script = ExtResource("2_2dsr6")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_crb88")
+region_enabled = true
+region_rect = Rect2(226, 37, 12, 7)
+
+[node name="HurtboxComponent" parent="." index="2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8xs21")
+
+[node name="HitboxComponent" parent="." index="3"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_cgs0v")

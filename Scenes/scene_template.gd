@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var doors = $Doors
+@onready var keys = $Keys
+
 @onready var mainPlayer = $MainPlayer
 
 # Called when the node enters the scene tree for the first time.
@@ -11,8 +13,17 @@ func _ready():
 		if doors.get_child_count() > 0:
 			for d in doors.get_children():
 				var _d = d as Door
+				_d.goToRoom.connect(_on_go_to_room)
+				#TODO check the Global door stats to see if a closed door should be opened
 				if _d.doorId == Global.lastLocation:
 					mainPlayer.global_position = _d.global_position
+		
+		if keys.get_child_count() > 0:
+			for k in keys.get_children():
+				var _k = k as PickUp
+				if Global.collectedKeys.has(_k.pickUpId):
+				# if it's in the collected keys free it 
+					_k.queue_free()
 		pass
 
 

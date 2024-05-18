@@ -17,5 +17,3 @@ destination = "res://Scenes/a_scene.tscn"
 doorId = "B_A-2"
 returnDoorId = "A_B-1"
 isOpen = true
-
-[connection signal="goToRoom" from="Doors/Door" to="." method="_on_go_to_room"]
