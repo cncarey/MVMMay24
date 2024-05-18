@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bge1gm6xfqgal"]
+
+[ext_resource type="Texture2D" uid="uid://u44eu675e5ey" path="res://Assets/ruinsTiles.png" id="1_jgirp"]
+[ext_resource type="Script" path="res://Objects/Door.gd" id="1_vpe03"]
+[ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_6npkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y4o0"]
+size = Vector2(67, 51)
+
+[node name="Door" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vpe03")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jgirp")
+region_enabled = true
+region_rect = Rect2(192.119, -1, 62.8193, 49.2013)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_5y4o0")
+
+[node name="InteractionIndicator" parent="." instance=ExtResource("3_6npkr")]
+visible = false
+position = Vector2(0.255219, -33.4858)
+
+[connection signal="body_entered" from="." to="." method="doorEntered"]
+[connection signal="body_exited" from="." to="." method="doorExited"]
