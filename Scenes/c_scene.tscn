@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c03qwkr3pe87i"]
+[gd_scene load_steps=5 format=3 uid="uid://c03qwkr3pe87i"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_rh8ry"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_jv3lm"]
 [ext_resource type="PackedScene" uid="uid://b0l5is5q2f0au" path="res://Objects/Key.tscn" id="3_amomj"]
+[ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="4_o8iq5"]
 
 [node name="SceneC" instance=ExtResource("1_rh8ry")]
 
@@ -32,3 +33,9 @@ doorId = "C"
 [node name="Key" parent="Keys" index="0" instance=ExtResource("3_amomj")]
 position = Vector2(244, 280)
 pickUpId = "C-1"
+
+[node name="Platform" parent="." index="6" instance=ExtResource("4_o8iq5")]
+position = Vector2(423, 285)
+
+[node name="Platform2" parent="." index="7" instance=ExtResource("4_o8iq5")]
+position = Vector2(593, 350)
