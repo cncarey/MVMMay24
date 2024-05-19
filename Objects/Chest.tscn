@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://tm2tc8umf0yd"]
+
+[ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="1_2oth3"]
+[ext_resource type="Script" path="res://Objects/Chest.gd" id="1_vfipg"]
+[ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="2_oo6rk"]
+[ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="3_ftyef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r5y6"]
+atlas = ExtResource("2_oo6rk")
+region = Rect2(240, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0cdh"]
+atlas = ExtResource("2_oo6rk")
+region = Rect2(288, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsaah"]
+atlas = ExtResource("2_oo6rk")
+region = Rect2(240, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mcbm"]
+atlas = ExtResource("2_oo6rk")
+region = Rect2(256, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hopp4"]
+atlas = ExtResource("2_oo6rk")
+region = Rect2(272, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8t2g"]
+atlas = ExtResource("2_oo6rk")
+region = Rect2(288, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ih87n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r5y6")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0cdh")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsaah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mcbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hopp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8t2g")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkb5c"]
+size = Vector2(28, 26)
+
+[node name="Chest" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vfipg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ih87n")
+animation = &"opening"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_qkb5c")
+
+[node name="InteractionIndicator" parent="." instance=ExtResource("1_2oth3")]
+visible = false
+position = Vector2(0.199997, -38.375)
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_ftyef")
+
+[connection signal="body_entered" from="." to="." method="chestEntered"]
+[connection signal="body_exited" from="." to="." method="chestExited"]

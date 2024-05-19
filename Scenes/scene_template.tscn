@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=6 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
 [ext_resource type="PackedScene" uid="uid://by52cb0uia3yf" path="res://Characters/MainCharacter.tscn" id="2_o68ig"]
+[ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_2ltl5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j208n"]
+atlas = ExtResource("4_2ltl5")
+region = Rect2(226, 37, 12, 7)
 
 [node name="SceneTemplate" type="Node2D"]
 script = ExtResource("1_63tay")
@@ -14,3 +19,25 @@ script = ExtResource("1_63tay")
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Keys" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="KeyContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="KeySprite" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_j208n")

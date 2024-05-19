@@ -2,6 +2,7 @@ extends Node
 
 var lastLocation: String
 var openedDoors : Dictionary = {}
+var openedChests : Dictionary = {}
 var collectedKeys : Dictionary = {}
 
 
