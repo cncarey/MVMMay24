@@ -12,7 +12,7 @@ layer_1/tile_data = PackedInt32Array(0, 65536, 4, 65536, 262144, 2, 131072, 2621
 [node name="MainPlayer" parent="." index="1"]
 position = Vector2(284.881, 516.507)
 
-[node name="Door" parent="Doors" index="0" instance=ExtResource("2_v2isc")]
+[node name="Door_A2" parent="Doors" index="0" instance=ExtResource("2_v2isc")]
 position = Vector2(183.6, 55.7)
 destination = "res://Scenes/a_scene.tscn"
 doorId = "B_A-2"

@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var doors = $Doors
 @onready var keys = $Keys
+@onready var gems = $Gems
+
 @onready var key_container = %KeyContainer
 @onready var key_sprite = %KeySprite
 

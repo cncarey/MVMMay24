@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://ce36676gjyd1v"]
+
+[ext_resource type="PackedScene" uid="uid://diy8qh6tf7sco" path="res://Objects/PickUp.tscn" id="1_ypjuy"]
+[ext_resource type="Script" path="res://Objects/Gem.gd" id="2_2ygvq"]
+[ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="3_1mjwr"]
+
+[sub_resource type="Animation" id="Animation_icaia"]
+resource_name = "gold"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_u16wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p73sp"]
+resource_name = "purple"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mfu2"]
+_data = {
+"RESET": SubResource("Animation_u16wi"),
+"gold": SubResource("Animation_icaia"),
+"purple": SubResource("Animation_p73sp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cjan"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_csn7t"]
+radius = 7.0
+
+[node name="Gem" instance=ExtResource("1_ypjuy")]
+script = ExtResource("2_2ygvq")
+gemType = 0
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_1mjwr")
+hframes = 4
+vframes = 2
+region_enabled = true
+region_rect = Rect2(241.1, 0, 64, 34)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_8mfu2")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_2cjan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_csn7t")
