@@ -1,11 +1,28 @@
 extends Node
 
-var lastLocation: String
+var currentLocation : String = ""
+var lastLocation: String = ""
 var openedDoors : Dictionary = {}
 var openedChests : Dictionary = {}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
+var foundSwitches : Dictionary = {}
+var switchStatuses : Dictionary = {}
+var guardianStatuses : Dictionary = {}
 
+func resetGame():
+	currentLocation = ""
+	lastLocation = ""
+	openedDoors = {}
+	openedChests = {}
+	collectedKeys = {}
+	collectedGems = {}
+	foundSwitches = {}
+	switchStatuses = {}
+	guardianStatuses = {}
+	keys = 0
+	gems_gold = 0
+	gems_purple = 0
 
 @export var keys = 0 : 
 	set(value):
