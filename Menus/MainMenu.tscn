@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dseph2p8072xn"]
+[gd_scene load_steps=3 format=3 uid="uid://dseph2p8072xn"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_a1v1j"]
+[ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="2_7vbm4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a1v1j")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MainContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,33 +20,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
 text = "Title of the game"
 
-[node name="NewGame" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="NewGame" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
-[node name="Continue" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Continue" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 
-[node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGame" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="OptionsContainer" parent="." instance=ExtResource("2_7vbm4")]
+visible = false
+layout_mode = 1
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[connection signal="pressed" from="MainContainer/VBoxContainer/NewGame" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/Options" to="." method="showOptions"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="returnButton" from="OptionsContainer" to="." method="hideOptions"]
