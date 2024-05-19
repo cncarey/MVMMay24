@@ -14,9 +14,9 @@ script = ExtResource("1_63tay")
 
 [node name="TileMap" parent="." instance=ExtResource("1_cp7f5")]
 
-[node name="MainPlayer" parent="." instance=ExtResource("2_o68ig")]
-
 [node name="Doors" type="Node2D" parent="."]
+
+[node name="MainPlayer" parent="." instance=ExtResource("2_o68ig")]
 
 [node name="Keys" type="Node2D" parent="."]
 

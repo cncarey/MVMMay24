@@ -14,20 +14,20 @@ layer_1/tile_data = PackedInt32Array(0, 65536, 4, 1, 131072, 4, 2, 131072, 4, 3,
 position = Vector2(118.1, 281.1)
 
 [node name="Door_A1" parent="Doors" index="0" instance=ExtResource("2_jv3lm")]
-position = Vector2(68, 278)
+position = Vector2(68, 280)
 destination = "res://Scenes/a_scene.tscn"
 doorId = "C_A-1"
 returnDoorId = "A_C-1"
 isOpen = true
 
 [node name="Door_D2" parent="Doors" index="1" instance=ExtResource("2_jv3lm")]
-position = Vector2(366, 167)
+position = Vector2(366, 168)
 doorId = "C_D-2"
 returnDoorId = "D_C-2"
 isOpen = true
 
 [node name="Door2" parent="Doors" index="2" instance=ExtResource("2_jv3lm")]
-position = Vector2(71, 405)
+position = Vector2(71, 408)
 doorId = "C"
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("3_amomj")]

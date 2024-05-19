@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://bge1gm6xfqgal"]
 
-[ext_resource type="Texture2D" uid="uid://u44eu675e5ey" path="res://Assets/ruinsTiles.png" id="1_jgirp"]
 [ext_resource type="Script" path="res://Objects/Door.gd" id="1_vpe03"]
+[ext_resource type="Texture2D" uid="uid://b1sou16f4qj6" path="res://Assets/villageTiles.png" id="2_nylme"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_6npkr"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_uoge5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y4o0"]
-size = Vector2(67, 51)
+size = Vector2(50, 58)
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
@@ -14,21 +14,20 @@ collision_mask = 2
 script = ExtResource("1_vpe03")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jgirp")
+texture = ExtResource("2_nylme")
 region_enabled = true
-region_rect = Rect2(192.119, -1, 62.8193, 49.2013)
+region_rect = Rect2(144, 176, 32, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_5y4o0")
 
 [node name="InteractionIndicator" parent="." instance=ExtResource("3_6npkr")]
 visible = false
-position = Vector2(0.255219, -33.4858)
+position = Vector2(0.251526, -59.2116)
 
 [node name="lock" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1, 4)
 texture = ExtResource("4_uoge5")
 region_enabled = true
 region_rect = Rect2(161, 85, 13, 11)
