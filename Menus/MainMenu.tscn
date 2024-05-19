@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dseph2p8072xn"]
+[gd_scene load_steps=4 format=3 uid="uid://dseph2p8072xn"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_a1v1j"]
+[ext_resource type="Texture2D" uid="uid://ddrn0bni3j7gv" path="res://Assets/MainBackground.png" id="2_6njg3"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="2_7vbm4"]
 
 [node name="MainMenu" type="Control"]
@@ -11,6 +12,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a1v1j")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6njg3")
+expand_mode = 2
+stretch_mode = 6
 
 [node name="MainContainer" type="CenterContainer" parent="."]
 layout_mode = 1
