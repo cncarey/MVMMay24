@@ -22,6 +22,10 @@ script = ExtResource("1_63tay")
 
 [node name="Gems" type="Node2D" parent="."]
 
+[node name="Twinkles" type="Node2D" parent="."]
+
+[node name="Switches" type="Node2D" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]

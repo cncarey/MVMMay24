@@ -3,6 +3,9 @@ extends Node2D
 @onready var doors = $Doors
 @onready var keys = $Keys
 @onready var gems = $Gems
+@onready var twinkles = $Twinkles
+@onready var switches = $Switches
+
 
 @onready var key_container = %KeyContainer
 @onready var key_sprite = %KeySprite
@@ -22,7 +25,6 @@ func _ready():
 			for d in doors.get_children():
 				var _d = d as Door
 				_d.goToRoom.connect(_on_go_to_room)
-				#TODO check the Global door stats to see if a closed door should be opened
 				if _d.doorId == Global.lastLocation:
 					mainPlayer.global_position = _d.global_position
 		
@@ -32,6 +34,21 @@ func _ready():
 				if Global.collectedKeys.has(_k.pickUpId):
 				# if it's in the collected keys free it 
 					_k.queue_free()
+					
+		if twinkles.get_child_count() > 0:
+			for t in twinkles.get_children():
+				var _t = t as Twinkle
+				if Global.foundTwinkles.has(_t.twinkleId):
+					_t.queue_free()
+				else:
+					_t.twinkleFound.connect(_on_twinkle_found)
+					
+		if switches.get_child_count() > 0:
+			for s in switches.get_children():
+				var _s = s as Switch
+				if !Global.foundSwitches.has(_s.switchId):
+					_s.isNotIntractable()
+				
 		pass
 
 
@@ -64,4 +81,11 @@ func updateKeyContainer(keys:int):
 		k.visible = true
 		key_container.add_child(k)
 		pass
-	
+
+func _on_twinkle_found(switchId):
+	if switches.get_child_count() > 0:
+		for s in switches.get_children():
+			var _s = s as Switch
+			if _s.switchId == switchId:
+				_s.isIntractable()
+				

@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://dfsycr8t565ip"]
+
+[ext_resource type="Script" path="res://Objects/Twinkle.gd" id="1_alw5w"]
+[ext_resource type="Texture2D" uid="uid://d1hsq6pc8yge" path="res://Assets/Spark.png" id="2_jqe2i"]
+[ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_svtvs"]
+[ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="4_46c5m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11rpl"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(0, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndowj"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(10, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr4pp"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(20, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtlt6"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(30, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkswm"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(40, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x818r"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(50, 0, 10, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aonk7"]
+atlas = ExtResource("2_jqe2i")
+region = Rect2(60, 0, 10, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bd16v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11rpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndowj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr4pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtlt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkswm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x818r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aonk7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Twinkle" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_alw5w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_bd16v")
+autoplay = "default"
+
+[node name="OuterShape" type="CollisionShape2D" parent="."]
+
+[node name="InnerShape" type="CollisionShape2D" parent="."]
+
+[node name="InteractionIndicator" parent="." instance=ExtResource("3_svtvs")]
+visible = false
+position = Vector2(-0.0500336, -52)
+
+[node name="touchSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_46c5m")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

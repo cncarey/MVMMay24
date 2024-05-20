@@ -9,6 +9,7 @@ var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
 var switchStatuses : Dictionary = {}
 var guardianStatuses : Dictionary = {}
+var foundTwinkles: Dictionary = {}
 
 func resetGame():
 	currentLocation = ""
@@ -20,6 +21,7 @@ func resetGame():
 	foundSwitches = {}
 	switchStatuses = {}
 	guardianStatuses = {}
+	foundTwinkles = {}
 	keys = 0
 	gems_gold = 0
 	gems_purple = 0
