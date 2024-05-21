@@ -16,15 +16,13 @@ func _ready():
 		is_invincible = true
 		state = 3
 		ani.play("opened")
+		isOpen = true
 	else:	
 		ani.play("closed")
 		ani.animation_finished.connect(animtionFinished)
-	
+		isOpen = false
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func chestEntered(body):
 	isTouching = true
