@@ -5,6 +5,7 @@ const gold = "_gold"
 const purple = "_purple"
 
 @export var GuardianId : String
+
 @onready var gem_gold = $GemGold
 @onready var gem_purple = $GemPurple
 @onready var TouchIndicator = $InteractionIndicator
