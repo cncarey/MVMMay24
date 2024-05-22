@@ -18,7 +18,8 @@ func _ready():
 
 func setSwitchStatus(status: bool):
 	isOn = status
-	Global.switchStatuses[switchId]= status
+	
+	Global.setSwitchStatuses(switchId, status)
 	if status:
 		ani.play("on")
 	else:

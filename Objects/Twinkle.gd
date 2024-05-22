@@ -28,6 +28,7 @@ func _unhandled_input(event):
 		
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if !Global.openedChests.has("EchoShard"): return
 	if local_shape_index == 0:
 		isTouchingOuter = true
 		ani.show()
@@ -40,6 +41,7 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 
 
 func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if !Global.openedChests.has("EchoShard"): return
 	if local_shape_index == 0:
 		isTouchingOuter = false
 		ani.hide()

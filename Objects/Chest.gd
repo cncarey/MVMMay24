@@ -7,6 +7,8 @@ extends HurtboxComponent
 @onready var TouchIndicator = $InteractionIndicator
 @onready var open_sound = $OpenSound
 @onready var ani = $AnimatedSprite2D
+@onready var scale_component = $ScaleComponent
+#@onready var shake_component = $ShakeComponent
 
 var isTouching : bool = false
 
@@ -38,6 +40,9 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("Interact") && isTouching:
 		if !isOpen:
 			state = 2
+			scale_component.tween_scale()
+			#shake_component.tween_shake()
+			
 			Global.openedChests[chestId]= true
 	
 			if open_sound != null:

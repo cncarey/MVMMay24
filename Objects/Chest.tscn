@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://tm2tc8umf0yd"]
+[gd_scene load_steps=14 format=3 uid="uid://tm2tc8umf0yd"]
 
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="1_2oth3"]
 [ext_resource type="Script" path="res://Objects/Chest.gd" id="1_vfipg"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="2_oo6rk"]
 [ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="3_ftyef"]
+[ext_resource type="Script" path="res://Components/scale_component.gd" id="5_fjjg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r5y6"]
 atlas = ExtResource("2_oo6rk")
@@ -88,6 +89,10 @@ position = Vector2(0.199997, -38.375)
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_ftyef")
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_fjjg0")
+sprite = NodePath("../AnimatedSprite2D")
 
 [connection signal="body_entered" from="." to="." method="chestEntered"]
 [connection signal="body_exited" from="." to="." method="chestExited"]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2cbxb2x6iny6"]
+
+[ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_mkkib"]
+
+[node name="SceneTemplate" instance=ExtResource("1_mkkib")]

@@ -7,9 +7,15 @@ var openedChests : Dictionary = {}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
-var switchStatuses : Dictionary = {}
 var guardianStatuses : Dictionary = {}
 var foundTwinkles: Dictionary = {}
+
+var switchStatuses : Dictionary = {}
+
+signal switchStatusesChanged(switchId, isOn)
+func setSwitchStatuses(switchId: String, isOn: bool):
+	switchStatuses[switchId] = isOn
+	switchStatusesChanged.emit(switchId, isOn)
 
 func resetGame():
 	currentLocation = ""

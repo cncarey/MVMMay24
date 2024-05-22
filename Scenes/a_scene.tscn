@@ -1,17 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://33p72yt5hohm"]
+[gd_scene load_steps=8 format=3 uid="uid://33p72yt5hohm"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_iqbdi"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_kti2w"]
 [ext_resource type="PackedScene" uid="uid://ce36676gjyd1v" path="res://Objects/Gem.tscn" id="3_uxss0"]
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="4_rrve2"]
-[ext_resource type="PackedScene" uid="uid://dfsycr8t565ip" path="res://Objects/Twinkle.tscn" id="5_u4anw"]
-[ext_resource type="PackedScene" uid="uid://1vnf1art3bif" path="res://Objects/Switch.tscn" id="6_kn5s8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujyai"]
-size = Vector2(255, 100)
+[sub_resource type="Animation" id="Animation_xvh0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_c2mj5"]
-radius = 25.8736
+[sub_resource type="Animation" id="Animation_wjm5v"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-40, 0), Vector2(-40, 0), Vector2(-503, 0), Vector2(-503, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp5dr"]
+_data = {
+"RESET": SubResource("Animation_xvh0h"),
+"move": SubResource("Animation_wjm5v")
+}
 
 [node name="SceneA" instance=ExtResource("1_iqbdi")]
 
@@ -41,27 +71,14 @@ position = Vector2(43.2386, 43.1133)
 gemType = 1
 pickUpId = "A_Purple"
 
-[node name="Twinkle" parent="Twinkles" index="0" instance=ExtResource("5_u4anw")]
-position = Vector2(453, 426)
-twinkleId = "test"
-switchId = "test"
-
-[node name="OuterShape" parent="Twinkles/Twinkle" index="1"]
-position = Vector2(42.5, 3)
-shape = SubResource("RectangleShape2D_ujyai")
-
-[node name="InnerShape" parent="Twinkles/Twinkle" index="2"]
-position = Vector2(138.15, 10.0999)
-shape = SubResource("CircleShape2D_c2mj5")
-
-[node name="InteractionIndicator" parent="Twinkles/Twinkle" index="3"]
-position = Vector2(138.85, -24.7503)
-
 [node name="Platform" parent="." index="6" instance=ExtResource("4_rrve2")]
 position = Vector2(635, 136)
+switchId = "C-1"
 
-[node name="Switch" parent="Switches" index="0" instance=ExtResource("6_kn5s8")]
-position = Vector2(696.95, 406.4)
-switchId = "test"
+[node name="AnimationPlayer" parent="Platform" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_sp5dr")
+}
+autoplay = "RESET"
 
-[editable path="Twinkles/Twinkle"]
+[editable path="Platform"]
