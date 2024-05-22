@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 #IDEA if we want to make power-up move this to be a resource
 
+@onready var camera_2d = $Camera2D
 
 #IDEA if we want to make power-up move this to be a resource
 @export var SPEED = 200.0
@@ -20,6 +21,22 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var coyoteJumpTimer = $CoyoteJump
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
+
+@export var tilemap :TileMap
+
+func _ready():
+	resetBoundaries()
+	
+
+func resetBoundaries():
+	var mapRect = tilemap.get_used_rect()
+	var tileSize = tilemap.cell_quadrant_size
+	var mapSizePixesls = mapRect.size * tileSize
+	
+	camera_2d.limit_left = 0
+	camera_2d.limit_top = 0
+	camera_2d.limit_right = mapSizePixesls.x
+	camera_2d.limit_bottom = mapSizePixesls.y
 
 func _physics_process(delta):
 	handleGravity(delta)

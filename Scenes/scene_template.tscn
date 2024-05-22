@@ -24,7 +24,8 @@ script = ExtResource("1_63tay")
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="MainPlayer" parent="." instance=ExtResource("2_o68ig")]
+[node name="MainPlayer" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("2_o68ig")]
+tilemap = NodePath("../TileMap")
 
 [node name="Keys" type="Node2D" parent="."]
 
