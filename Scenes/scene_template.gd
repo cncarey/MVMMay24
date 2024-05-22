@@ -8,7 +8,12 @@ extends Node2D
 
 
 @onready var key_container = %KeyContainer
+@onready var gold_container = %GoldContainer
+@onready var purple_container = %PurpleContainer
+
 @onready var key_sprite = %KeySprite
+@onready var gold_gem_sprite = %GoldGemSprite
+@onready var purple_gem_sprite = %PurpleGemSprite
 
 @onready var mainPlayer = $MainPlayer
 
@@ -16,7 +21,11 @@ extends Node2D
 func _ready():
 	Global.currentLocation = get_tree().current_scene.scene_file_path
 	updateKeyContainer(Global.keys)
+	updateGoldContainer(Global.gems_gold)
+	updatePurpleContainer(Global.gems_purple)
 	Global.keys_changed.connect(updateKeyContainer)
+	Global.gems_gold_changed.connect(updateGoldContainer)
+	Global.gems_purple_changed.connect(updatePurpleContainer)
 	
 	if Global.lastLocation != null || Global.lastLocation != "":
 		#for each thing in door if the last location is in the list
@@ -80,6 +89,30 @@ func updateKeyContainer(keys:int):
 		
 		k.visible = true
 		key_container.add_child(k)
+		pass
+		
+func updateGoldContainer(gold:int):
+	gold_container.columns = maxi(gold, 1)
+	for gc in gold_container.get_children():
+		gc.free()
+		
+	for i in range(gold):
+		var ggs :TextureRect = gold_gem_sprite.duplicate()
+		
+		ggs.visible = true
+		gold_container.add_child(ggs)
+		pass
+		
+func updatePurpleContainer(purple:int):
+	purple_container.columns = maxi(purple, 1)
+	for pc in purple_container.get_children():
+		pc.free()
+		
+	for i in range(purple):
+		var pgs :TextureRect = purple_gem_sprite.duplicate()
+		
+		pgs.visible = true
+		purple_container.add_child(pgs)
 		pass
 
 func _on_twinkle_found(switchId):

@@ -3,7 +3,7 @@ extends Node
 var currentLocation : String = ""
 var lastLocation: String = ""
 var openedDoors : Dictionary = {}
-var openedChests : Dictionary = {}
+var openedChests : Dictionary = {"DoubleJump": true}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}

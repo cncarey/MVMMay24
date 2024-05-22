@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=8 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
@@ -8,6 +8,14 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_j208n"]
 atlas = ExtResource("4_2ltl5")
 region = Rect2(226, 37, 12, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpe58"]
+atlas = ExtResource("4_2ltl5")
+region = Rect2(244, 4, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylte0"]
+atlas = ExtResource("4_2ltl5")
+region = Rect2(245, 20, 8, 8)
 
 [node name="SceneTemplate" type="Node2D"]
 script = ExtResource("1_63tay")
@@ -34,10 +42,21 @@ offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="HScrollBar" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 
-[node name="KeyContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="KeyContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HScrollBar"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HScrollBar"]
+layout_mode = 2
+
+[node name="GoldContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HScrollBar/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PurpleContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HScrollBar/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -47,3 +66,17 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_j208n")
+
+[node name="GoldGemSprite" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_lpe58")
+
+[node name="PurpleGemSprite" type="TextureRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_ylte0")
