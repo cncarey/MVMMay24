@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://byip7yy6o7w7k"]
+
+[ext_resource type="Script" path="res://UI/PowerUpModal.gd" id="1_2npl6"]
+[ext_resource type="Texture2D" uid="uid://c1f661njoru5f" path="res://Assets/divider.png" id="1_nsjcs"]
+[ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="2_novf4"]
+
+[node name="PowerUpModal" type="MarginContainer"]
+script = ExtResource("1_2npl6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_novf4")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Obtained" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Obtained"
+horizontal_alignment = 1
+
+[node name="PowerUpTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TItle of Power Up"
+horizontal_alignment = 1
+
+[node name="PowerUpImage" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Divider" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="divLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/Divider"]
+layout_mode = 2
+texture = ExtResource("1_nsjcs")
+flip_h = true
+
+[node name="divRight" type="TextureRect" parent="MarginContainer/VBoxContainer/Divider"]
+layout_mode = 2
+texture = ExtResource("1_nsjcs")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Action" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Press"
+
+[node name="ButtonIcons" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PowerUpDescription" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "a blurb explaining the new powerup"
+horizontal_alignment = 1
+autowrap_mode = 2

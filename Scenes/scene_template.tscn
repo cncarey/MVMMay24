@@ -35,47 +35,49 @@ tilemap = NodePath("../TileMap")
 
 [node name="Switches" type="Node2D" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Chests" type="Node2D" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="HScrollBar" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="HScrollBar" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 
-[node name="KeyContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HScrollBar"]
+[node name="KeyContainer" type="GridContainer" parent="UI/MarginContainer/HScrollBar"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HScrollBar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HScrollBar"]
 layout_mode = 2
 
-[node name="GoldContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HScrollBar/VBoxContainer"]
+[node name="GoldContainer" type="GridContainer" parent="UI/MarginContainer/HScrollBar/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PurpleContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HScrollBar/VBoxContainer"]
+[node name="PurpleContainer" type="GridContainer" parent="UI/MarginContainer/HScrollBar/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="KeySprite" type="TextureRect" parent="CanvasLayer"]
+[node name="KeySprite" type="TextureRect" parent="UI"]
 unique_name_in_owner = true
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_j208n")
 
-[node name="GoldGemSprite" type="TextureRect" parent="CanvasLayer"]
+[node name="GoldGemSprite" type="TextureRect" parent="UI"]
 unique_name_in_owner = true
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_lpe58")
 
-[node name="PurpleGemSprite" type="TextureRect" parent="CanvasLayer"]
+[node name="PurpleGemSprite" type="TextureRect" parent="UI"]
 unique_name_in_owner = true
 visible = false
 offset_right = 40.0

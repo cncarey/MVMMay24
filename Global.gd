@@ -3,7 +3,7 @@ extends Node
 var currentLocation : String = ""
 var lastLocation: String = ""
 var openedDoors : Dictionary = {}
-var openedChests : Dictionary = {"DoubleJump": true}
+var openedChests : Dictionary = {}#{"DoubleJump": true}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
@@ -31,6 +31,12 @@ func resetGame():
 	keys = 0
 	gems_gold = 0
 	gems_purple = 0
+
+@export var canPlayerMover = true:
+	set(value):
+		canPlayerMover = value
+	get:
+		return canPlayerMover
 
 @export var keys = 0 : 
 	set(value):

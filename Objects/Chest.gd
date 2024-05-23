@@ -4,18 +4,25 @@ extends HurtboxComponent
 @export var state = 1
 @export var chestId: String
 @export var isOpen: bool
+
+@export var powerUpTitle : String
+@export var powerUpImage : Texture
+@export var powerUpButton : Texture
+@export var powerUpDescription: String
+
 @onready var TouchIndicator = $InteractionIndicator
 @onready var open_sound = $OpenSound
 @onready var ani = $AnimatedSprite2D
 @onready var scale_component = $ScaleComponent
 #@onready var shake_component = $ShakeComponent
 
+var powerUp = preload("res://UI/PowerUpModal.tscn")
+
 var isTouching : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.openedChests.has(chestId):
-		is_invincible = true
 		state = 3
 		ani.play("opened")
 		isOpen = true
@@ -23,8 +30,6 @@ func _ready():
 		ani.play("closed")
 		ani.animation_finished.connect(animtionFinished)
 		isOpen = false
-	pass # Replace with function body.
-
 
 func chestEntered(body):
 	isTouching = true
@@ -36,6 +41,7 @@ func chestExited(body):
 	TouchIndicator.hide()
 	pass
 
+signal OpenPopUp(popup)
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("Interact") && isTouching:
 		if !isOpen:
@@ -50,16 +56,24 @@ func _unhandled_input(event):
 				
 			TouchIndicator.hide()
 			ani.play("opening")
+			
+		Global.canPlayerMover = false
+		var _powerUp = powerUp.instantiate()
+		
+		_powerUp.powerUpTitle = powerUpTitle
+		_powerUp.powerUpImage = powerUpImage
+		_powerUp.powerUpButton = powerUpButton
+		_powerUp.powerUpDescription = powerUpDescription
+		OpenPopUp.emit(_powerUp)
+		
 	
 func animtionFinished():
 	match state:
 		1:
 			pass
 		2:
-			is_invincible = true
 			state = 3
 			ani.play("opened")
-			#TODO based on the power that was gained display a bit of loar
 			pass
 		3:
 			

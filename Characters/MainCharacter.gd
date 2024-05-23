@@ -33,12 +33,13 @@ func resetBoundaries():
 	var tileSize = tilemap.cell_quadrant_size
 	var mapSizePixesls = mapRect.size * tileSize
 	
-	camera_2d.limit_left = 0
+	camera_2d.limit_left = 0 + abs(camera_2d.offset.x)
 	camera_2d.limit_top = 0
-	camera_2d.limit_right = mapSizePixesls.x
+	camera_2d.limit_right = mapSizePixesls.x + abs(camera_2d.offset.x)
 	camera_2d.limit_bottom = mapSizePixesls.y
 
 func _physics_process(delta):
+	if !Global.canPlayerMover: return;
 	handleGravity(delta)
 	#handleWallJump()
 	handleJump()
