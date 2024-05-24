@@ -9,6 +9,9 @@ extends Node2D
 @onready var guardians = $Guardians
 
 @onready var center_container = %CenterContainer
+@onready var pause_menu = $UI/PauseMenu
+@onready var pause_sound = %PauseSound
+@onready var unpause_sound = $UI/UnpauseSound
 
 @onready var key_container = %KeyContainer
 @onready var gold_container = %GoldContainer
@@ -20,8 +23,10 @@ extends Node2D
 
 @onready var mainPlayer = $MainPlayer
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pause_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED	
 	Global.currentLocation = get_tree().current_scene.scene_file_path
 	updateKeyContainer(Global.keys)
 	updateGoldContainer(Global.gems_gold)
@@ -140,3 +145,18 @@ func _on_twinkle_found(switchId):
 				
 func _on_open_pop_up(popup):
 	center_container.add_child(popup)
+
+func _input(event):
+	if event.is_action_pressed("Pause"):
+		pause()
+		pause_sound.play()
+		
+func pause():
+	get_tree().paused = !get_tree().paused 
+	pause_menu.visible = !pause_menu.visible
+	
+func resumePressed():
+	get_tree().paused = false
+	unpause_sound.play()
+	pause_menu.visible = !pause_menu.visible
+	pass

@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=11 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
 [ext_resource type="PackedScene" uid="uid://by52cb0uia3yf" path="res://Characters/MainCharacter.tscn" id="2_o68ig"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_2ltl5"]
+[ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="5_igooa"]
+[ext_resource type="AudioStream" uid="uid://ba0hp7n87plds" path="res://Assets/sounds/Pause.wav" id="6_m8uhd"]
+[ext_resource type="AudioStream" uid="uid://bw021j1p7kcwl" path="res://Assets/sounds/Unpause.wav" id="7_vel1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j208n"]
 atlas = ExtResource("4_2ltl5")
@@ -93,3 +96,35 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_ylte0")
+
+[node name="PauseMenu" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsContainer" parent="UI/PauseMenu/CenterContainer" instance=ExtResource("5_igooa")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PauseSound" type="AudioStreamPlayer2D" parent="UI/PauseMenu"]
+unique_name_in_owner = true
+stream = ExtResource("6_m8uhd")
+bus = &"SFx"
+
+[node name="UnpauseSound" type="AudioStreamPlayer2D" parent="UI"]
+stream = ExtResource("7_vel1b")
+bus = &"SFx"
+
+[connection signal="returnButton" from="UI/PauseMenu/CenterContainer/OptionsContainer" to="." method="resumePressed"]
