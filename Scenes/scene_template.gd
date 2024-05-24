@@ -6,7 +6,8 @@ extends Node2D
 @onready var twinkles = $Twinkles
 @onready var switches = $Switches
 @onready var chests = $Chests
-@onready var ui = $UI
+@onready var guardians = $Guardians
+
 @onready var center_container = %CenterContainer
 
 @onready var key_container = %KeyContainer
@@ -67,6 +68,12 @@ func _ready():
 				var _c = c as Chest
 				_c.OpenPopUp.connect(_on_open_pop_up)
 		
+		if guardians.get_child_count() > 0:
+			for g in guardians.get_children():
+				var _g = g as Guardian
+				_g.OpenPopUp.connect(_on_open_pop_up)
+		
+		#
 		pass
 
 
@@ -132,7 +139,4 @@ func _on_twinkle_found(switchId):
 				_s.isIntractable()
 				
 func _on_open_pop_up(popup):
-	#var tempPosition = popup.position
-	
-	#popup.position = Vector2(tempPosition.x, tempPosition.y - 125)
 	center_container.add_child(popup)

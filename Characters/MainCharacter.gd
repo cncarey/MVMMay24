@@ -109,12 +109,9 @@ func handleJump():
 			if Input.is_action_just_pressed("Jump") && airJump && !justWallJumped:
 				velocity.y = JUMP_VELOCITY * 0.8
 				airJump = false
-				print('double jump done')
-				print('can jump')
-				print(airJump)
 			
 func _input(event):
-	if event.is_action_pressed("Down") && is_on_floor():
+	if event.is_action_pressed("Down") && is_on_floor() && Global.openedChests.has("TemporalPlunge"):
 		position.y  += 1
 			
 func handleAcceleration(direction: float, delta):

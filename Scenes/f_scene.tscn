@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg7c7la8mphe"]
+[gd_scene load_steps=6 format=3 uid="uid://bg7c7la8mphe"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_st2vp"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_30t05"]
 [ext_resource type="PackedScene" uid="uid://ca1er6yso3wt0" path="res://Objects/Guardian.tscn" id="3_2pb6f"]
+[ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="4_8gpwj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ucjm"]
+atlas = ExtResource("4_8gpwj")
+region = Rect2(513, 65, 13, 13)
 
 [node name="SceneTemplate" instance=ExtResource("1_st2vp")]
 
@@ -21,5 +26,9 @@ isOpen = true
 [node name="MainPlayer" parent="." index="2"]
 position = Vector2(161.4, 218.6)
 
-[node name="Guardian" parent="." index="9" instance=ExtResource("3_2pb6f")]
+[node name="Guardian" parent="Guardians" index="0" instance=ExtResource("3_2pb6f")]
 position = Vector2(376, 154)
+GuardianId = "F-1"
+powerUpTitle = "Temporal Plunge"
+powerUpButton = SubResource("AtlasTexture_4ucjm")
+powerUpDescription = "Drop through floors"

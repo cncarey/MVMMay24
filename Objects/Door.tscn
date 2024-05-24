@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_5y4o0")
 
 [node name="InteractionIndicator" parent="." instance=ExtResource("3_6npkr")]
 visible = false
-position = Vector2(0.251526, -59.2116)
+position = Vector2(0.665329, -44.5392)
 
 [node name="lock" type="Sprite2D" parent="."]
 visible = false

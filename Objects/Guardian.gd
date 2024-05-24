@@ -10,7 +10,16 @@ const purple = "_purple"
 @onready var gem_purple = $GemPurple
 @onready var TouchIndicator = $InteractionIndicator
 
+
+@export var powerUpTitle : String
+@export var powerUpImage : Texture
+@export var powerUpButton : Texture
+@export var powerUpDescription: String
+
+var powerUp = preload("res://UI/PowerUpModal.tscn")
 var isTouching : bool = false
+
+signal OpenPopUp(popup)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +39,7 @@ func guardianExited(body):
 	pass
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("Interact") && isTouching:
+	if Input.is_action_just_pressed("Interact") && isTouching && Global.canPlayerMover:
 		if !Global.guardianStatuses.has(GuardianId + gold):
 			if Global.tryTakeGemsGold(1):
 				Global.guardianStatuses[GuardianId + gold] = true
@@ -39,4 +48,15 @@ func _unhandled_input(event):
 			if Global.tryTakeGemsPurple(1):
 				Global.guardianStatuses[GuardianId + purple] = true
 				gem_purple.show()
-		pass
+				
+		if Global.guardianStatuses.has(GuardianId + gold) and Global.guardianStatuses.has(GuardianId + purple) && Global.canPlayerMover:
+			Global.openedChests["TemporalPlunge"] = true
+			Global.canPlayerMover = false
+			var _powerUp = powerUp.instantiate()
+			
+			_powerUp.powerUpTitle = powerUpTitle
+			_powerUp.powerUpImage = powerUpImage
+			_powerUp.powerUpButton = powerUpButton
+			_powerUp.powerUpDescription = powerUpDescription
+			OpenPopUp.emit(_powerUp)
+			pass
