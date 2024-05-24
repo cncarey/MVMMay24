@@ -9,7 +9,7 @@ script = ExtResource("1_2npl6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+color = Color(0.00392157, 0.00392157, 0.00392157, 0.513726)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -51,12 +51,16 @@ theme_override_constants/separation = 0
 
 [node name="divLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/Divider"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("1_nsjcs")
+expand_mode = 5
 flip_h = true
 
 [node name="divRight" type="TextureRect" parent="MarginContainer/VBoxContainer/Divider"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("1_nsjcs")
+expand_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

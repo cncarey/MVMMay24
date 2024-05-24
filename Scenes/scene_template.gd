@@ -7,6 +7,7 @@ extends Node2D
 @onready var switches = $Switches
 @onready var chests = $Chests
 @onready var ui = $UI
+@onready var center_container = %CenterContainer
 
 @onready var key_container = %KeyContainer
 @onready var gold_container = %GoldContainer
@@ -134,4 +135,4 @@ func _on_open_pop_up(popup):
 	#var tempPosition = popup.position
 	
 	#popup.position = Vector2(tempPosition.x, tempPosition.y - 125)
-	ui.add_child(popup)
+	center_container.add_child(popup)

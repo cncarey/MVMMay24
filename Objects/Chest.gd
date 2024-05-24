@@ -43,8 +43,9 @@ func chestExited(body):
 
 signal OpenPopUp(popup)
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("Interact") && isTouching:
+	if Input.is_action_just_pressed("Interact") && isTouching && Global.canPlayerMover:
 		if !isOpen:
+			isOpen = true
 			state = 2
 			scale_component.tween_scale()
 			#shake_component.tween_shake()

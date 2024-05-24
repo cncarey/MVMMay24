@@ -1,10 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx4wkr3j6edte"]
+[gd_scene load_steps=9 format=3 uid="uid://bx4wkr3j6edte"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_lo6yv"]
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="2_0spnq"]
 [ext_resource type="PackedScene" uid="uid://b0l5is5q2f0au" path="res://Objects/Key.tscn" id="2_jooma"]
 [ext_resource type="PackedScene" uid="uid://ce36676gjyd1v" path="res://Objects/Gem.tscn" id="4_bqe0s"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="4_oyf5w"]
+
+[sub_resource type="Animation" id="Animation_momoy"]
+resource_name = "move"
+length = 4.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 287.729), Vector2(0, 287.729)]
+}
+
+[sub_resource type="Animation" id="Animation_05ps7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3657h"]
+_data = {
+"RESET": SubResource("Animation_05ps7"),
+"move": SubResource("Animation_momoy")
+}
 
 [node name="SceneTemplate" instance=ExtResource("1_lo6yv")]
 
@@ -54,3 +92,11 @@ position = Vector2(501, 353)
 
 [node name="MovingPlatform2" parent="." index="11" instance=ExtResource("2_0spnq")]
 position = Vector2(885, 117)
+switchId = "G-1"
+
+[node name="AnimationPlayer" parent="MovingPlatform2" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_3657h")
+}
+
+[editable path="MovingPlatform2"]
