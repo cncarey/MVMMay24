@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dseph2p8072xn"]
+[gd_scene load_steps=6 format=3 uid="uid://dseph2p8072xn"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_a1v1j"]
 [ext_resource type="Texture2D" uid="uid://ddrn0bni3j7gv" path="res://Assets/MainBackground.png" id="2_6njg3"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="2_7vbm4"]
+[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://Fonts/title_label_settings.tres" id="3_3kkdf"]
+[ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="4_o4k77"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -38,25 +40,34 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
 text = "Title of the game"
+label_settings = ExtResource("3_3kkdf")
 
 [node name="NewGame" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o4k77")
+theme_override_font_sizes/font_size = 12
 text = "Start"
 
 [node name="Continue" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o4k77")
+theme_override_font_sizes/font_size = 12
 text = "Continue"
 
 [node name="Options" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o4k77")
+theme_override_font_sizes/font_size = 12
 text = "Options"
 
 [node name="Quit" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o4k77")
+theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [node name="OptionsContainer" parent="." instance=ExtResource("2_7vbm4")]
