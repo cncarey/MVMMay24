@@ -26,7 +26,7 @@ func _on_start_pressed():
 	Global.resetGame()
 	await LevelTransition.fadeToBlack()
 	#TODO go to the opening cut scene
-	get_tree().change_scene_to_file("res://Scenes/a_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/OpeningScene.tscn")
 	LevelTransition.fadeFromBlack()
 	pass # Replace with function body.
 
