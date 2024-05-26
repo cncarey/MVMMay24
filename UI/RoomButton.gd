@@ -16,7 +16,7 @@ class_name MapButton
 
 @onready var line : Line2D = $Line2D
 
-var skillData
+@export var roomDisplayName:String = ""
 @export var roomName: String = ""
 @export var keys : Array[String] = []
 @export var clues : Array[String] = []
@@ -42,7 +42,7 @@ func _ready():
 	if roomName != "" && Global.visitedRooms.has(roomName):
 	
 		if room_name_label != null:
-			room_name_label.text = roomName
+			room_name_label.text = roomDisplayName
 		
 		if keys.all(func(k): return Global.collectedKeys.has(k)):
 			key.queue_free()
@@ -65,11 +65,11 @@ func increaseLevel():
 	#change the scene to that location if you aren't already there
 	pass
 
-signal onHoverStart(skillData)
+signal onHoverStart()
 signal onHoverStop()
 
 func _on_mouse_entered():
-	onHoverStart.emit(skillData)
+	onHoverStart.emit()
 	
 func _on_mouse_exited():
 	onHoverStop.emit()

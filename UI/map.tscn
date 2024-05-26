@@ -16,30 +16,33 @@ script = ExtResource("1_abeei")
 
 [node name="A_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
+offset_left = 93.0
+offset_top = 71.0
+offset_right = 93.0
+offset_bottom = 71.0
+roomDisplayName = "Room A"
 roomName = "res://Scenes/a_scene.tscn"
 gems = Array[String](["A_Purple"])
 neighbors = Array[String](["B", "C", "G"])
 
 [node name="B_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
+offset_left = 27.0
+offset_top = 74.0
+offset_right = 27.0
+offset_bottom = 74.0
+roomDisplayName = "Room B"
 roomName = "res://Scenes/b_scene.tscn"
 powerUps = Array[String](["DoubleJump"])
 neighbors = Array[String](["A"])
 
 [node name="C_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 160.0
+offset_bottom = 70.0
+roomDisplayName = "Room C"
 roomName = "res://Scenes/c_scene.tscn"
 keys = Array[String](["C-1"])
 echos = Array[String](["C-1"])
@@ -47,41 +50,44 @@ neighbors = Array[String](["A", "D", "F"])
 
 [node name="D_MapButton4" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "D"
+offset_left = 230.0
+offset_top = 70.0
+offset_right = 230.0
+offset_bottom = 70.0
+roomDisplayName = "Room D"
+roomName = "res://Scenes/d_scene.tscn"
 echos = Array[String](["D-1"])
 powerUps = Array[String](["EchoShard"])
 neighbors = Array[String](["C", "E"])
 
 [node name="E_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "E"
+offset_left = 161.0
+offset_top = 8.0
+offset_right = 161.0
+offset_bottom = 8.0
+roomDisplayName = "Room E"
+roomName = "res://Scenes/e_scene.tscn"
 keys = Array[String](["E-1"])
 gems = Array[String](["E_Gold"])
 neighbors = Array[String](["D", "H", "G"])
 
 [node name="F_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "F"
+offset_left = 161.0
+offset_top = 131.0
+offset_right = 161.0
+offset_bottom = 131.0
+roomDisplayName = "Room F"
+roomName = "res://Scenes/f_scene.tscn"
 powerUps = Array[String](["Temporal Plunge"])
 
 [node name="G_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
+offset_left = 93.0
+offset_top = 10.0
+offset_right = 93.0
+offset_bottom = 10.0
 roomName = "G"
 keys = Array[String](["G-1"])
 echos = Array[String](["G-1"])
@@ -89,44 +95,47 @@ neighbors = Array[String](["E", "A"])
 
 [node name="H_MapButton8" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "H"
+offset_left = 229.0
+offset_top = 7.0
+offset_right = 229.0
+offset_bottom = 7.0
+roomDisplayName = "Room H"
+roomName = "res://Scenes/h_scene.tscn"
 
 [node name="I_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "I"
+offset_left = 162.0
+offset_top = 195.0
+offset_right = 162.0
+offset_bottom = 195.0
+roomDisplayName = "Room I"
+roomName = "res://Scenes/i_scene.tscn"
 neighbors = Array[String](["F", "L", "J"])
 
 [node name="J_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "J"
+offset_left = 100.0
+offset_top = 197.0
+offset_right = 100.0
+offset_bottom = 197.0
+roomDisplayName = "Room J"
+roomName = "res://Scenes/j_scene.tscn"
 echos = Array[String](["J-1"])
 neighbors = Array[String](["I", "K"])
 
 [node name="K_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "K"
+offset_left = 32.0
+offset_top = 196.0
+offset_right = 32.0
+offset_bottom = 196.0
+roomDisplayName = "Room K"
 echos = Array[String](["K-1"])
 
 [node name="L_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 13.0
-roomName = "L"
+offset_left = 228.0
+offset_top = 194.0
+offset_right = 228.0
+offset_bottom = 194.0
+roomDisplayName = "Room L"

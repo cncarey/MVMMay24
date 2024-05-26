@@ -127,7 +127,7 @@ layout_mode = 2
 [node name="Map" parent="UI/PauseMenu/CenterContainer" instance=ExtResource("6_oa3xk")]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(435, 241)
+custom_minimum_size = Vector2(400, 241)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu"]
