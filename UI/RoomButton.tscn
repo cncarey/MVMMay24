@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://defx6wlu4icmm"]
+
+[ext_resource type="Texture2D" uid="uid://clookm3hax20x" path="res://icon.svg" id="1_8h43p"]
+[ext_resource type="Script" path="res://UI/RoomButton.gd" id="2_ypd2l"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_lvj2t"]
+[ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="4_ucc8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1vs4"]
+atlas = ExtResource("4_ucc8o")
+region = Rect2(402, 178, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td6fk"]
+atlas = ExtResource("4_ucc8o")
+region = Rect2(338, 194, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb4gm"]
+atlas = ExtResource("4_ucc8o")
+region = Rect2(306, 162, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwq46"]
+atlas = ExtResource("4_ucc8o")
+region = Rect2(354, 178, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unbrt"]
+atlas = ExtResource("4_ucc8o")
+region = Rect2(418, 162, 11, 11)
+
+[node name="MapButton" type="TextureButton"]
+process_mode = 3
+toggle_mode = true
+texture_normal = ExtResource("1_8h43p")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ypd2l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 49.0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="RoomNameLabel" type="Label" parent="MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Room A"
+label_settings = ExtResource("3_lvj2t")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Key" type="TextureRect" parent="MarginContainer2/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_y1vs4")
+
+[node name="Clue" type="TextureRect" parent="MarginContainer2/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_td6fk")
+
+[node name="Echo" type="TextureRect" parent="MarginContainer2/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_hb4gm")
+
+[node name="Gem" type="TextureRect" parent="MarginContainer2/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_nwq46")
+
+[node name="PowerUp" type="TextureRect" parent="MarginContainer2/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_unbrt")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+width = 5.0
+default_color = Color(0.12549, 0.164706, 0.94902, 1)
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="Lines" type="Node2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="increaseLevel"]

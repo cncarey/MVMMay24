@@ -1,4 +1,5 @@
 extends Node2D
+@export var roomName = ""
 
 @onready var doors = $Doors
 @onready var keys = $Keys
@@ -12,6 +13,11 @@ extends Node2D
 @onready var pause_menu = $UI/PauseMenu
 @onready var pause_sound = %PauseSound
 @onready var unpause_sound = $UI/UnpauseSound
+@onready var map = %Map
+@onready var options_container = %OptionsContainer
+@onready var pause_center = $UI/PauseMenu/PauseCenter
+
+@onready var map_button = %MapButton
 
 @onready var key_container = %KeyContainer
 @onready var gold_container = %GoldContainer
@@ -27,7 +33,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED	
+	
 	Global.currentLocation = get_tree().current_scene.scene_file_path
+	Global.visitedRooms[Global.currentLocation]= true
+	
 	updateKeyContainer(Global.keys)
 	updateGoldContainer(Global.gems_gold)
 	updatePurpleContainer(Global.gems_purple)
@@ -81,10 +90,6 @@ func _ready():
 		#
 		pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_go_to_room(_destination):
@@ -160,3 +165,18 @@ func resumePressed():
 	unpause_sound.play()
 	pause_menu.visible = !pause_menu.visible
 	pass
+
+func openMap():
+	if pause_center.get_child_count() > 0:
+		for c in pause_center.get_children():
+			c.queue_free()
+		options_container.show()
+		map_button.text = "Map"
+	else:
+		options_container.hide()
+		map_button.text = "Close"
+		var _map = map.duplicate()
+		pause_center.add_child(_map)
+		_map.visible = true
+	#cust min sizex 435, y 241
+

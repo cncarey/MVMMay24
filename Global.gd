@@ -2,8 +2,17 @@ extends Node
 
 var currentLocation : String = ""
 var lastLocation: String = ""
+var visitedRooms : Dictionary = {"A" : true,
+"B" : true,
+"C" : true,
+"D": true,
+"E": true,
+"F": true,
+"G": true,
+"H": true,
+"I": true, "J": true, "K": true, "L": true}
 var openedDoors : Dictionary = {}
-var openedChests : Dictionary = {}#{"DoubleJump": true}
+var openedChests : Dictionary = {}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
@@ -20,6 +29,7 @@ func setSwitchStatuses(switchId: String, isOn: bool):
 func resetGame():
 	currentLocation = ""
 	lastLocation = ""
+	visitedRooms = {}
 	openedDoors = {}
 	openedChests = {}
 	collectedKeys = {}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=12 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_2ltl5"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="5_igooa"]
 [ext_resource type="AudioStream" uid="uid://ba0hp7n87plds" path="res://Assets/sounds/Pause.wav" id="6_m8uhd"]
+[ext_resource type="PackedScene" uid="uid://bf0u8fdomeqwh" path="res://UI/map.tscn" id="6_oa3xk"]
 [ext_resource type="AudioStream" uid="uid://bw021j1p7kcwl" path="res://Assets/sounds/Unpause.wav" id="7_vel1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j208n"]
@@ -106,6 +107,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.27451, 0.27451, 0.27451, 1)
 
+[node name="PauseCenter" type="CenterContainer" parent="UI/PauseMenu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="CenterContainer" type="CenterContainer" parent="UI/PauseMenu"]
 layout_mode = 1
 anchors_preset = 15
@@ -118,6 +124,28 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Map" parent="UI/PauseMenu/CenterContainer" instance=ExtResource("6_oa3xk")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(435, 241)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_bottom = 41.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="MapButton" type="Button" parent="UI/PauseMenu/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Map"
+
 [node name="PauseSound" type="AudioStreamPlayer2D" parent="UI/PauseMenu"]
 unique_name_in_owner = true
 stream = ExtResource("6_m8uhd")
@@ -128,3 +156,4 @@ stream = ExtResource("7_vel1b")
 bus = &"SFx"
 
 [connection signal="returnButton" from="UI/PauseMenu/CenterContainer/OptionsContainer" to="." method="resumePressed"]
+[connection signal="pressed" from="UI/PauseMenu/MarginContainer/MapButton" to="." method="openMap"]

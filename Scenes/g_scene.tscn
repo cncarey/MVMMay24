@@ -45,6 +45,7 @@ position = Vector2(379.846, 590.502)
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("3_ir7jo")]
 position = Vector2(1150.33, 576.765)
+pickUpId = "G-1"
 
 [node name="Twinkle" parent="Twinkles" index="0" instance=ExtResource("4_mt44t")]
 position = Vector2(440.058, 931.491)
