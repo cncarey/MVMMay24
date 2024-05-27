@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://byip7yy6o7w7k"]
+[gd_scene load_steps=6 format=3 uid="uid://byip7yy6o7w7k"]
 
 [ext_resource type="Script" path="res://UI/PowerUpModal.gd" id="1_2npl6"]
 [ext_resource type="Texture2D" uid="uid://c1f661njoru5f" path="res://Assets/divider.png" id="1_nsjcs"]
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="2_novf4"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_tb42u"]
+[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://Fonts/title_label_settings.tres" id="4_rgjtt"]
 
 [node name="PowerUpModal" type="MarginContainer"]
 script = ExtResource("1_2npl6")
@@ -33,12 +35,14 @@ layout_mode = 2
 [node name="Obtained" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Obtained"
+label_settings = ExtResource("3_tb42u")
 horizontal_alignment = 1
 
 [node name="PowerUpTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "TItle of Power Up"
+label_settings = ExtResource("4_rgjtt")
 horizontal_alignment = 1
 
 [node name="PowerUpImage" type="TextureRect" parent="MarginContainer/VBoxContainer"]
@@ -75,6 +79,7 @@ alignment = 1
 [node name="Action" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Press"
+label_settings = ExtResource("3_tb42u")
 
 [node name="ButtonIcons" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -84,5 +89,6 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "a blurb explaining the new powerup"
+label_settings = ExtResource("3_tb42u")
 horizontal_alignment = 1
 autowrap_mode = 2

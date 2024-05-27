@@ -27,6 +27,8 @@ extends Node2D
 @onready var gold_gem_sprite = %GoldGemSprite
 @onready var purple_gem_sprite = %PurpleGemSprite
 
+@onready var in_room_twinkle = $InRoomTwinkle
+
 @onready var mainPlayer = $MainPlayer
 
 
@@ -71,6 +73,8 @@ func _ready():
 					_sign.visible = true
 					_t.queue_free()
 				else:
+					if in_room_twinkle != null && Global.openedChests.has("EchoShard"):
+						in_room_twinkle.play()
 					_t.twinkleFound.connect(_on_twinkle_found)
 					
 		if switches.get_child_count() > 0:
