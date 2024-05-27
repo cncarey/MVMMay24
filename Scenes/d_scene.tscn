@@ -96,6 +96,7 @@ position = Vector2(0, 47)
 position = Vector2(203, 369)
 twinkleId = "D-1"
 switchId = "D-1"
+signDirection = 2
 
 [node name="OuterShape" parent="Twinkles/Twinkle" index="1"]
 position = Vector2(74.5, 8.5)
@@ -107,6 +108,9 @@ shape = SubResource("CircleShape2D_lc6x7")
 
 [node name="InteractionIndicator" parent="Twinkles/Twinkle" index="3"]
 position = Vector2(180.899, -32.6999)
+
+[node name="Sign" parent="Twinkles/Twinkle" index="5"]
+position = Vector2(131, 31)
 
 [node name="Switches" parent="." index="6"]
 position = Vector2(0, 47)

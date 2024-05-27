@@ -65,6 +65,10 @@ func _ready():
 			for t in twinkles.get_children():
 				var _t = t as Twinkle
 				if Global.foundTwinkles.has(_t.twinkleId):
+					
+					var _sign = _t.sign.duplicate()
+					get_tree().current_scene.add_child(_sign)
+					_sign.visible = true
 					_t.queue_free()
 				else:
 					_t.twinkleFound.connect(_on_twinkle_found)

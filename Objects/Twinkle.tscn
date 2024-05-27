@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfsycr8t565ip"]
+[gd_scene load_steps=21 format=3 uid="uid://dfsycr8t565ip"]
 
 [ext_resource type="Script" path="res://Objects/Twinkle.gd" id="1_alw5w"]
 [ext_resource type="Texture2D" uid="uid://d1hsq6pc8yge" path="res://Assets/Spark.png" id="2_jqe2i"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_svtvs"]
 [ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="4_46c5m"]
+[ext_resource type="Texture2D" uid="uid://b76ccydem41at" path="res://Assets/tiles.png" id="5_dojue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11rpl"]
 atlas = ExtResource("2_jqe2i")
@@ -62,6 +63,81 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4cxu"]
+atlas = ExtResource("5_dojue")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7hhj"]
+atlas = ExtResource("5_dojue")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l271y"]
+atlas = ExtResource("5_dojue")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7fps"]
+atlas = ExtResource("5_dojue")
+region = Rect2(512, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ado"]
+atlas = ExtResource("5_dojue")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwlqa"]
+atlas = ExtResource("5_dojue")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8kl4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4cxu")
+}],
+"loop": true,
+"name": &"LeftDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7hhj")
+}],
+"loop": true,
+"name": &"LeftMiddle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l271y")
+}],
+"loop": true,
+"name": &"LeftUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7fps")
+}],
+"loop": true,
+"name": &"RightDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3ado")
+}],
+"loop": true,
+"name": &"RightMiddle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwlqa")
+}],
+"loop": true,
+"name": &"RightUp",
+"speed": 5.0
+}]
+
 [node name="Twinkle" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -82,6 +158,13 @@ position = Vector2(-0.0500336, -52)
 
 [node name="touchSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource("4_46c5m")
+
+[node name="Sign" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8kl4d")
+animation = &"RightDown"
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

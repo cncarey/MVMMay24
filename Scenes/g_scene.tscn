@@ -51,6 +51,7 @@ pickUpId = "G-1"
 position = Vector2(440.058, 931.491)
 twinkleId = "G-1"
 switchId = "G-1"
+signDirection = 2
 
 [node name="OuterShape" parent="Twinkles/Twinkle" index="1"]
 position = Vector2(-29.39, -2.86462)
@@ -62,6 +63,9 @@ shape = SubResource("RectangleShape2D_jjhm7")
 
 [node name="InteractionIndicator" parent="Twinkles/Twinkle" index="3"]
 position = Vector2(58.407, -41.8586)
+
+[node name="Sign" parent="Twinkles/Twinkle" index="5"]
+position = Vector2(10.942, 10.509)
 
 [node name="Switch" parent="Switches" index="0" instance=ExtResource("4_kdq3p")]
 position = Vector2(138, 727.605)
