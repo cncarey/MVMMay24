@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://defx6wlu4icmm"]
+[gd_scene load_steps=11 format=3 uid="uid://defx6wlu4icmm"]
 
 [ext_resource type="Texture2D" uid="uid://clookm3hax20x" path="res://icon.svg" id="1_8h43p"]
 [ext_resource type="Script" path="res://UI/RoomButton.gd" id="2_ypd2l"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_lvj2t"]
 [ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="4_ucc8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4bbh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1vs4"]
 atlas = ExtResource("4_ucc8o")
@@ -34,9 +36,11 @@ stretch_mode = 0
 script = ExtResource("2_ypd2l")
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color(0.317647, 0.317647, 0.317647, 1)
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c4bbh")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 0

@@ -41,6 +41,11 @@ func _ready():
 		
 	if roomName != "" && Global.visitedRooms.has(roomName):
 	
+		if Global.currentLocation == roomName:
+			panel.modulate = Color.html("008300")
+		else:
+			panel.modulate = Color.html("515151")
+			
 		if room_name_label != null:
 			room_name_label.text = roomDisplayName
 		

@@ -23,7 +23,7 @@ offset_bottom = 71.0
 roomDisplayName = "Room A"
 roomName = "res://Scenes/a_scene.tscn"
 gems = Array[String](["A_Purple"])
-neighbors = Array[String](["B", "C", "G"])
+neighbors = Array[String](["res://Scenes/b_scene.tscn", "res://Scenes/c_scene.tscn", "res://Scenes/g_scene.tscn"])
 
 [node name="B_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -34,7 +34,7 @@ offset_bottom = 74.0
 roomDisplayName = "Room B"
 roomName = "res://Scenes/b_scene.tscn"
 powerUps = Array[String](["DoubleJump"])
-neighbors = Array[String](["A"])
+neighbors = Array[String](["res://Scenes/a_scene.tscn"])
 
 [node name="C_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -46,7 +46,7 @@ roomDisplayName = "Room C"
 roomName = "res://Scenes/c_scene.tscn"
 keys = Array[String](["C-1"])
 echos = Array[String](["C-1"])
-neighbors = Array[String](["A", "D", "F"])
+neighbors = Array[String](["res://Scenes/a_scene.tscn", "res://Scenes/d_scene.tscn", "res://Scenes/f_scene.tscn"])
 
 [node name="D_MapButton4" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -58,7 +58,7 @@ roomDisplayName = "Room D"
 roomName = "res://Scenes/d_scene.tscn"
 echos = Array[String](["D-1"])
 powerUps = Array[String](["EchoShard"])
-neighbors = Array[String](["C", "E"])
+neighbors = Array[String](["res://Scenes/c_scene.tscn", "res://Scenes/e_scene.tscn"])
 
 [node name="E_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -70,7 +70,7 @@ roomDisplayName = "Room E"
 roomName = "res://Scenes/e_scene.tscn"
 keys = Array[String](["E-1"])
 gems = Array[String](["E_Gold"])
-neighbors = Array[String](["D", "H", "G"])
+neighbors = Array[String](["res://Scenes/d_scene.tscn", "res://Scenes/h_scene.tscn", "res://Scenes/g_scene.tscn"])
 
 [node name="F_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -81,6 +81,7 @@ offset_bottom = 131.0
 roomDisplayName = "Room F"
 roomName = "res://Scenes/f_scene.tscn"
 powerUps = Array[String](["Temporal Plunge"])
+neighbors = Array[String](["res://Scenes/c_scene.tscn", "I"])
 
 [node name="G_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -88,10 +89,11 @@ offset_left = 93.0
 offset_top = 10.0
 offset_right = 93.0
 offset_bottom = 10.0
-roomName = "G"
+roomDisplayName = "Room G"
+roomName = "res://Scenes/g_scene.tscn"
 keys = Array[String](["G-1"])
 echos = Array[String](["G-1"])
-neighbors = Array[String](["E", "A"])
+neighbors = Array[String](["res://Scenes/e_scene.tscn", "res://Scenes/a_scene.tscn"])
 
 [node name="H_MapButton8" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -101,6 +103,7 @@ offset_right = 229.0
 offset_bottom = 7.0
 roomDisplayName = "Room H"
 roomName = "res://Scenes/h_scene.tscn"
+neighbors = Array[String](["res://Scenes/e_scene.tscn"])
 
 [node name="I_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -110,7 +113,7 @@ offset_right = 162.0
 offset_bottom = 195.0
 roomDisplayName = "Room I"
 roomName = "res://Scenes/i_scene.tscn"
-neighbors = Array[String](["F", "L", "J"])
+neighbors = Array[String](["res://Scenes/f_scene.tscn", "res://Scenes/l_scene.tscn", "res://Scenes/j_scene.tscn"])
 
 [node name="J_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -121,7 +124,7 @@ offset_bottom = 197.0
 roomDisplayName = "Room J"
 roomName = "res://Scenes/j_scene.tscn"
 echos = Array[String](["J-1"])
-neighbors = Array[String](["I", "K"])
+neighbors = Array[String](["res://Scenes/i_scene.tscn", "res://Scenes/k_scene.tscn"])
 
 [node name="K_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -130,7 +133,9 @@ offset_top = 196.0
 offset_right = 32.0
 offset_bottom = 196.0
 roomDisplayName = "Room K"
+roomName = "res://Scenes/k_scene.tscn"
 echos = Array[String](["K-1"])
+neighbors = Array[String](["res://Scenes/j_scene.tscn"])
 
 [node name="L_MapButton" parent="." instance=ExtResource("1_pk4id")]
 layout_mode = 0
@@ -139,3 +144,5 @@ offset_top = 194.0
 offset_right = 228.0
 offset_bottom = 194.0
 roomDisplayName = "Room L"
+roomName = "res://Scenes/l_scene.tscn"
+neighbors = Array[String](["res://Scenes/i_scene.tscn"])

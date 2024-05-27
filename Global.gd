@@ -2,21 +2,13 @@ extends Node
 
 var currentLocation : String = ""
 var lastLocation: String = ""
-var visitedRooms : Dictionary = {"A" : true,
-"B" : true,
-"C" : true,
-"D": true,
-"E": true,
-"F": true,
-"G": true,
-"H": true,
-"I": true, "J": true, "K": true, "L": true}
+var visitedRooms : Dictionary = {}
 var openedDoors : Dictionary = {}
-var openedChests : Dictionary = {}
+var openedChests : Dictionary = {}#{"DoubleJump": true, "TemporalPlunge": true}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
-var guardianStatuses : Dictionary = {}
+var guardianStatuses : Dictionary = {}#{"TemporalPlunge": true}
 var foundTwinkles: Dictionary = {}
 
 var switchStatuses : Dictionary = {}
