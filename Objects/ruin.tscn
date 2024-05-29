@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cju7nviejjko6"]
+
+[ext_resource type="Texture2D" uid="uid://btvhy0r0f7n67" path="res://Assets/CryptTiles.png" id="1_5uusf"]
+[ext_resource type="Script" path="res://Objects/ruin.gd" id="1_b8ecc"]
+[ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_y35j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpol3"]
+size = Vector2(119, 36)
+
+[node name="Ruin" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_b8ecc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5uusf")
+region_enabled = true
+region_rect = Rect2(-0.111115, 112.243, 80.4445, 31.8676)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_rpol3")
+
+[node name="InteractionIndicator" parent="." instance=ExtResource("3_y35j5")]
+visible = false
+position = Vector2(0, -29)
+
+[connection signal="body_entered" from="." to="." method="ruinEntered"]
+[connection signal="body_exited" from="." to="." method="ruinExited"]

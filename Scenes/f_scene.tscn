@@ -38,6 +38,7 @@ position = Vector2(161.4, 218.6)
 [node name="Guardian" parent="Guardians" index="0" instance=ExtResource("3_2pb6f")]
 position = Vector2(376, 154)
 GuardianId = "F-1"
+powerUpName = "TemporalPlunge"
 powerUpTitle = "Temporal Plunge"
 powerUpImage = ExtResource("4_ke34k")
 powerUpButton = SubResource("AtlasTexture_4ucjm")

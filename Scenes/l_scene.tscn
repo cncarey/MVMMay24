@@ -29,7 +29,8 @@ position = Vector2(161.271, 109.93)
 
 [node name="Guardian" parent="Guardians" index="0" instance=ExtResource("3_54gw0")]
 position = Vector2(112.792, 378.676)
-GuardianId = "F-1"
+GuardianId = "L-1"
+powerUpName = "AntientRuins"
 powerUpTitle = "Antient Ruins"
 powerUpImage = ExtResource("4_ndsdq")
 powerUpButton = SubResource("AtlasTexture_psymo")

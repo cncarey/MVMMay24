@@ -10,7 +10,7 @@ const purple = "_purple"
 @onready var gem_purple = $GemPurple
 @onready var TouchIndicator = $InteractionIndicator
 
-
+@export var powerUpName : String
 @export var powerUpTitle : String
 @export var powerUpImage : Texture
 @export var powerUpButton : Texture
@@ -50,7 +50,8 @@ func _unhandled_input(event):
 				gem_purple.show()
 				
 		if Global.guardianStatuses.has(GuardianId + gold) and Global.guardianStatuses.has(GuardianId + purple) && Global.canPlayerMover:
-			Global.openedChests["TemporalPlunge"] = true
+			#TODO if it's not in the list screenshake
+			Global.openedChests[powerUpName] = true
 			Global.canPlayerMover = false
 			var _powerUp = powerUp.instantiate()
 			
