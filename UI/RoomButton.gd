@@ -36,6 +36,7 @@ func _ready():
 				_line.add_point(global_position + panel.size/2)
 				_line.add_point(r.global_position + panel.size/2)
 				lines.add_child(_line)
+				_line.z_index = 0
 				pass
 			
 		

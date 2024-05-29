@@ -29,6 +29,7 @@ region = Rect2(418, 162, 11, 11)
 
 [node name="MapButton" type="TextureButton"]
 process_mode = 3
+z_index = 10
 toggle_mode = true
 texture_normal = ExtResource("1_8h43p")
 ignore_texture_size = true

@@ -75,6 +75,7 @@ position = Vector2(146.513, 107.487)
 
 [node name="Gem" parent="Gems" index="0" instance=ExtResource("3_pm5dl")]
 position = Vector2(443.9, 75.7)
+pickUpId = "I_Gold"
 
 [node name="MovingPlatform" parent="." index="10" instance=ExtResource("2_0qksl")]
 position = Vector2(144, 127.299)
