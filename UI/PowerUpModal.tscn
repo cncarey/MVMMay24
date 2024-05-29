@@ -84,6 +84,7 @@ label_settings = ExtResource("3_tb42u")
 [node name="ButtonIcons" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+stretch_mode = 3
 
 [node name="PowerUpDescription" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

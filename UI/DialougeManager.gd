@@ -35,8 +35,10 @@ func showTextBox():
 	textBox.global_position = textBoxPosition
 	textBox.displayText(diaglogLines[currentLineIndex], sfx)
 	canAdvanceNextLine = false
+	startNextLine.emit(currentLineIndex)
 	
 signal finishedDisplaying()
+signal startNextLine(currentLineIndex)
 	
 func textBoxOnFinishDisaplay():
 	canAdvanceNextLine = true

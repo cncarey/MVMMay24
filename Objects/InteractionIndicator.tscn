@@ -1,34 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsloe4rthghr6"]
+[gd_scene load_steps=6 format=3 uid="uid://bsloe4rthghr6"]
 
-[ext_resource type="Texture2D" uid="uid://cxscky12bm8l0" path="res://Assets/TreasureHunter/Exclamation In 01.png" id="1_gyysk"]
-[ext_resource type="Texture2D" uid="uid://conloqcdp2nbt" path="res://Assets/TreasureHunter/Exclamation In 02.png" id="2_taa3j"]
-[ext_resource type="Texture2D" uid="uid://bgm3fchilk7ua" path="res://Assets/TreasureHunter/Exclamation In 03.png" id="3_a50fy"]
-[ext_resource type="Texture2D" uid="uid://cg2vynpbnc41c" path="res://Assets/TreasureHunter/Exclamation Out 01.png" id="4_g6lkp"]
-[ext_resource type="Texture2D" uid="uid://chyoautrfb0t6" path="res://Assets/TreasureHunter/Exclamation Out 02.png" id="5_di426"]
+[ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="1_6y7rj"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yarhu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_gyysk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_taa3j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_a50fy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_g6lkp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_di426")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvltp"]
+atlas = ExtResource("1_6y7rj")
+region = Rect2(304, 161, 14, 14)
 
-[node name="InteractionIndicator" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_yarhu")
+[sub_resource type="Animation" id="Animation_bseu0"]
+resource_name = "default"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.73213, 3.73213),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4)]
+}
+
+[sub_resource type="Animation" id="Animation_8p46x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5bel"]
+_data = {
+"RESET": SubResource("Animation_8p46x"),
+"default": SubResource("Animation_bseu0")
+}
+
+[node name="InteractionIndicator" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = SubResource("AtlasTexture_fvltp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u5bel")
+}
 autoplay = "default"

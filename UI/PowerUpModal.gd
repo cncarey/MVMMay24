@@ -17,12 +17,14 @@ func _ready():
 		
 	if powerUpImage != null:
 		power_up_image.texture = powerUpImage
+		power_up_image.expand_mode = 0
+		power_up_image.stretch_mode = 3
 		
 	if powerUpButton != null:
 		button_icons.texture = powerUpButton
 		
 	if powerUpDescription != null:
-		power_up_description.text
+		power_up_description.text = powerUpDescription
 	
 	pass # Replace with function body.
 

@@ -2,10 +2,12 @@ extends Node2D
 
 const textboxLocation = Vector2(224, 250)
 @export var speachSound : AudioStream
+@onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DialougeManager.finishedDisplaying.connect(startGame)
+	DialougeManager.startNextLine.connect(finishLine)
 	DialougeManager.startDialogue(textboxLocation, 
 	["As long as I've been alive our kingdoms have always been at peace,",
 		"but last night the royal adviser was murdered.",
@@ -20,6 +22,25 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("Cancel"):
 		startGame()
+
+func finishLine(currentLineId: int):
+	
+	match currentLineId:
+		0:
+			animation_player.play("0_castles")
+		1:
+			animation_player.play("1_murder")	
+		2:
+			animation_player.play("2_temple")
+		3:
+			animation_player.play("3_bump")
+		4:
+			animation_player.play("4_whisper")
+		5:
+			animation_player.play("5_Scroll")
+		6:
+			animation_player.play("6_OpenScroll")
+	pass		
 		
 func startGame():
 	Global.canPlayerMover = true
