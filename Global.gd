@@ -10,6 +10,7 @@ var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
 var guardianStatuses : Dictionary = {}#{"TemporalPlunge": true}
 var foundTwinkles: Dictionary = {}
+var foundClues: Dictionary = {}
 
 var switchStatuses : Dictionary = {}
 
@@ -30,6 +31,7 @@ func resetGame():
 	switchStatuses = {}
 	guardianStatuses = {}
 	foundTwinkles = {}
+	foundClues = {}
 	keys = 0
 	gems_gold = 0
 	gems_purple = 0

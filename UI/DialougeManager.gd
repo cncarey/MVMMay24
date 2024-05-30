@@ -44,7 +44,7 @@ func textBoxOnFinishDisaplay():
 	canAdvanceNextLine = true
 	
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept") && isActive && canAdvanceNextLine:
+	if event.is_action_pressed("Accept") && isActive && canAdvanceNextLine:
 		textBox.queue_free()
 		
 		currentLineIndex += 1
@@ -58,4 +58,5 @@ func _unhandled_input(event):
 			showTextBox()
 			
 	if event.is_action_pressed("Cancel") && isActive && canAdvanceNextLine:
+		isActive = false
 		textBox.queue_free()	

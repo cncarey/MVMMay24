@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dseph2p8072xn"]
+[gd_scene load_steps=8 format=3 uid="uid://dseph2p8072xn"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_a1v1j"]
 [ext_resource type="Texture2D" uid="uid://ddrn0bni3j7gv" path="res://Assets/MainBackground.png" id="2_6njg3"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="2_7vbm4"]
-[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://Fonts/title_label_settings.tres" id="3_3kkdf"]
+[ext_resource type="LabelSettings" uid="uid://e72fm44nmdl5" path="res://Fonts/main_title_label_settings.tres" id="3_osanj"]
+[ext_resource type="LabelSettings" uid="uid://tv4fg4khvsqf" path="res://Fonts/subtitle_label_settings.tres" id="4_m184n"]
 [ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="4_o4k77"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="7_6ufjk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -37,10 +39,17 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
-text = "Title of the game"
-label_settings = ExtResource("3_3kkdf")
+text = "Echos of the Past:"
+label_settings = ExtResource("3_osanj")
+horizontal_alignment = 1
+
+[node name="Sub-Title" type="Label" parent="MainContainer/VBoxContainer"]
+layout_mode = 2
+text = "A Myserty Unvailed"
+label_settings = ExtResource("4_m184n")
+horizontal_alignment = 1
 
 [node name="NewGame" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -75,6 +84,27 @@ visible = false
 layout_mode = 1
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_right = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Version 0.0.1"
+label_settings = ExtResource("7_6ufjk")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="pressed" from="MainContainer/VBoxContainer/NewGame" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

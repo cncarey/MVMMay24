@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tv4fg4khvsqf"]
+
+[ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="1_geaxr"]
+
+[resource]
+font = ExtResource("1_geaxr")
+font_size = 13

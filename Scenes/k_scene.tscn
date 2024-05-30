@@ -24,6 +24,7 @@ position = Vector2(0, 5)
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource("2_6fynl")]
 position = Vector2(264, 83)
+destination = "res://Scenes/j_scene.tscn"
 doorId = "K_J-2"
 returnDoorId = "J_K-1"
 isOpen = true

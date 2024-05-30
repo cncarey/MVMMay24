@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0t8ckn08e6r1"]
+
+[ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_7owxj"]
+[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://Fonts/title_label_settings.tres" id="2_gfkv1"]
+[ext_resource type="Script" path="res://AncientRuins/ancient_ruin_1.gd" id="2_q2pf4"]
+[ext_resource type="Texture2D" uid="uid://dv5y0ryrnwjsx" path="res://Assets/MVMSmallIcons/png/018-boat.png" id="3_oh4ka"]
+[ext_resource type="Texture2D" uid="uid://cfskpmrxxesdf" path="res://Assets/MVMSmallIcons/png/017-circle.png" id="4_fms6e"]
+[ext_resource type="Texture2D" uid="uid://upc2o3dhvhr8" path="res://Assets/MVMSmallIcons/png/020-is-approximately-equal-to.png" id="5_6o83w"]
+[ext_resource type="Texture2D" uid="uid://cmvxxy5dwyrj5" path="res://Assets/MVMSmallIcons/png/022-overfishing.png" id="6_xs040"]
+[ext_resource type="Texture2D" uid="uid://ci1x4jrvwplbp" path="res://Assets/MVMSmallIcons/png/023-fishing-net.png" id="7_ks7rd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi8fh"]
+size = Vector2(130.573, 158.671)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jv0e"]
+size = Vector2(132.226, 153.712)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpv70"]
+size = Vector2(72, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2adl"]
+size = Vector2(75, 82)
+
+[node name="AncientRuin" instance=ExtResource("1_7owxj")]
+script = ExtResource("2_q2pf4")
+
+[node name="ColorRect" parent="." index="0"]
+visible = false
+
+[node name="KingdomWaters" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_gfkv1")
+
+[node name="Kingdom2" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_gfkv1")
+
+[node name="OverFishing" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_gfkv1")
+
+[node name="Label4" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_gfkv1")
+
+[node name="boat2" type="Sprite2D" parent="Sprites" index="0"]
+position = Vector2(257.278, 75)
+scale = Vector2(0.605027, 0.605027)
+texture = ExtResource("3_oh4ka")
+flip_h = true
+
+[node name="boat2Area" type="Area2D" parent="Sprites/boat2" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/boat2/boat2Area" index="0"]
+position = Vector2(0.366882, -13.2226)
+shape = SubResource("RectangleShape2D_oi8fh")
+
+[node name="boat" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(145, 75)
+scale = Vector2(0.605027, 0.605027)
+texture = ExtResource("3_oh4ka")
+
+[node name="boatArea" type="Area2D" parent="Sprites/boat" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/boat/boatArea" index="0"]
+position = Vector2(-1.65282, -12.3961)
+shape = SubResource("RectangleShape2D_1jv0e")
+
+[node name="017-circle" type="Sprite2D" parent="Sprites" index="2"]
+position = Vector2(123.458, 33)
+scale = Vector2(0.195312, 0.195312)
+texture = ExtResource("4_fms6e")
+
+[node name="020-is-approximately-equal-to" type="Sprite2D" parent="Sprites" index="3"]
+position = Vector2(275, 33)
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("5_6o83w")
+
+[node name="022-overfishing" type="Sprite2D" parent="Sprites" index="4"]
+position = Vector2(338, 128)
+texture = ExtResource("6_xs040")
+
+[node name="Area2D" type="Area2D" parent="Sprites/022-overfishing" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/022-overfishing/Area2D" index="0"]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_qpv70")
+
+[node name="023-fishing-net" type="Sprite2D" parent="Sprites" index="5"]
+position = Vector2(60, 129)
+texture = ExtResource("7_ks7rd")
+
+[node name="Area2D" type="Area2D" parent="Sprites/023-fishing-net" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/023-fishing-net/Area2D" index="0"]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_h2adl")
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CloseButton" to="." method="onClose"]
+[connection signal="mouse_entered" from="Sprites/boat2/boat2Area" to="." method="_on_boat_2"]
+[connection signal="mouse_entered" from="Sprites/boat/boatArea" to="." method="_on_boat"]
+[connection signal="mouse_entered" from="Sprites/022-overfishing/Area2D" to="." method="_on_full_nets"]
+[connection signal="mouse_entered" from="Sprites/023-fishing-net/Area2D" to="." method="_on_empty_nets"]

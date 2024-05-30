@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf0u8fdomeqwh"]
+[gd_scene load_steps=11 format=3 uid="uid://bf0u8fdomeqwh"]
 
 [ext_resource type="Script" path="res://UI/map.gd" id="1_abeei"]
 [ext_resource type="PackedScene" uid="uid://defx6wlu4icmm" path="res://UI/RoomButton.tscn" id="1_pk4id"]
+[ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://Fonts/title_label_settings.tres" id="3_t6kln"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="4_ie6rx"]
+[ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="4_netvg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w5u0"]
+atlas = ExtResource("4_netvg")
+region = Rect2(402, 178, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01ri5"]
+atlas = ExtResource("4_netvg")
+region = Rect2(290, 178, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2epk"]
+atlas = ExtResource("4_netvg")
+region = Rect2(306, 162, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqjbt"]
+atlas = ExtResource("4_netvg")
+region = Rect2(354, 178, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oad3b"]
+atlas = ExtResource("4_netvg")
+region = Rect2(418, 162, 11, 11)
 
 [node name="Map" type="Control"]
 process_mode = 3
@@ -146,3 +169,85 @@ offset_bottom = 194.0
 roomDisplayName = "Room L"
 roomName = "res://Scenes/l_scene.tscn"
 neighbors = Array[String](["res://Scenes/i_scene.tscn"])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Key"
+label_settings = ExtResource("3_t6kln")
+
+[node name="KeyContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6w5u0")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
+text = "Key"
+label_settings = ExtResource("4_ie6rx")
+
+[node name="RuinContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/RuinContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_01ri5")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RuinContainer"]
+layout_mode = 2
+text = "Antient Ruin"
+label_settings = ExtResource("4_ie6rx")
+
+[node name="EchoContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/EchoContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_g2epk")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EchoContainer3"]
+layout_mode = 2
+text = "Echo Shard"
+label_settings = ExtResource("4_ie6rx")
+
+[node name="GemContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GemContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_pqjbt")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GemContainer"]
+layout_mode = 2
+text = "Gem"
+label_settings = ExtResource("4_ie6rx")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_oad3b")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Power Up"
+label_settings = ExtResource("4_ie6rx")

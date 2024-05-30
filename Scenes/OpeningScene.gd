@@ -6,6 +6,7 @@ const textboxLocation = Vector2(224, 250)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	animation_player.play("0_castles")
 	DialougeManager.finishedDisplaying.connect(startGame)
 	DialougeManager.startNextLine.connect(finishLine)
 	DialougeManager.startDialogue(textboxLocation, 
@@ -44,4 +45,8 @@ func finishLine(currentLineId: int):
 		
 func startGame():
 	Global.canPlayerMover = true
+	DialougeManager.finishedDisplaying.disconnect(startGame)
+	DialougeManager.startNextLine.disconnect(finishLine)
+	await LevelTransition.fadeToBlack()
 	get_tree().change_scene_to_file("res://Scenes/a_scene.tscn")
+	LevelTransition.fadeFromBlack()

@@ -71,6 +71,7 @@ func _ready():
 					var _sign = _t.sign.duplicate()
 					get_tree().current_scene.add_child(_sign)
 					_sign.visible = true
+					_sign.global_position = _t.sign.global_position
 					_t.queue_free()
 				else:
 					if in_room_twinkle != null && Global.openedChests.has("EchoShard"):

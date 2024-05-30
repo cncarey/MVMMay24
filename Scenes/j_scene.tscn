@@ -65,6 +65,7 @@ isOpen = true
 
 [node name="Door_K1" parent="Doors" index="1" instance=ExtResource("2_si6oq")]
 position = Vector2(152.965, 134.898)
+destination = "res://Scenes/k_scene.tscn"
 doorId = "J_K-1"
 returnDoorId = "K_J-2"
 

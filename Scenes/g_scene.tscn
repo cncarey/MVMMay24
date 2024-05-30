@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2cbxb2x6iny6"]
+[gd_scene load_steps=10 format=3 uid="uid://c2cbxb2x6iny6"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_mkkib"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_5kh7u"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="3_pxcnb"]
 [ext_resource type="PackedScene" uid="uid://1vnf1art3bif" path="res://Objects/Switch.tscn" id="4_kdq3p"]
 [ext_resource type="PackedScene" uid="uid://dfsycr8t565ip" path="res://Objects/Twinkle.tscn" id="4_mt44t"]
+[ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="7_j4rc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhvg0"]
 size = Vector2(428, 95)
@@ -85,5 +86,8 @@ position = Vector2(1121.67, 836.126)
 
 [node name="MovingPlatform5" parent="." index="13" instance=ExtResource("3_pxcnb")]
 position = Vector2(1183.67, 836.126)
+
+[node name="Ruin" parent="." index="16" instance=ExtResource("7_j4rc2")]
+position = Vector2(873, 818)
 
 [editable path="Twinkles/Twinkle"]
