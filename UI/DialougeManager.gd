@@ -56,6 +56,7 @@ func _unhandled_input(event):
 		else:
 			showTextBox()
 			
-	if event.is_action_pressed("Cancel") && isActive && canAdvanceNextLine:
+	if event.is_action_pressed("Cancel") && isActive:
 		isActive = false
+		Global.canPlayerMover = true
 		textBox.queue_free()	

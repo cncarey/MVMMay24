@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bge1gm6xfqgal"]
+[gd_scene load_steps=7 format=3 uid="uid://bge1gm6xfqgal"]
 
 [ext_resource type="Script" path="res://Objects/Door.gd" id="1_vpe03"]
+[ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="2_0cbc6"]
 [ext_resource type="Texture2D" uid="uid://b1sou16f4qj6" path="res://Assets/villageTiles.png" id="2_nylme"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_6npkr"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_uoge5"]
@@ -12,6 +13,7 @@ size = Vector2(50, 58)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vpe03")
+speachSound = ExtResource("2_0cbc6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_nylme")
@@ -31,6 +33,12 @@ visible = false
 texture = ExtResource("4_uoge5")
 region_enabled = true
 region_rect = Rect2(161, 85, 13, 11)
+
+[node name="UnlockSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="LockedSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="PassThroughSound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="doorEntered"]
 [connection signal="body_exited" from="." to="." method="doorExited"]

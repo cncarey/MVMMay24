@@ -29,6 +29,8 @@ func _ready():
 	if curSfx != null:
 		s_fx_slider.value = curSfx
 		pass
+		
+	#Global.showTutorial
 	pass # Replace with function body.
 
 

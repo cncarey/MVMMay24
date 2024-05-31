@@ -1,5 +1,6 @@
 extends Node
 
+
 var currentLocation : String = ""
 var lastLocation: String = ""
 var visitedRooms : Dictionary = {}
@@ -35,6 +36,14 @@ func resetGame():
 	keys = 0
 	gems_gold = 0
 	gems_purple = 0
+
+signal showTutorialChanged(value)
+@export var showTutorial = true:
+	set(value):
+		showTutorial = value
+		showTutorialChanged.emit(value)
+	get:
+		return showTutorial
 
 @export var canPlayerMover = true:
 	set(value):
