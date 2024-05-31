@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bigm1vncuplut"]
 
-[ext_resource type="Script" path="res://UI/textbox.gd" id="1_xugm1"]
+[ext_resource type="Script" path="res://UI/Textbox.gd" id="1_3b5hn"]
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="2_dpu5i"]
 [ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="2_pcbtj"]
 [ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="3_1imks"]
@@ -13,7 +13,7 @@ region = Rect2(497, 97, 46, 14)
 [node name="textbox" type="MarginContainer"]
 offset_right = 19.0
 offset_bottom = 25.0
-script = ExtResource("1_xugm1")
+script = ExtResource("1_3b5hn")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2

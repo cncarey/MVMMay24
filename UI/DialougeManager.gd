@@ -5,14 +5,13 @@ extends Node
 var diaglogLines : Array[String] = []
 var currentLineIndex: int = 0
 
-var textBox
+var textBox 
 var textBoxPosition : Vector2
 
 var sfx : AudioStream
 
 var isActive : bool = false
 var canAdvanceNextLine : bool = false
-
 
 func startDialogue(position: Vector2, lines : Array[String], speechSfx: AudioStream):
 	if isActive:

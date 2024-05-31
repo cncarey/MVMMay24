@@ -9,7 +9,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3rry"]
 atlas = ExtResource("6_yebfa")
-region = Rect2(497, 97, 46, 14)
+region = Rect2(370, 194, 11, 11)
 
 [node name="PowerUpModal" type="MarginContainer"]
 script = ExtResource("1_2npl6")

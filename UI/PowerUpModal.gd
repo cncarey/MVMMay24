@@ -29,7 +29,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Accept"):
+	if event.is_action_pressed("Cancel"):
 		Global.canPlayerMover = true
 		queue_free()
 

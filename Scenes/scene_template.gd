@@ -63,6 +63,13 @@ func _ready():
 				# if it's in the collected keys free it 
 					_k.queue_free()
 					
+		if gems.get_child_count() > 0:
+			for g in gems.get_children():
+				var _g = g as PickUp
+				if Global.collectedGems.has(_g.pickUpId):
+				# if it's in the collected gem free it 
+					_g.queue_free()
+					
 		if twinkles.get_child_count() > 0:
 			for t in twinkles.get_children():
 				var _t = t as Twinkle
