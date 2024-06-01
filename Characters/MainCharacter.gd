@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 #IDEA if we want to make power-up move this to be a resource
 
+enum playerStates { Move, Attack}
+var state = playerStates.Move
 @onready var camera_2d = $Camera2D
 
 #IDEA if we want to make power-up move this to be a resource
@@ -46,6 +48,14 @@ func _physics_process(delta):
 		move_and_slide()
 		return;
 	
+	match state:
+		playerStates.Move:
+			moveState(delta)
+			pass
+		playerStates.Attack:
+			attackState(delta)
+	
+func moveState(delta):
 	handleJump()
 	
 	var direction = Input.get_axis("Left", "Right")
@@ -63,8 +73,27 @@ func _physics_process(delta):
 		
 	justWallJumped = false
 
+	if Input.is_action_just_pressed("Attack"):
+		state = playerStates.Attack
+
+func attackState(delta):
+	#TODO maybe if we jump mid-attack we cancel the attack
+	var direction = Input.get_axis("Left", "Right")
+	handleAcceleration(direction, delta)
+	handleAirAcceleration(direction, delta)
+	applyAirResistance(direction, delta)
+	playAnimation(direction)
+	move_and_slide()
+	
+func finishAttacking():
+	state = playerStates.Move
 
 func playAnimation(direction: float):
+	if state == playerStates.Attack:
+		if animation_player.current_animation != "attack" + lastDirection:
+			animation_player.play("attack" + lastDirection)
+		return
+	
 	if direction == 0:
 		animation_player.play("idle" + lastDirection)
 	else:
@@ -74,6 +103,7 @@ func playAnimation(direction: float):
 	if !is_on_floor():
 		animation_player.play("jump" + lastDirection)
 		
+	
 	#TODO determine when the user is falling
 	#TODO determine when the player has landed
 
@@ -131,7 +161,3 @@ func handleAirAcceleration(direction: float, delta):
 	if direction != 0:
 		velocity.x = move_toward(velocity.x, SPEED * direction, AIR_ACCELERATION * delta)
 
-
-func _on_hazard_detector_area_entered(area):
-	self.global_position = startPosition
-	pass # Replace with function body.
