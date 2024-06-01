@@ -61,7 +61,7 @@ destination = "res://Scenes/b_scene.tscn"
 doorId = "A_B-1"
 returnDoorId = "B_A-2"
 
-[node name="TBMarker" parent="Doors/Door_B1" index="6"]
+[node name="TBMarker" parent="Doors/Door_B1" index="5"]
 position = Vector2(-99, -17)
 
 [node name="Door_C1" parent="Doors" index="1" instance=ExtResource("2_kti2w")]
@@ -79,7 +79,7 @@ returnDoorId = "G_A-3"
 isOpen = true
 
 [node name="MainPlayer" parent="." index="2"]
-position = Vector2(66.5002, 469.2)
+position = Vector2(637.314, 97.0331)
 
 [node name="Gem_Purple" parent="Gems" index="0" instance=ExtResource("3_uxss0")]
 position = Vector2(43.2386, 43.1133)

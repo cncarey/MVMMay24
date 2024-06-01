@@ -31,6 +31,7 @@ extends Node2D
 
 @onready var mainPlayer = $MainPlayer
 
+@onready var pass_through_sound = $PassThroughSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -116,6 +117,8 @@ func _on_go_to_room(_destination):
 	await LevelTransition.fadeToBlack()
 	
 	get_tree().paused = false
+	GlobalSound.playTempSound(pass_through_sound)
+	#playTempSound
 	get_tree().change_scene_to_file(_destination)
 	await LevelTransition.fadeFromBlack()
 	pass # Replace with function body.

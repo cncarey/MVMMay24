@@ -9,7 +9,7 @@ extends Area2D
 @onready var lock = $lock
 
 @onready var locked_sound = $LockedSound
-@onready var pass_through_sound = $PassThroughSound
+
 @export var speachSound : AudioStream
 @onready var tb_marker = $TBMarker
 
@@ -56,7 +56,5 @@ func _unhandled_input(event):
 				pass
 
 func goThroughDoor():
-	if pass_through_sound != null:
-		pass_through_sound.play_with_variance()
 	Global.lastLocation = returnDoorId
 	goToRoom.emit(destination)

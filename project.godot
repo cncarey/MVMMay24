@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Global.gd"
 DialougeManager="*res://UI/DialougeManager.gd"
+GlobalSound="*res://Assets/sounds/GlobalSound.tscn"
 LevelTransition="*res://UI/LevelTransition.tscn"
 
 [display]

@@ -41,7 +41,6 @@ returnDoorId = "F_C-3"
 
 [node name="MainPlayer" parent="." index="2"]
 position = Vector2(118.1, 281.1)
-collision_layer = 0
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("3_amomj")]
 position = Vector2(244, 280)

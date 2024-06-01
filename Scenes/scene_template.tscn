@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=15 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bf0u8fdomeqwh" path="res://UI/map.tscn" id="6_oa3xk"]
 [ext_resource type="AudioStream" uid="uid://bw021j1p7kcwl" path="res://Assets/sounds/Unpause.wav" id="7_vel1b"]
 [ext_resource type="AudioStream" uid="uid://ba0igax8hw3fv" path="res://Assets/sounds/MagicShine.ogg" id="9_o8xb6"]
+[ext_resource type="AudioStream" uid="uid://ba60i5ggykk8h" path="res://Assets/sounds/dorm-door-opening-6038.ogg" id="10_3ib8d"]
+[ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="11_0ysx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j208n"]
 atlas = ExtResource("4_2ltl5")
@@ -161,6 +163,10 @@ bus = &"SFx"
 [node name="InRoomTwinkle" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_o8xb6")
 bus = &"SFx"
+
+[node name="PassThroughSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_3ib8d")
+script = ExtResource("11_0ysx7")
 
 [connection signal="returnButton" from="UI/PauseMenu/CenterContainer/OptionsContainer" to="." method="resumePressed"]
 [connection signal="pressed" from="UI/PauseMenu/MarginContainer/MapButton" to="." method="openMap"]

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dudqd12fiexy"
-path="res://.godot/imported/Middle.ttf-6b874175d83f7ca9ce5ecefffd55c086.fontdata"
+path="res://.godot/imported/Middle.ttf-5f1aa3adb2498a555a78c0331d361e77.fontdata"
 
 [deps]
 
-source_file="res://fonts/Middle.ttf"
-dest_files=["res://.godot/imported/Middle.ttf-6b874175d83f7ca9ce5ecefffd55c086.fontdata"]
+source_file="res://Fonts/Middle.ttf"
+dest_files=["res://.godot/imported/Middle.ttf-5f1aa3adb2498a555a78c0331d361e77.fontdata"]
 
 [params]
 

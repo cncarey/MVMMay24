@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bge1gm6xfqgal"]
+[gd_scene load_steps=8 format=3 uid="uid://bge1gm6xfqgal"]
 
 [ext_resource type="Script" path="res://Objects/Door.gd" id="1_vpe03"]
 [ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="2_0cbc6"]
 [ext_resource type="Texture2D" uid="uid://b1sou16f4qj6" path="res://Assets/villageTiles.png" id="2_nylme"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_6npkr"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_uoge5"]
-[ext_resource type="AudioStream" uid="uid://ba60i5ggykk8h" path="res://Assets/sounds/dorm-door-opening-6038.ogg" id="6_8m0ku"]
 [ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="7_1pusg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y4o0"]
@@ -37,11 +36,6 @@ region_enabled = true
 region_rect = Rect2(161, 85, 13, 11)
 
 [node name="LockedSound" type="AudioStreamPlayer" parent="."]
-script = ExtResource("7_1pusg")
-
-[node name="PassThroughSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_8m0ku")
-bus = &"SFx"
 script = ExtResource("7_1pusg")
 
 [node name="TBMarker" type="Marker2D" parent="."]

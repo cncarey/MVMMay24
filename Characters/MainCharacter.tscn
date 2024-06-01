@@ -642,11 +642,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5jws"]
 size = Vector2(34, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jebro"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pj2ko"]
 
 [node name="MainPlayer" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
 script = ExtResource("1_vig4w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -683,13 +682,13 @@ position = Vector2(16, -4.5)
 shape = SubResource("RectangleShape2D_q5jws")
 disabled = true
 
-[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_hnkur")
-script = ExtResource("5_t3buh")
-
 [node name="HurtboxComponent" type="Area2D" parent="."]
 collision_layer = 3
 script = ExtResource("3_s2kgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("RectangleShape2D_jebro")
+shape = SubResource("CapsuleShape2D_pj2ko")
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hnkur")
+script = ExtResource("5_t3buh")

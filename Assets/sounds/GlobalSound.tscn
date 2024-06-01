@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gblqwp4cn1l6"]
+
+[ext_resource type="Script" path="res://Assets/sounds/GlobalSound.gd" id="1_v2t5r"]
+
+[node name="GlobalSound" type="Node2D"]
+script = ExtResource("1_v2t5r")
+
+[node name="sfxPlayer" type="AudioStreamPlayer2D" parent="."]
