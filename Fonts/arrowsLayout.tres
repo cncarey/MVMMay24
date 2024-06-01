@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ControlLayout" load_steps=11 format=3 uid="uid://nox2ourmpdho"]
+
+[ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="1_o57cn"]
+[ext_resource type="Script" path="res://Scenes/ControlLayout.gd" id="2_p37xg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4twi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o05l8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yf22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpub3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc4pd"]
+atlas = ExtResource("1_o57cn")
+region = Rect2(482, 194, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewvrn"]
+atlas = ExtResource("1_o57cn")
+region = Rect2(530, 194, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofb8v"]
+atlas = ExtResource("1_o57cn")
+region = Rect2(418, 162, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwab4"]
+atlas = ExtResource("1_o57cn")
+region = Rect2(498, 194, 11, 11)
+
+[resource]
+script = ExtResource("2_p37xg")
+left = SubResource("AtlasTexture_ewvrn")
+right = SubResource("AtlasTexture_cwab4")
+jump = SubResource("AtlasTexture_mc4pd")
+interact = SubResource("AtlasTexture_mpub3")
+accept = SubResource("AtlasTexture_h4twi")
+cancel = SubResource("AtlasTexture_o05l8")
+dropdown = SubResource("AtlasTexture_3yf22")
+pauseButton = SubResource("AtlasTexture_ofb8v")
