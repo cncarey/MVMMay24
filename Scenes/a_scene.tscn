@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="5_je61e"]
 [ext_resource type="PackedScene" uid="uid://0nbacdcey4ei" path="res://Objects/vase.tscn" id="5_qhkwl"]
 [ext_resource type="Script" path="res://Scenes/Tutorial.gd" id="6_aqrxp"]
-[ext_resource type="Resource" path="res://fonts/arrowsLayout.tres" id="7_a3e30"]
+[ext_resource type="Resource" uid="uid://nox2ourmpdho" path="res://fonts/arrowsLayout.tres" id="7_a3e30"]
 
 [sub_resource type="Animation" id="Animation_xvh0h"]
 length = 0.001
@@ -61,7 +61,7 @@ destination = "res://Scenes/b_scene.tscn"
 doorId = "A_B-1"
 returnDoorId = "B_A-2"
 
-[node name="TBMarker" parent="Doors/Door_B1" index="7"]
+[node name="TBMarker" parent="Doors/Door_B1" index="6"]
 position = Vector2(-99, -17)
 
 [node name="Door_C1" parent="Doors" index="1" instance=ExtResource("2_kti2w")]

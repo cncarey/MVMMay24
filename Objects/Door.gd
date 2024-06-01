@@ -8,7 +8,6 @@ extends Area2D
 @onready var TouchIndicator = $InteractionIndicator
 @onready var lock = $lock
 
-@onready var unlock_sound = $UnlockSound
 @onready var locked_sound = $LockedSound
 @onready var pass_through_sound = $PassThroughSound
 @export var speachSound : AudioStream
@@ -44,14 +43,12 @@ func _unhandled_input(event):
 		else:
 			#check if you have a key and unlock the door
 			if Global.tryTakeKeys(1):
-				if unlock_sound != null:
-					unlock_sound.play()
 				lock.hide()
 				Global.openedDoors[doorId] = true
 				goThroughDoor()
 			else:
 				if locked_sound != null:
-					locked_sound.play()
+					locked_sound.play_with_variance()
 				if Global.openedDoors.size() <= 0:
 					DialougeManager.startDialogue( tb_marker.global_position, 
 					["There's got to be a key around here somewhere."], 
@@ -60,6 +57,6 @@ func _unhandled_input(event):
 
 func goThroughDoor():
 	if pass_through_sound != null:
-		pass_through_sound.play()
+		pass_through_sound.play_with_variance()
 	Global.lastLocation = returnDoorId
 	goToRoom.emit(destination)
