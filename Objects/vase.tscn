@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://0nbacdcey4ei"]
+
+[ext_resource type="Script" path="res://Objects/Vase.gd" id="1_s4ivy"]
+[ext_resource type="Texture2D" uid="uid://u44eu675e5ey" path="res://Assets/ruinsTiles.png" id="2_6ut5r"]
+[ext_resource type="Script" path="res://Components/hurtbox_component.gd" id="2_vx7e7"]
+[ext_resource type="Script" path="res://Components/flash_component.gd" id="3_1ieqj"]
+[ext_resource type="Script" path="res://Components/scale_component.gd" id="4_2l22t"]
+[ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="5_r6h6m"]
+[ext_resource type="AudioStream" uid="uid://c1f3mxb8doi2d" path="res://Assets/sounds/breakingvase.ogg" id="6_lhopb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7tpf"]
+atlas = ExtResource("2_6ut5r")
+region = Rect2(112, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6qte"]
+atlas = ExtResource("2_6ut5r")
+region = Rect2(128, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dhf7"]
+atlas = ExtResource("2_6ut5r")
+region = Rect2(144, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd12k"]
+atlas = ExtResource("2_6ut5r")
+region = Rect2(160, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt8vy"]
+atlas = ExtResource("2_6ut5r")
+region = Rect2(112, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3g0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7tpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6qte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dhf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd12k")
+}],
+"loop": false,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt8vy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5r1l"]
+size = Vector2(20, 18)
+
+[node name="Vase" type="Node2D"]
+script = ExtResource("1_s4ivy")
+
+[node name="Ani" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e3g0r")
+animation = &"break"
+autoplay = "default"
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_vx7e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_k5r1l")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_1ieqj")
+sprite = NodePath("../Ani")
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_2l22t")
+sprite = NodePath("..")
+scale_amount = Vector2(1.2, 1.2)
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lhopb")
+bus = &"SFx"
+script = ExtResource("5_r6h6m")

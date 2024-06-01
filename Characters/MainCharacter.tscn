@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://by52cb0uia3yf"]
+[gd_scene load_steps=20 format=3 uid="uid://by52cb0uia3yf"]
 
 [ext_resource type="Texture2D" uid="uid://bh8r6lijixolq" path="res://Assets/Character_Sprite_Sheet.png" id="1_q384h"]
 [ext_resource type="Script" path="res://Characters/MainCharacter.gd" id="1_vig4w"]
 [ext_resource type="Script" path="res://Components/hitbox_component.gd" id="3_biael"]
+[ext_resource type="AudioStream" uid="uid://c73jj7s5k0qs5" path="res://Assets/sounds/Swipe.wav" id="4_hnkur"]
+[ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="5_t3buh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm53p"]
 
@@ -526,6 +528,20 @@ tracks/4/keys = {
 "method": &"finishAttacking"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VariablePitchAudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play_with_variance"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2bkb8"]
 resource_name = "attack_right"
@@ -592,6 +608,20 @@ tracks/4/keys = {
 "method": &"finishAttacking"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VariablePitchAudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play_with_variance"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n02o1"]
 _data = {
@@ -648,3 +678,7 @@ script = ExtResource("3_biael")
 position = Vector2(16, -4.5)
 shape = SubResource("RectangleShape2D_q5jws")
 disabled = true
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hnkur")
+script = ExtResource("5_t3buh")

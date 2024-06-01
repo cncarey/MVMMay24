@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://33p72yt5hohm"]
+[gd_scene load_steps=12 format=3 uid="uid://33p72yt5hohm"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_iqbdi"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_kti2w"]
 [ext_resource type="PackedScene" uid="uid://ce36676gjyd1v" path="res://Objects/Gem.tscn" id="3_uxss0"]
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="4_rrve2"]
 [ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="5_je61e"]
+[ext_resource type="PackedScene" uid="uid://0nbacdcey4ei" path="res://Objects/vase.tscn" id="5_qhkwl"]
 [ext_resource type="Script" path="res://Scenes/Tutorial.gd" id="6_aqrxp"]
-[ext_resource type="Resource" uid="uid://nox2ourmpdho" path="res://fonts/arrowsLayout.tres" id="7_a3e30"]
+[ext_resource type="Resource" path="res://fonts/arrowsLayout.tres" id="7_a3e30"]
 
 [sub_resource type="Animation" id="Animation_xvh0h"]
 length = 0.001
@@ -97,6 +98,21 @@ libraries = {
 "": SubResource("AnimationLibrary_sp5dr")
 }
 autoplay = "RESET"
+
+[node name="Vase" parent="Vases" index="0" instance=ExtResource("5_qhkwl")]
+position = Vector2(467.7, 471.5)
+
+[node name="Vase2" parent="Vases" index="1" instance=ExtResource("5_qhkwl")]
+position = Vector2(566.643, 199.629)
+
+[node name="Vase3" parent="Vases" index="2" instance=ExtResource("5_qhkwl")]
+position = Vector2(852.315, 408.241)
+
+[node name="Vase4" parent="Vases" index="3" instance=ExtResource("5_qhkwl")]
+position = Vector2(625.757, 296.331)
+
+[node name="Vase5" parent="Vases" index="4" instance=ExtResource("5_qhkwl")]
+position = Vector2(605.494, 296.22)
 
 [node name="MovingPlatform" parent="." index="11" instance=ExtResource("4_rrve2")]
 position = Vector2(897, 421)
