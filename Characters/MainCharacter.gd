@@ -39,11 +39,13 @@ func resetBoundaries():
 	camera_2d.limit_bottom = mapSizePixesls.y
 
 func _physics_process(delta):
-	if !Global.canPlayerMover: 
-		animation_player.play("idle" + lastDirection)
-		return;
 	handleGravity(delta)
-	#handleWallJump()
+	if !Global.canPlayerMover: 
+		velocity.x = 0
+		animation_player.play("idle" + lastDirection)
+		move_and_slide()
+		return;
+	
 	handleJump()
 	
 	var direction = Input.get_axis("Left", "Right")

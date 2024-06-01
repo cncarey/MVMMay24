@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca1er6yso3wt0"]
+[gd_scene load_steps=7 format=3 uid="uid://ca1er6yso3wt0"]
 
 [ext_resource type="Script" path="res://Objects/Guardian.gd" id="1_rq71a"]
+[ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="2_1n74p"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="2_bjlge"]
 [ext_resource type="Texture2D" uid="uid://dvfaxhqef1dcj" path="res://Assets/cemetaryTiles.png" id="2_feb4b"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="3_4abq7"]
@@ -12,6 +13,7 @@ size = Vector2(84, 42)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rq71a")
+speachSound = ExtResource("2_1n74p")
 
 [node name="Statue" type="Sprite2D" parent="."]
 texture = ExtResource("2_feb4b")
@@ -39,6 +41,8 @@ shape = SubResource("RectangleShape2D_hofh1")
 [node name="InteractionIndicator" parent="." instance=ExtResource("2_bjlge")]
 visible = false
 position = Vector2(0.149437, -31.376)
+
+[node name="TBMarker" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="guardianEntered"]
 [connection signal="body_exited" from="." to="." method="guardianExited"]

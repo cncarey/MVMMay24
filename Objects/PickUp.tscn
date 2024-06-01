@@ -10,6 +10,8 @@ script = ExtResource("1_rucxl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
+[node name="TBMarker" type="Marker2D" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 

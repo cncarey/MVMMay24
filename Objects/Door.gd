@@ -12,6 +12,7 @@ extends Area2D
 @onready var locked_sound = $LockedSound
 @onready var pass_through_sound = $PassThroughSound
 @export var speachSound : AudioStream
+@onready var tb_marker = $TBMarker
 
 var isTouching : bool = false
 
@@ -52,8 +53,8 @@ func _unhandled_input(event):
 				if locked_sound != null:
 					locked_sound.play()
 				if Global.openedDoors.size() <= 0:
-					DialougeManager.startDialogue(TouchIndicator.
-					global_position, ["There's got to be a key around here somewhere."], 
+					DialougeManager.startDialogue( tb_marker.global_position, 
+					["There's got to be a key around here somewhere."], 
 					speachSound)
 				pass
 

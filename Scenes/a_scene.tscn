@@ -58,6 +58,9 @@ destination = "res://Scenes/b_scene.tscn"
 doorId = "A_B-1"
 returnDoorId = "B_A-2"
 
+[node name="TBMarker" parent="Doors/Door_B1" index="7"]
+position = Vector2(-99, -17)
+
 [node name="Door_C1" parent="Doors" index="1" instance=ExtResource("2_kti2w")]
 position = Vector2(678, 87)
 destination = "res://Scenes/c_scene.tscn"
@@ -73,12 +76,15 @@ returnDoorId = "G_A-3"
 isOpen = true
 
 [node name="MainPlayer" parent="." index="2"]
-position = Vector2(70.6999, 456.3)
+position = Vector2(66.5002, 469.2)
 
 [node name="Gem_Purple" parent="Gems" index="0" instance=ExtResource("3_uxss0")]
 position = Vector2(43.2386, 43.1133)
 gemType = 1
 pickUpId = "A_Purple"
+
+[node name="TBMarker" parent="Gems/Gem_Purple" index="1"]
+position = Vector2(118.462, 97.4867)
 
 [node name="Platform" parent="." index="6" instance=ExtResource("4_rrve2")]
 position = Vector2(635, 136)
@@ -96,4 +102,6 @@ position = Vector2(897, 421)
 [node name="Ruin" parent="." index="13" instance=ExtResource("5_je61e")]
 position = Vector2(295, 464)
 
+[editable path="Doors/Door_B1"]
+[editable path="Gems/Gem_Purple"]
 [editable path="Platform"]

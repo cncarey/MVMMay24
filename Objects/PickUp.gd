@@ -7,6 +7,7 @@ var pickedUp = false
 @onready var hurtbox_component = $HurtboxComponent
 @onready var hitbox_component = $HitboxComponent
 @onready var ani = $AnimationPlayer
+@onready var tb_marker = $TBMarker
 
 
 # Called when the node enters the scene tree for the first time.

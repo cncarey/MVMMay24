@@ -10,11 +10,15 @@ const purple = "_purple"
 @onready var gem_purple = $GemPurple
 @onready var TouchIndicator = $InteractionIndicator
 
+@onready var tb_marker = $TBMarker
+
 @export var powerUpName : String
 @export var powerUpTitle : String
 @export var powerUpImage : Texture
 @export var powerUpButton : Texture
 @export var powerUpDescription: String
+
+@export var speachSound : AudioStream
 
 var powerUp = preload("res://UI/PowerUpModal.tscn")
 var isTouching : bool = false
@@ -40,6 +44,12 @@ func guardianExited(body):
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("Interact") && isTouching && Global.canPlayerMover:
+		var tbText = handleTBText()
+		if tbText.size() >= 1:
+			DialougeManager.startDialogue( tb_marker.global_position, 
+			tbText, 
+			speachSound)
+		
 		if !Global.guardianStatuses.has(GuardianId + gold):
 			if Global.tryTakeGemsGold(1):
 				Global.guardianStatuses[GuardianId + gold] = true
@@ -61,3 +71,23 @@ func _unhandled_input(event):
 			_powerUp.powerUpDescription = powerUpDescription
 			OpenPopUp.emit(_powerUp)
 			pass
+
+func handleTBText() -> Array[String]:
+	var gemCount = maxi(Global.gems_gold, 0) + maxi(Global.gems_purple, 0)
+	match Global.guardianStatuses.size():
+		1:
+			if  gemCount <= 0:
+				return ["I guess I have to find the other one."]
+			else:
+				return [] #stay empty
+		0:
+			if  gemCount >= 2:
+				return [] #stay empty
+			elif  gemCount >= 1:
+				return ["Here's where this goes.", "I guess I have to find the other one."]
+			else:
+				return ["I wonder what goes in these hole."]
+		_:
+			return [] #stay empty
+			
+	

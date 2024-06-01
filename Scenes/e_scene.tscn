@@ -73,7 +73,7 @@ returnDoorId = "G_E-3"
 isOpen = true
 
 [node name="MainPlayer" parent="." index="2"]
-position = Vector2(273.425, 91.9651)
+position = Vector2(254.437, 85.8241)
 
 [node name="Key" parent="Keys" index="0" instance=ExtResource("2_jooma")]
 position = Vector2(47, 151)
@@ -82,6 +82,9 @@ pickUpId = "E-1"
 [node name="Gem" parent="Gems" index="0" instance=ExtResource("4_bqe0s")]
 position = Vector2(830, 78)
 pickUpId = "E_Gold"
+
+[node name="TBMarker" parent="Gems/Gem" index="1"]
+position = Vector2(-78.4667, -2.07538)
 
 [node name="MovingPlatform" parent="." index="8" instance=ExtResource("2_0spnq")]
 position = Vector2(48, 118)
@@ -101,4 +104,5 @@ libraries = {
 "": SubResource("AnimationLibrary_3657h")
 }
 
+[editable path="Gems/Gem"]
 [editable path="MovingPlatform2"]

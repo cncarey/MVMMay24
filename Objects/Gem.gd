@@ -3,6 +3,7 @@ extends PickUp
 enum _gemType {gold, purple}
 
 @export var gemType : _gemType
+@export var speachSound : AudioStream
 
 func _ready():
 	hurtbox_component.hurt.connect(onPickUp.unbind(1))
@@ -22,6 +23,23 @@ func onPickUp():
 		addGem()
 	
 func addGem():	
+	match Global.collectedGems.size():
+		0:
+			DialougeManager.startDialogue( tb_marker.global_position, 
+			["Is this what the orical sent me to get?",
+			"I've never seen something so beautiful.",	
+			"I wonder if there are more down here."], 
+			speachSound)
+		1:
+			if Global.guardianStatuses.size()  <=0:
+				DialougeManager.startDialogue( tb_marker.global_position, 
+				["Now I just need to figure out where to put you."], 
+				speachSound)
+			else:
+				DialougeManager.startDialogue( tb_marker.global_position, 
+				["Let me take you back to that statue."], 
+				speachSound)
+			
 	Global.collectedGems[pickUpId] = true
 	if gemType == _gemType.gold:
 		Global.gems_gold += 1

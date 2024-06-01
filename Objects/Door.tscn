@@ -40,5 +40,7 @@ region_rect = Rect2(161, 85, 13, 11)
 
 [node name="PassThroughSound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="TBMarker" type="Marker2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="doorEntered"]
 [connection signal="body_exited" from="." to="." method="doorExited"]

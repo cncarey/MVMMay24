@@ -48,15 +48,17 @@ func _unhandled_input(event):
 		
 		currentLineIndex += 1
 		if currentLineIndex >= diaglogLines.size():
-			isActive = false
-			currentLineIndex = 0
-			Global.canPlayerMover = true
+			resetTB()
 			finishedDisplaying.emit()
 			return
 		else:
 			showTextBox()
 			
 	if event.is_action_pressed("Cancel") && isActive:
-		isActive = false
-		Global.canPlayerMover = true
+		resetTB()
 		textBox.queue_free()	
+
+func resetTB():
+	isActive = false
+	Global.canPlayerMover = true
+	currentLineIndex = 0
