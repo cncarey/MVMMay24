@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://brk4b8jq1k5w6"]
+[gd_scene load_steps=8 format=3 uid="uid://brk4b8jq1k5w6"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_t1jb1"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_v2isc"]
 [ext_resource type="PackedScene" uid="uid://tm2tc8umf0yd" path="res://Objects/Chest.tscn" id="3_u5yeu"]
 [ext_resource type="Texture2D" uid="uid://dgrihmmbc781c" path="res://Assets/MVMXSmall/png/001-jumping-man.png" id="4_be1cw"]
 [ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="4_x1shl"]
+[ext_resource type="PackedScene" uid="uid://0nbacdcey4ei" path="res://Objects/vase.tscn" id="6_w2tqi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1cdh"]
 atlas = ExtResource("4_x1shl")
@@ -35,3 +36,21 @@ powerUpTitle = "Ancient Leap"
 powerUpImage = ExtResource("4_be1cw")
 powerUpButton = SubResource("AtlasTexture_m1cdh")
 powerUpDescription = "Allows the player to jump a second time while still in mid air"
+
+[node name="Vase" parent="Vases" index="0" instance=ExtResource("6_w2tqi")]
+position = Vector2(22.55, 231.9)
+
+[node name="Vase2" parent="Vases" index="1" instance=ExtResource("6_w2tqi")]
+position = Vector2(152.55, 88)
+
+[node name="Vase3" parent="Vases" index="2" instance=ExtResource("6_w2tqi")]
+position = Vector2(227.55, 232)
+
+[node name="Vase4" parent="Vases" index="3" instance=ExtResource("6_w2tqi")]
+position = Vector2(72.1001, 712.1)
+
+[node name="Vase5" parent="Vases" index="4" instance=ExtResource("6_w2tqi")]
+position = Vector2(341.9, 713.05)
+
+[node name="Vase6" parent="Vases" index="5" instance=ExtResource("6_w2tqi")]
+position = Vector2(330.9, 712.55)
