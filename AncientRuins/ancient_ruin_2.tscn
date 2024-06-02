@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ma20q54ys5hq"]
+
+[ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_8ldwe"]
+[ext_resource type="Script" path="res://AncientRuins/ancient_ruin_2.gd" id="2_mtwcm"]
+
+[node name="AncientRuin" instance=ExtResource("1_8ldwe")]
+script = ExtResource("2_mtwcm")

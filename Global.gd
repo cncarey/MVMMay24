@@ -1,5 +1,13 @@
 extends Node
 
+var camera : Camera2D
+
+@onready var shakeSettings : float = .3 : 
+	set (value):
+		shakeSettings = value
+	get:
+		return shakeSettings
+
 
 var currentLocation : String = ""
 var lastLocation: String = ""

@@ -79,9 +79,11 @@ func handleTBText() -> Array[String]:
 			if  gemCount <= 0:
 				return ["I guess I have to find the other one."]
 			else:
+				Global.camera.shake(15.0, 5.0)
 				return [] #stay empty
 		0:
 			if  gemCount >= 2:
+				Global.camera.shake(15.0, 5.0)
 				return [] #stay empty
 			elif  gemCount >= 1:
 				return ["Here's where this goes.", "I guess I have to find the other one."]

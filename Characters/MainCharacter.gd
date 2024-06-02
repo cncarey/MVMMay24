@@ -17,6 +17,7 @@ var state = playerStates.Move
 var justWallJumped: bool = false
 var usedDoubleJump: bool = false
 var airJump: bool = false
+var isGrounded: bool = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var startPosition = global_position
@@ -25,10 +26,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $Sprite2D
 
 @export var tilemap :TileMap
+@onready var dust = preload("res://Characters/dust.tscn")
+@onready var dust_marker = $DustMarker
+
 
 func _ready():
-	resetBoundaries()
-	
+	#resetBoundaries()
+	pass
 
 func resetBoundaries():
 	var mapRect = tilemap.get_used_rect()
@@ -54,6 +58,8 @@ func _physics_process(delta):
 			pass
 		playerStates.Attack:
 			attackState(delta)
+			
+	isGrounded = is_on_floor()
 	
 func moveState(delta):
 	handleJump()
@@ -67,9 +73,14 @@ func moveState(delta):
 	var wasOnFloor = is_on_floor()
 	move_and_slide()
 	var justLeftLedge = wasOnFloor && !is_on_floor() and velocity.y >= 0
+	var justLanded = !wasOnFloor && is_on_floor()
 	
 	if justLeftLedge:
 		coyoteJumpTimer.start()
+	elif justLanded:
+		var _d = dust.instantiate()
+		_d.global_position = dust_marker.global_position
+		get_parent().add_child(_d)
 		
 	justWallJumped = false
 
@@ -131,11 +142,6 @@ func handleJump():
 			velocity.y = JUMP_VELOCITY
 	
 	elif !is_on_floor():
-		#if Input.is_action_just_pressed("Jump") && velocity.y < (JUMP_VELOCITY/2):
-			#velocity.y = JUMP_VELOCITY/2
-			#print('can jump')
-			#print(airJump)
-		
 		#double jump
 		if Global.openedChests.has("DoubleJump"):
 			if Input.is_action_just_pressed("Jump") && airJump && !justWallJumped:

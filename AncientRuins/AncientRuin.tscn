@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqk6x0xrtwgm2"]
+[gd_scene load_steps=3 format=3 uid="uid://cqk6x0xrtwgm2"]
 
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="1_lpck2"]
+[ext_resource type="Script" path="res://AncientRuins/AncientRuin.gd" id="1_lwabf"]
 
 [node name="AncientRuin" type="CanvasLayer"]
+script = ExtResource("1_lwabf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -16,11 +18,11 @@ color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 offset_right = 447.0
 offset_bottom = 247.0
 texture = ExtResource("1_lpck2")
-region_rect = Rect2(-1.1847, -0.592999, 97.1847, 96.593)
-patch_margin_left = 21
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
+region_rect = Rect2(-1, -1, 97.5, 96.5)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 layout_mode = 1
@@ -43,9 +45,11 @@ theme_override_constants/separation = 20
 [node name="CloseButton" type="Button" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 0
 text = "Close"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Sprites" type="Node2D" parent="."]
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CloseButton" to="." method="onClose"]
