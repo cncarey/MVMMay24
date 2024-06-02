@@ -1,7 +1,100 @@
-[gd_scene load_steps=3 format=3 uid="uid://ma20q54ys5hq"]
+[gd_scene load_steps=12 format=3 uid="uid://ma20q54ys5hq"]
 
 [ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_8ldwe"]
 [ext_resource type="Script" path="res://AncientRuins/ancient_ruin_2.gd" id="2_mtwcm"]
+[ext_resource type="LabelSettings" uid="uid://tv4fg4khvsqf" path="res://Fonts/subtitle_label_settings.tres" id="3_8qk5k"]
+[ext_resource type="Texture2D" uid="uid://bd6xcyf3iskw1" path="res://Assets/MVMSmallIcons/png/036-group-discussion.png" id="3_tkkb3"]
+[ext_resource type="Texture2D" uid="uid://cfvciksxhtayy" path="res://Assets/MVMSmallIcons/png/028-beauty.png" id="4_nhbgj"]
+[ext_resource type="Texture2D" uid="uid://ba5axxetic2gm" path="res://Assets/MVMSmallIcons/png/050-king-1.png" id="5_o58u0"]
+[ext_resource type="Texture2D" uid="uid://db7jvxq56hkqr" path="res://Assets/MVMSmallIcons/png/010-scroll.png" id="6_pmdb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw0fc"]
+size = Vector2(150.769, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7m3"]
+size = Vector2(113.846, 141.538)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27eug"]
+size = Vector2(132.308, 144.615)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq1xg"]
+size = Vector2(124.615, 160)
 
 [node name="AncientRuin" instance=ExtResource("1_8ldwe")]
 script = ExtResource("2_mtwcm")
+
+[node name="ColorRect" parent="." index="0"]
+visible = false
+
+[node name="SecretMeeting" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_8qk5k")
+
+[node name="Treaty" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_8qk5k")
+
+[node name="Kingdom1" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_8qk5k")
+
+[node name="Kingdom2" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_8qk5k")
+
+[node name="036-group-discussion" type="Sprite2D" parent="Sprites" index="0"]
+position = Vector2(170, 87)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_tkkb3")
+
+[node name="Area2D" type="Area2D" parent="Sprites/036-group-discussion" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/036-group-discussion/Area2D" index="0"]
+position = Vector2(3.07693, -5.38458)
+shape = SubResource("RectangleShape2D_yw0fc")
+
+[node name="028-beauty" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(282, 87)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_nhbgj")
+
+[node name="Area2D" type="Area2D" parent="Sprites/028-beauty" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/028-beauty/Area2D" index="0"]
+position = Vector2(0, -1.53844)
+shape = SubResource("RectangleShape2D_7k7m3")
+
+[node name="050-king-1" type="Sprite2D" parent="Sprites" index="2"]
+position = Vector2(80, 161)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_o58u0")
+
+[node name="Area2D" type="Area2D" parent="Sprites/050-king-1" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/050-king-1/Area2D" index="0"]
+position = Vector2(-4.61537, 3.07692)
+shape = SubResource("RectangleShape2D_27eug")
+
+[node name="010-scroll" type="Sprite2D" parent="Sprites" index="3"]
+position = Vector2(371, 162)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("6_pmdb8")
+
+[node name="Area2D" type="Area2D" parent="Sprites/010-scroll" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/010-scroll/Area2D" index="0"]
+position = Vector2(0.769165, -3.05176e-05)
+shape = SubResource("RectangleShape2D_sq1xg")
+
+[connection signal="mouse_entered" from="Sprites/036-group-discussion/Area2D" to="." method="_on_secret_meeting"]
+[connection signal="mouse_entered" from="Sprites/028-beauty/Area2D" to="." method="_on_kingdom1"]
+[connection signal="mouse_entered" from="Sprites/050-king-1/Area2D" to="." method="_on_kingdom2"]
+[connection signal="mouse_entered" from="Sprites/010-scroll/Area2D" to="." method="_on_truse"]

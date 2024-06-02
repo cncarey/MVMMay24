@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqk6x0xrtwgm2"]
+[gd_scene load_steps=4 format=3 uid="uid://cqk6x0xrtwgm2"]
 
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="1_lpck2"]
 [ext_resource type="Script" path="res://AncientRuins/AncientRuin.gd" id="1_lwabf"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_xx0kx"]
 
 [node name="AncientRuin" type="CanvasLayer"]
 script = ExtResource("1_lwabf")
@@ -35,6 +36,13 @@ theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 22
 theme_override_constants/margin_right = 22
 theme_override_constants/margin_bottom = 22
+
+[node name="Instructions" type="Label" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Mouse over each image to gain information."
+label_settings = ExtResource("3_xx0kx")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2

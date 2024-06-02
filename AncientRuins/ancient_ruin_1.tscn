@@ -52,7 +52,7 @@ text = "?"
 label_settings = ExtResource("3_jjunq")
 
 [node name="boat2" type="Sprite2D" parent="Sprites" index="0"]
-position = Vector2(284.278, 75)
+position = Vector2(284.278, 89)
 scale = Vector2(0.605027, 0.605027)
 texture = ExtResource("3_oh4ka")
 flip_h = true
@@ -64,7 +64,7 @@ position = Vector2(0.366882, -13.2226)
 shape = SubResource("RectangleShape2D_oi8fh")
 
 [node name="boat" type="Sprite2D" parent="Sprites" index="1"]
-position = Vector2(172, 75)
+position = Vector2(172, 89)
 scale = Vector2(0.605027, 0.605027)
 texture = ExtResource("3_oh4ka")
 
@@ -75,17 +75,17 @@ position = Vector2(-1.65282, -12.3961)
 shape = SubResource("RectangleShape2D_1jv0e")
 
 [node name="017-circle" type="Sprite2D" parent="Sprites" index="2"]
-position = Vector2(150.458, 33)
+position = Vector2(150.458, 47)
 scale = Vector2(0.195312, 0.195312)
 texture = ExtResource("4_fms6e")
 
 [node name="020-is-approximately-equal-to" type="Sprite2D" parent="Sprites" index="3"]
-position = Vector2(302, 33)
+position = Vector2(302, 47)
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("5_6o83w")
 
 [node name="022-overfishing" type="Sprite2D" parent="Sprites" index="4"]
-position = Vector2(365, 128)
+position = Vector2(365, 142)
 texture = ExtResource("6_xs040")
 
 [node name="Area2D" type="Area2D" parent="Sprites/022-overfishing" index="0"]
@@ -95,7 +95,7 @@ position = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_qpv70")
 
 [node name="023-fishing-net" type="Sprite2D" parent="Sprites" index="5"]
-position = Vector2(87, 129)
+position = Vector2(87, 143)
 texture = ExtResource("7_ks7rd")
 
 [node name="Area2D" type="Area2D" parent="Sprites/023-fishing-net" index="0"]

@@ -1,6 +1,64 @@
 extends AncientRuin
+@onready var secret_meeting = %SecretMeeting
+@onready var treaty = %Treaty
+@onready var kingdom_1 = %Kingdom1
+@onready var kingdom_2 = %Kingdom2
 
 func _ready():
 	super._ready()
 
-#TODO add in clues
+func _on_secret_meeting():
+	if isPlaying: return
+	
+	else:
+		isPlaying = true
+		DialougeManager.startDialogue(textboxLocation, 
+		["There was a secret meeting called."], speachSound)
+	
+		addClue({
+			"id": "R2_secretMeeting", 
+			"display" : "Secret Meeting", 
+			"part_of_speach": "noun", 
+			"options" : []}, secret_meeting)
+
+func _on_truse():
+	if isPlaying: return
+	
+	else:
+		isPlaying = true
+		DialougeManager.startDialogue(textboxLocation, 
+		["Everyone was tired of fighting and wanted peace."], speachSound)
+	
+		addClue({
+			"id": "R2_truse", 
+			"display" : "Truse", 
+			"part_of_speach": "noun", 
+			"options" : []}, treaty)
+
+func _on_kingdom1():
+	if isPlaying: return
+	
+	else:
+		isPlaying = true
+		DialougeManager.startDialogue(textboxLocation, 
+		["The queen and the royal advisor where there."], speachSound)
+	
+		addClue({
+			"id": "R2_kingdom1", 
+			"display" : "Queen of k1", 
+			"part_of_speach": "noun", 
+			"options" : []}, kingdom_1)
+			
+func _on_kingdom2():
+	if isPlaying: return
+	
+	else:
+		isPlaying = true
+		DialougeManager.startDialogue(textboxLocation, 
+		["The King and his royal advisor where there."], speachSound)
+	
+		addClue({
+			"id": "R2_kingdom2", 
+			"display" : "King of k2", 
+			"part_of_speach": "noun", 
+			"options" : []}, kingdom_2)
