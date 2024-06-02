@@ -46,6 +46,8 @@ tilemap = NodePath("../TileMap")
 
 [node name="Guardians" type="Node2D" parent="."]
 
+[node name="Ruins" type="Node2D" parent="."]
+
 [node name="Vases" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]

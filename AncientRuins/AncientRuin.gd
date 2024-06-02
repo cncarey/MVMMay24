@@ -1,11 +1,13 @@
 class_name AncientRuin
 extends CanvasLayer
 
+@onready var textbox_marker = $TextboxMarker
 
-const textboxLocation = Vector2(224, 250)
+
 @export var speachSound : AudioStream
 var isPlaying = false
 
+signal onRuinClose()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DialougeManager.finishedDisplaying.connect(textFininshed)
@@ -15,7 +17,7 @@ func textFininshed():
 	isPlaying = false
 	
 func onClose():
-	#TODO emit the close if we need to
+	onRuinClose.emit()
 	DialougeManager.resetTB()
 	DialougeManager.finishedDisplaying.disconnect(textFininshed)
 	queue_free()

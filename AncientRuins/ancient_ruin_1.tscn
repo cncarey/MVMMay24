@@ -24,9 +24,6 @@ size = Vector2(75, 82)
 [node name="AncientRuin" instance=ExtResource("1_7owxj")]
 script = ExtResource("2_q2pf4")
 
-[node name="ColorRect" parent="." index="0"]
-visible = false
-
 [node name="Kingdom1" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2

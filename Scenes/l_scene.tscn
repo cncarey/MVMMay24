@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hmdlubeffjri"]
+[gd_scene load_steps=9 format=3 uid="uid://hmdlubeffjri"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_rjwxq"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_xacuq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://41lgn5pddlp1" path="res://Assets/MVMXSmall/png/016-pinboard.png" id="4_ndsdq"]
 [ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="5_bfhc7"]
 [ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="6_7nhib"]
+[ext_resource type="PackedScene" uid="uid://d0t8ckn08e6r1" path="res://AncientRuins/ancient_ruin_1.tscn" id="7_bw77q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psymo"]
 atlas = ExtResource("5_bfhc7")
@@ -38,5 +39,7 @@ powerUpImage = ExtResource("4_ndsdq")
 powerUpButton = SubResource("AtlasTexture_psymo")
 powerUpDescription = "Ability to find antient ruins and investigate what has happened. You can now interact with skull piles."
 
-[node name="Ruin" parent="." index="11" instance=ExtResource("6_7nhib")]
+[node name="Ruin" parent="Ruins" index="0" instance=ExtResource("6_7nhib")]
 position = Vector2(507, 127)
+RuinId = "L_Ruin1"
+ancientRuinPopup = ExtResource("7_bw77q")

@@ -1,7 +1,100 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb2m1bv80k3gh"]
+[gd_scene load_steps=13 format=3 uid="uid://bb2m1bv80k3gh"]
 
 [ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_b2ig0"]
 [ext_resource type="Script" path="res://AncientRuins/ancient_ruin_3.gd" id="2_7gx61"]
+[ext_resource type="LabelSettings" uid="uid://tv4fg4khvsqf" path="res://Fonts/subtitle_label_settings.tres" id="3_pcnxj"]
+[ext_resource type="Texture2D" uid="uid://dk0bwg3k4u1sa" path="res://Assets/MVMSmallIcons/png/032-sorcerer.png" id="4_2k4cf"]
+[ext_resource type="Texture2D" uid="uid://b1ys0usy7an0r" path="res://Assets/MVMSmallIcons/png/033-swords.png" id="5_o7gri"]
+[ext_resource type="Texture2D" uid="uid://ch45eyn5vivf0" path="res://Assets/MVMSmallIcons/png/003-castle.png" id="6_57oj2"]
+[ext_resource type="Texture2D" uid="uid://c5e6ux08286s" path="res://Assets/MVMSmallIcons/png/004-bran-castle.png" id="7_fv642"]
+[ext_resource type="Texture2D" uid="uid://1ym75fu7rc3f" path="res://Assets/MVMSmallIcons/png/026-gold.png" id="8_dogup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e5th"]
+size = Vector2(130.769, 143.077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxvai"]
+size = Vector2(127.692, 124.615)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anh0l"]
+radius = 100.494
+height = 344.331
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1860"]
+size = Vector2(133.846, 133.846)
 
 [node name="AncientRuin" instance=ExtResource("1_b2ig0")]
 script = ExtResource("2_7gx61")
+
+[node name="ShadowMan" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_pcnxj")
+
+[node name="Money" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_pcnxj")
+
+[node name="Weapons" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_pcnxj")
+
+[node name="Kingdoms" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("3_pcnxj")
+
+[node name="032-sorcerer" type="Sprite2D" parent="Sprites" index="0"]
+position = Vector2(176, 85)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_2k4cf")
+
+[node name="Area2D" type="Area2D" parent="Sprites/032-sorcerer" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/032-sorcerer/Area2D" index="0"]
+position = Vector2(-2.30774, -2.30769)
+shape = SubResource("RectangleShape2D_3e5th")
+
+[node name="033-swords" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(272, 85)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_o7gri")
+
+[node name="Area2D" type="Area2D" parent="Sprites/033-swords" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/033-swords/Area2D" index="0"]
+position = Vector2(2.30768, -2.30771)
+shape = SubResource("RectangleShape2D_rxvai")
+
+[node name="003-castle" type="Sprite2D" parent="Sprites" index="2"]
+position = Vector2(392, 137)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("6_57oj2")
+
+[node name="Area2D" type="Area2D" parent="Sprites/003-castle" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/003-castle/Area2D" index="0"]
+position = Vector2(-36, 44)
+rotation = 0.502655
+shape = SubResource("CapsuleShape2D_anh0l")
+
+[node name="004-bran-castle" type="Sprite2D" parent="Sprites" index="3"]
+position = Vector2(350, 182)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("7_fv642")
+
+[node name="026-gold" type="Sprite2D" parent="Sprites" index="4"]
+position = Vector2(82, 159)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("8_dogup")
+
+[node name="Area2D" type="Area2D" parent="Sprites/026-gold" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/026-gold/Area2D" index="0"]
+position = Vector2(0.769211, 0.769241)
+shape = SubResource("RectangleShape2D_y1860")

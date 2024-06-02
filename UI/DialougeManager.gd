@@ -8,18 +8,20 @@ var currentLineIndex: int = 0
 var textBox 
 var textBoxPosition : Vector2
 
+var parent
 var sfx : AudioStream
 
 var isActive : bool = false
 var canAdvanceNextLine : bool = false
 
-func startDialogue(position: Vector2, lines : Array[String], speechSfx: AudioStream):
+func startDialogue(position: Vector2, lines : Array[String], speechSfx: AudioStream, _parent = get_tree().current_scene):
 	if isActive:
 		return
 		
 	textBoxPosition = position
 	diaglogLines = lines
 	sfx = speechSfx
+	parent = _parent
 	
 	showTextBox()
 	isActive= true
@@ -30,7 +32,7 @@ func startDialogue(position: Vector2, lines : Array[String], speechSfx: AudioStr
 func showTextBox():
 	textBox = textBoxScene.instantiate()
 	textBox.connect("finishedDisplaying", textBoxOnFinishDisaplay)
-	get_tree().current_scene.add_child(textBox)
+	parent.add_child(textBox)
 	textBox.global_position = textBoxPosition
 	textBox.displayText(diaglogLines[currentLineIndex], sfx)
 	canAdvanceNextLine = false

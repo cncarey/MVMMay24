@@ -12,8 +12,10 @@ func _on_secret_meeting():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["There was a secret meeting called."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["There was a secret meeting called."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R2_secretMeeting", 
@@ -26,8 +28,10 @@ func _on_truse():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["Everyone was tired of fighting and wanted peace."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["Everyone was tired of fighting and wanted peace."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R2_truse", 
@@ -40,8 +44,10 @@ func _on_kingdom1():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["The queen and the royal advisor where there."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["The queen and the royal advisor where there."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R2_kingdom1", 
@@ -54,8 +60,10 @@ func _on_kingdom2():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["The King and his royal advisor where there."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["The King and his royal advisor where there."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R2_kingdom2", 

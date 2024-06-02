@@ -60,4 +60,7 @@ text = "Close"
 
 [node name="Sprites" type="Node2D" parent="."]
 
+[node name="TextboxMarker" type="Marker2D" parent="."]
+position = Vector2(224, 250)
+
 [connection signal="pressed" from="NinePatchRect/MarginContainer/CloseButton" to="." method="onClose"]

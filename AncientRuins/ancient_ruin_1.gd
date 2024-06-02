@@ -14,8 +14,10 @@ func _on_boat_2():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["Those are ___ fishing boats. Why are they in our waters?"], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["Those are ___ fishing boats. Why are they in our waters?"],
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R1_kingdom2", 
@@ -30,8 +32,10 @@ func _on_boat():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["Those are our fishing boats."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["Those are our fishing boats."],
+		speachSound,
+		self)
 		addClue({
 			"id": "R1_kingdom1", 
 			"display" : "Kingdom 1 Name", 
@@ -44,8 +48,10 @@ func _on_empty_nets():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["Our nets look really empty in our own river."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["Our nets look really empty in our own river."], 
+		speachSound,
+		self)
 		addClue({
 			"id": "R1_river", 
 			"display" : "River", 
@@ -58,8 +64,10 @@ func _on_full_nets():
 	
 	else:
 		isPlaying = true
-		DialougeManager.startDialogue(textboxLocation, 
-		["They have way more then their share of fish."], speachSound)
+		DialougeManager.startDialogue(textbox_marker.global_position, 
+		["They have way more then their share of fish."], 
+		speachSound,
+		self)
 		addClue({
 			"id": "R1_overfishing", 
 			"display" : "Overfishing", 

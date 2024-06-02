@@ -8,6 +8,7 @@ extends Node2D
 @onready var switches = $Switches
 @onready var chests = $Chests
 @onready var guardians = $Guardians
+@onready var ruins = $Ruins
 
 @onready var center_container = %CenterContainer
 @onready var pause_menu = $UI/PauseMenu
@@ -104,7 +105,11 @@ func _ready():
 				var _g = g as Guardian
 				_g.OpenPopUp.connect(_on_open_pop_up)
 		
-		#
+		if ruins.get_child_count() > 0:
+			for r in ruins.get_children():
+				var _r = r as Ruin
+				_r.OpenPopUp.connect(_on_open_pop_up)
+		
 		pass
 
 
