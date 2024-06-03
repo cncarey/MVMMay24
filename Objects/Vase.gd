@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var state = 1
+var audioFinished = false
 @onready var ani = $Ani
 @onready var hurtbox_component = $HurtboxComponent
 @onready var flash_component = $FlashComponent
@@ -26,9 +27,15 @@ func onBreak(hb):
 func animtionFinished():
 	match state:
 		2:
-			state = 3
 			hurtbox_component.is_invincible = true
 			ani.hide()
+			state = 3
+			if audioFinished:
+				queue_free()
 			pass
-		
 
+func _on_variable_pitch_audio_stream_player_finished():
+	audioFinished = true
+	if state == 3:
+		queue_free()
+	pass # Replace with function body.

@@ -8,7 +8,7 @@ enum _gemType {gold, purple}
 func _ready():
 	hurtbox_component.hurt.connect(onPickUp.unbind(1))
 	hitbox_component.hit_hurtbox.connect(addGem.unbind(1))
-	super._ready()
+	
 	
 	if gemType == _gemType.gold:
 		ani.play("gold")
@@ -40,6 +40,10 @@ func addGem():
 				["Let me take you back to that statue."], 
 				speachSound)
 			
+	var _c = collected.instantiate()
+	_c.global_position = global_position
+	get_parent().add_child(_c)
+		
 	Global.collectedGems[pickUpId] = true
 	if gemType == _gemType.gold:
 		Global.gems_gold += 1

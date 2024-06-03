@@ -18,16 +18,9 @@ texture = ExtResource("3_crb88")
 region_enabled = true
 region_rect = Rect2(226, 37, 12, 7)
 
-[node name="HurtboxComponent" parent="." index="2"]
-collision_layer = 2
-collision_mask = 0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_8xs21")
-
-[node name="HitboxComponent" parent="." index="3"]
-collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("RectangleShape2D_cgs0v")

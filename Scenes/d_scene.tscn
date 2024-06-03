@@ -143,12 +143,12 @@ libraries = {
 }
 autoplay = "move"
 
+[node name="Ruin" parent="Ruins" index="0" instance=ExtResource("9_jctfi")]
+position = Vector2(649, 400)
+
 [node name="MarginContainer" parent="UI" index="1"]
 offset_top = 50.0
 offset_bottom = 90.0
-
-[node name="Ruin" parent="." index="12" instance=ExtResource("9_jctfi")]
-position = Vector2(649, 400)
 
 [editable path="Twinkles/Twinkle"]
 [editable path="Platform"]

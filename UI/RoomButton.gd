@@ -56,8 +56,11 @@ func _ready():
 			gem.queue_free()
 		if powerUps.all(func(p): return Global.openedChests.has(p) || Global.guardianStatuses.has(p)):
 			power_up.queue_free()
-		if echos.all(func(e): return Global.foundTwinkles.has(e)):
+		if !Global.openedChests.has("EchoShard") || echos.all(func(e): return Global.foundTwinkles.has(e)):
 			echo.queue_free()
+		if !Global.openedChests.has("AntientRuins") || clue.all(func(c): return Global.foundClues.has(c)):
+			clue.queue_free()
+			#TODO make sure we all the clues before we free it
 			
 		self.button_pressed = true
 		disabled =false

@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3e48ewhwy4k2"]
+
+[ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_hk225"]
+[ext_resource type="Script" path="res://AncientRuins/ancient_ruin_4.gd" id="2_8vx4u"]
+[ext_resource type="Texture2D" uid="uid://bk1yhbr6p2ghl" path="res://Assets/MVMSmallIcons/png/030-wizard.png" id="2_cs6li"]
+[ext_resource type="LabelSettings" uid="uid://tv4fg4khvsqf" path="res://Fonts/subtitle_label_settings.tres" id="2_tn4ma"]
+[ext_resource type="Texture2D" uid="uid://mqqwo1q3jxdm" path="res://Assets/MVMSmallIcons/png/025-diamond.png" id="3_unx2u"]
+[ext_resource type="Texture2D" uid="uid://b8mo4jet7sd0e" path="res://Assets/MVMSmallIcons/png/029-spell.png" id="4_i5fnl"]
+[ext_resource type="Texture2D" uid="uid://ch45eyn5vivf0" path="res://Assets/MVMSmallIcons/png/003-castle.png" id="5_ubfjl"]
+[ext_resource type="Texture2D" uid="uid://c5e6ux08286s" path="res://Assets/MVMSmallIcons/png/004-bran-castle.png" id="6_vcbkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xcvh"]
+size = Vector2(143.077, 133.846)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu55v"]
+size = Vector2(155.385, 132.308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tdr5"]
+size = Vector2(150.769, 138.462)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s26gt"]
+radius = 102.222
+height = 328.889
+
+[node name="AncientRuin" instance=ExtResource("1_hk225")]
+script = ExtResource("2_8vx4u")
+
+[node name="Wizard" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_tn4ma")
+
+[node name="Spell" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_tn4ma")
+
+[node name="Kingdoms" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_tn4ma")
+
+[node name="Gems" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+label_settings = ExtResource("2_tn4ma")
+
+[node name="030-wizard" type="Sprite2D" parent="Sprites" index="0"]
+position = Vector2(73, 172)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_cs6li")
+
+[node name="Area2D" type="Area2D" parent="Sprites/030-wizard" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/030-wizard/Area2D" index="0"]
+position = Vector2(-0.769226, 0.769226)
+shape = SubResource("RectangleShape2D_5xcvh")
+
+[node name="025-diamond" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(156, 87)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_unx2u")
+
+[node name="Area2D" type="Area2D" parent="Sprites/025-diamond" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/025-diamond/Area2D" index="0"]
+position = Vector2(0.769226, -1.53844)
+shape = SubResource("RectangleShape2D_iu55v")
+
+[node name="029-spell" type="Sprite2D" parent="Sprites" index="2"]
+position = Vector2(359, 171)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_i5fnl")
+
+[node name="Area2D" type="Area2D" parent="Sprites/029-spell" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/029-spell/Area2D" index="0"]
+position = Vector2(6.15387, 4.61539)
+shape = SubResource("RectangleShape2D_2tdr5")
+
+[node name="003-castle" type="Sprite2D" parent="Sprites" index="3"]
+position = Vector2(292, 68)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_ubfjl")
+
+[node name="Area2D" type="Area2D" parent="Sprites/003-castle" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/003-castle/Area2D" index="0"]
+position = Vector2(-42, 42)
+rotation = 0.502655
+shape = SubResource("CapsuleShape2D_s26gt")
+
+[node name="004-bran-castle" type="Sprite2D" parent="Sprites" index="4"]
+position = Vector2(250, 100)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("6_vcbkp")
+
+[connection signal="mouse_entered" from="Sprites/030-wizard/Area2D" to="." method="_on_wizard"]
+[connection signal="mouse_entered" from="Sprites/025-diamond/Area2D" to="." method="_on_gems"]
+[connection signal="mouse_entered" from="Sprites/029-spell/Area2D" to="." method="_on_spell"]
+[connection signal="mouse_entered" from="Sprites/003-castle/Area2D" to="." method="_on_kingdoms"]

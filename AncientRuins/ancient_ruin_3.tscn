@@ -98,3 +98,8 @@ texture = ExtResource("8_dogup")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/026-gold/Area2D" index="0"]
 position = Vector2(0.769211, 0.769241)
 shape = SubResource("RectangleShape2D_y1860")
+
+[connection signal="mouse_entered" from="Sprites/032-sorcerer/Area2D" to="." method="_on_shadown_man"]
+[connection signal="mouse_entered" from="Sprites/033-swords/Area2D" to="." method="_on_weapons"]
+[connection signal="mouse_entered" from="Sprites/003-castle/Area2D" to="." method="_on_kindgoms"]
+[connection signal="mouse_entered" from="Sprites/026-gold/Area2D" to="." method="_on_money"]

@@ -168,6 +168,7 @@ offset_right = 228.0
 offset_bottom = 194.0
 roomDisplayName = "Room L"
 roomName = "res://Scenes/l_scene.tscn"
+clues = Array[String](["L_Ruin1"])
 neighbors = Array[String](["res://Scenes/i_scene.tscn"])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

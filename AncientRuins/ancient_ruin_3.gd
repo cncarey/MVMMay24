@@ -32,7 +32,9 @@ func _on_money():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["This is a really wealthy kingdom."], speachSound)
+		["This is a really wealthy kingdom."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R3_Money", 
@@ -46,7 +48,9 @@ func _on_weapons():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["They are the only arms dealers for a two month journey."], speachSound)
+		["They are the only arms dealers for a two month journey."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R3_weapons", 
@@ -60,7 +64,9 @@ func _on_kindgoms():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["Both kingdoms talk with the ___ regularly."], speachSound)
+		["Both kingdoms talk with the ___ regularly."], 
+		speachSound,
+		self)
 	
 		addClue({
 			"id": "R3_Both", 

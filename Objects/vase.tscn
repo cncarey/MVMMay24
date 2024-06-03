@@ -89,3 +89,5 @@ scale_amount = Vector2(1.2, 1.2)
 stream = ExtResource("6_lhopb")
 bus = &"SFx"
 script = ExtResource("5_r6h6m")
+
+[connection signal="finished" from="VariablePitchAudioStreamPlayer" to="." method="_on_variable_pitch_audio_stream_player_finished"]
