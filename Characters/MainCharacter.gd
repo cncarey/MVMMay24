@@ -78,15 +78,17 @@ func moveState(delta):
 	if justLeftLedge:
 		coyoteJumpTimer.start()
 	elif justLanded:
-		var _d = dust.instantiate()
-		_d.global_position = dust_marker.global_position
-		get_parent().add_child(_d)
+		createDust()
 		
 	justWallJumped = false
 
 	if Input.is_action_just_pressed("Attack"):
 		state = playerStates.Attack
 
+func createDust():
+	var _d = dust.instantiate()
+	_d.global_position = dust_marker.global_position
+	get_parent().add_child(_d)
 func attackState(delta):
 	#TODO maybe if we jump mid-attack we cancel the attack
 	var direction = Input.get_axis("Left", "Right")
@@ -147,6 +149,7 @@ func handleJump():
 			if Input.is_action_just_pressed("Jump") && airJump && !justWallJumped:
 				velocity.y = JUMP_VELOCITY * 0.8
 				airJump = false
+				createDust()
 			
 func _input(event):
 	if event.is_action_pressed("Down") && is_on_floor() && Global.openedChests.has("TemporalPlunge"):

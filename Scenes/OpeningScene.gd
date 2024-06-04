@@ -3,6 +3,9 @@ extends Node2D
 const textboxLocation = Vector2(224, 250)
 @export var speachSound : AudioStream
 @onready var animation_player = $AnimationPlayer
+@onready var canvas_layer = $CanvasLayer
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +20,8 @@ func _ready():
 		"Then he whispered so only I could hear, \"it's up to you.\"",
 		"A note floated to the floor.",
 		"It was written in some strange writing that I've only seen outside the labyrinth."
-	], speachSound)
+	], speachSound,
+	canvas_layer)
 
 
 func _input(event):

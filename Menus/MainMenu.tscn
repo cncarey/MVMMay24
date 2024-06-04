@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dseph2p8072xn"]
+[gd_scene load_steps=10 format=3 uid="uid://dseph2p8072xn"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_a1v1j"]
 [ext_resource type="Texture2D" uid="uid://ddrn0bni3j7gv" path="res://Assets/MainBackground.png" id="2_6njg3"]
@@ -6,6 +6,8 @@
 [ext_resource type="LabelSettings" uid="uid://e72fm44nmdl5" path="res://Fonts/main_title_label_settings.tres" id="3_osanj"]
 [ext_resource type="LabelSettings" uid="uid://tv4fg4khvsqf" path="res://Fonts/subtitle_label_settings.tres" id="4_m184n"]
 [ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="4_o4k77"]
+[ext_resource type="StyleBox" uid="uid://b05bmisk8x3jo" path="res://Menus/nomalButtonStyleBox.tres" id="6_2bukn"]
+[ext_resource type="StyleBox" uid="uid://cr2h4oawpdqsu" path="res://Menus/hoverButtonStyleBox.tres" id="7_3t812"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="7_6ufjk"]
 
 [node name="MainMenu" type="Control"]
@@ -38,6 +40,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
+theme_override_constants/separation = 9
 
 [node name="Title" type="Label" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
@@ -54,29 +57,49 @@ horizontal_alignment = 1
 [node name="NewGame" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.490196, 0.184314, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.890196, 0.34902, 1)
 theme_override_fonts/font = ExtResource("4_o4k77")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("6_2bukn")
+theme_override_styles/hover = ExtResource("7_3t812")
 text = "Start"
 
 [node name="Continue" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.490196, 0.184314, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.890196, 0.34902, 1)
 theme_override_fonts/font = ExtResource("4_o4k77")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("6_2bukn")
+theme_override_styles/hover = ExtResource("7_3t812")
 text = "Continue"
 
 [node name="Options" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.490196, 0.184314, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.890196, 0.34902, 1)
 theme_override_fonts/font = ExtResource("4_o4k77")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("6_2bukn")
+theme_override_styles/hover = ExtResource("7_3t812")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MainContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.490196, 0.184314, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.890196, 0.34902, 1)
 theme_override_fonts/font = ExtResource("4_o4k77")
 theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("6_2bukn")
+theme_override_styles/hover = ExtResource("7_3t812")
 text = "Quit"
 
 [node name="OptionsContainer" parent="." instance=ExtResource("2_7vbm4")]
@@ -101,7 +124,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
-text = "Version 0.0.2"
+text = "Version 0.0.3"
 label_settings = ExtResource("7_6ufjk")
 horizontal_alignment = 2
 vertical_alignment = 2
