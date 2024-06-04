@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://b86t112og53me"]
+
+[ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_pbbiu"]
+[ext_resource type="Texture2D" uid="uid://dk0bwg3k4u1sa" path="res://Assets/MVMSmallIcons/png/032-sorcerer.png" id="2_am7qh"]
+[ext_resource type="Script" path="res://AncientRuins/ancient_ruin_RH.gd" id="2_wxtw5"]
+[ext_resource type="Texture2D" uid="uid://bw3boaf3v3ikp" path="res://Assets/MVMSmallIcons/png/009-parchment.png" id="3_jpvnk"]
+[ext_resource type="Texture2D" uid="uid://cfvciksxhtayy" path="res://Assets/MVMSmallIcons/png/028-beauty.png" id="4_7xkak"]
+[ext_resource type="Texture2D" uid="uid://c5e6ux08286s" path="res://Assets/MVMSmallIcons/png/004-bran-castle.png" id="5_ffjg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrnbi"]
+size = Vector2(130.769, 135.385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahfe0"]
+size = Vector2(150.769, 116.923)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y74b2"]
+size = Vector2(113.846, 138.462)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvui6"]
+size = Vector2(138.462, 136.923)
+
+[node name="AncientRuin" instance=ExtResource("1_pbbiu")]
+script = ExtResource("2_wxtw5")
+
+[node name="ShadowMan" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="Queen" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="Letter" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="Kingdom2" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="032-sorcerer" type="Sprite2D" parent="Sprites" index="0"]
+position = Vector2(175, 74)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_am7qh")
+
+[node name="Area2D" type="Area2D" parent="Sprites/032-sorcerer" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/032-sorcerer/Area2D" index="0"]
+position = Vector2(0.769165, 0)
+shape = SubResource("RectangleShape2D_qrnbi")
+
+[node name="009-parchment" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(275, 73)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_jpvnk")
+
+[node name="Area2D" type="Area2D" parent="Sprites/009-parchment" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/009-parchment/Area2D" index="0"]
+position = Vector2(0, -3.07692)
+shape = SubResource("RectangleShape2D_ahfe0")
+
+[node name="028-beauty" type="Sprite2D" parent="Sprites" index="2"]
+position = Vector2(104, 167)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_7xkak")
+
+[node name="Area2D" type="Area2D" parent="Sprites/028-beauty" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/028-beauty/Area2D" index="0"]
+position = Vector2(-1.52588e-05, 3.07692)
+shape = SubResource("RectangleShape2D_y74b2")
+
+[node name="004-bran-castle" type="Sprite2D" parent="Sprites" index="3"]
+position = Vector2(351, 157)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_ffjg1")
+
+[node name="Area2D" type="Area2D" parent="Sprites/004-bran-castle" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/004-bran-castle/Area2D" index="0"]
+position = Vector2(3.0769, 2.30769)
+shape = SubResource("RectangleShape2D_tvui6")
+
+[connection signal="mouse_entered" from="Sprites/032-sorcerer/Area2D" to="." method="_on_shadow_man"]
+[connection signal="mouse_entered" from="Sprites/009-parchment/Area2D" to="." method="_on_letter"]
+[connection signal="mouse_entered" from="Sprites/028-beauty/Area2D" to="." method="_on_queen"]
+[connection signal="mouse_entered" from="Sprites/004-bran-castle/Area2D" to="." method="_on_kingdom_2"]

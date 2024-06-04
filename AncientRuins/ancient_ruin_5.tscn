@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcfx42wb1uq5n"]
+
+[ext_resource type="PackedScene" uid="uid://cqk6x0xrtwgm2" path="res://AncientRuins/AncientRuin.tscn" id="1_rqbn1"]
+[ext_resource type="Script" path="res://AncientRuins/ancient_ruin_5.gd" id="2_w6rlv"]
+[ext_resource type="Texture2D" uid="uid://dk0bwg3k4u1sa" path="res://Assets/MVMSmallIcons/png/032-sorcerer.png" id="3_lpv68"]
+[ext_resource type="Texture2D" uid="uid://mqqwo1q3jxdm" path="res://Assets/MVMSmallIcons/png/025-diamond.png" id="4_3sera"]
+[ext_resource type="Texture2D" uid="uid://wva1iis1ufju" path="res://Assets/MVMSmallIcons/png/031-wizard-1.png" id="5_rl5lh"]
+[ext_resource type="Texture2D" uid="uid://ba15a6ulv1y7d" path="res://Assets/MVMSmallIcons/png/stealing.png" id="6_j3scl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75fbf"]
+size = Vector2(144.615, 136.923)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tb6q"]
+size = Vector2(156.923, 133.846)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6431m"]
+size = Vector2(161.538, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udou8"]
+size = Vector2(156.923, 135.385)
+
+[node name="AncientRuin" instance=ExtResource("1_rqbn1")]
+script = ExtResource("2_w6rlv")
+
+[node name="ShadowMan" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="RoyalAdvisor" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="Gem" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="Steal" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "?"
+
+[node name="032-sorcerer" type="Sprite2D" parent="Sprites" index="0"]
+position = Vector2(86, 169)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_lpv68")
+
+[node name="Area2D" type="Area2D" parent="Sprites/032-sorcerer" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/032-sorcerer/Area2D" index="0"]
+position = Vector2(-3.07693, 2.30768)
+shape = SubResource("RectangleShape2D_75fbf")
+
+[node name="025-diamond" type="Sprite2D" parent="Sprites" index="1"]
+position = Vector2(349, 169)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_3sera")
+
+[node name="Area2D" type="Area2D" parent="Sprites/025-diamond" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/025-diamond/Area2D" index="0"]
+position = Vector2(1.53833, 6.92303)
+shape = SubResource("RectangleShape2D_6tb6q")
+
+[node name="031-wizard-1" type="Sprite2D" parent="Sprites" index="2"]
+position = Vector2(280, 80)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("5_rl5lh")
+
+[node name="Area2D" type="Area2D" parent="Sprites/031-wizard-1" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/031-wizard-1/Area2D" index="0"]
+position = Vector2(-2.30771, 0.769234)
+shape = SubResource("RectangleShape2D_6431m")
+
+[node name="Stealing" type="Sprite2D" parent="Sprites" index="3"]
+position = Vector2(155, 83)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("6_j3scl")
+
+[node name="Area2D" type="Area2D" parent="Sprites/Stealing" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Stealing/Area2D" index="0"]
+position = Vector2(4.61539, -6.15385)
+shape = SubResource("RectangleShape2D_udou8")
+
+[connection signal="mouse_entered" from="Sprites/032-sorcerer/Area2D" to="." method="_on_shadow_man"]
+[connection signal="mouse_entered" from="Sprites/025-diamond/Area2D" to="." method="_on_gems"]
+[connection signal="mouse_entered" from="Sprites/031-wizard-1/Area2D" to="." method="_on_royal_advisor"]
+[connection signal="mouse_entered" from="Sprites/Stealing/Area2D" to="." method="_on_stealing"]

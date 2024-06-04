@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhu7ht7cw4dsp"]
+[gd_scene load_steps=10 format=3 uid="uid://dhu7ht7cw4dsp"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_1bexr"]
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="2_0qksl"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_o8xtx"]
 [ext_resource type="PackedScene" uid="uid://ce36676gjyd1v" path="res://Objects/Gem.tscn" id="3_pm5dl"]
+[ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="4_fbhxt"]
+[ext_resource type="PackedScene" uid="uid://b86t112og53me" path="res://AncientRuins/ancient_ruin_RH.tscn" id="5_k3xqp"]
 
 [sub_resource type="Animation" id="Animation_ccd84"]
 length = 0.001
@@ -77,6 +79,11 @@ position = Vector2(146.513, 107.487)
 [node name="Gem" parent="Gems" index="0" instance=ExtResource("3_pm5dl")]
 position = Vector2(443.9, 75.7)
 pickUpId = "I_Gold"
+
+[node name="Ruin" parent="Ruins" index="0" instance=ExtResource("4_fbhxt")]
+position = Vector2(264, 623)
+RuinId = "I_Ruin1"
+ancientRuinPopup = ExtResource("5_k3xqp")
 
 [node name="MovingPlatform" parent="." index="10" instance=ExtResource("2_0qksl")]
 position = Vector2(144, 127.299)
