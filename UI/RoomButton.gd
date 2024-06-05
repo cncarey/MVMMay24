@@ -58,7 +58,7 @@ func _ready():
 			power_up.queue_free()
 		if !Global.openedChests.has("EchoShard") || echos.all(func(e): return Global.foundTwinkles.has(e)):
 			echo.queue_free()
-		if !Global.openedChests.has("AntientRuins") || clue.all(func(c): return Global.foundClues.has(c)):
+		if !Global.openedChests.has("AntientRuins") || clues.all(func(c): return Global.foundClues.has(c)):
 			clue.queue_free()
 			#TODO make sure we all the clues before we free it
 			

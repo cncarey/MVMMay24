@@ -23,6 +23,8 @@ extends Node2D
 @onready var key_container = %KeyContainer
 @onready var gold_container = %GoldContainer
 @onready var purple_container = %PurpleContainer
+@onready var room_name = %RoomName
+@onready var clue_count = %ClueCount
 
 @onready var key_sprite = %KeySprite
 @onready var gold_gem_sprite = %GoldGemSprite
@@ -40,7 +42,10 @@ func _ready():
 	pause_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED	
 	
 	Global.currentLocation = get_tree().current_scene.scene_file_path
-	Global.visitedRooms[Global.currentLocation]= true
+	Global.visitedRooms[Global.currentLocation]= roomName
+	
+	if room_name != null:
+		room_name.text = roomName
 	
 	updateKeyContainer(Global.keys)
 	updateGoldContainer(Global.gems_gold)
@@ -175,6 +180,24 @@ func _on_twinkle_found(switchId):
 				
 func _on_open_pop_up(popup):
 	center_container.add_child(popup)
+	
+	if popup is Power_Up_Modal:
+		pass
+	if popup is AncientRuin:
+		popup.connect("onRuinClose", onRuinClose)
+		pass
+		
+func onRuinClose():
+	if Global.foundClues.size() >= 24:
+		print("Game over")
+		await LevelTransition.fadeToBlack()
+		get_tree().change_scene_to_file("res://Scenes/ClosingScene.tscn")
+		LevelTransition.fadeFromBlack()
+		pass
+	print(str(Global.foundClues.size()))
+	if clue_count != null:
+		clue_count.text = str(Global.foundClues.size()) + " of 24"
+	pass
 
 func _input(event):
 	if event.is_action_pressed("Pause"):

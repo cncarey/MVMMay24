@@ -1,3 +1,4 @@
+class_name Power_Up_Modal
 extends Control
 
 @onready var power_up_title = %PowerUpTitle

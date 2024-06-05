@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=19 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
 [ext_resource type="PackedScene" uid="uid://by52cb0uia3yf" path="res://Characters/MainCharacter.tscn" id="2_o68ig"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_2ltl5"]
+[ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="4_o0cd6"]
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="5_igooa"]
 [ext_resource type="AudioStream" uid="uid://ba0hp7n87plds" path="res://Assets/sounds/Pause.wav" id="6_m8uhd"]
 [ext_resource type="PackedScene" uid="uid://bf0u8fdomeqwh" path="res://UI/map.tscn" id="6_oa3xk"]
@@ -69,23 +70,38 @@ offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="HScrollBar" type="HBoxContainer" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 
-[node name="KeyContainer" type="GridContainer" parent="UI/MarginContainer/HScrollBar"]
+[node name="RoomName" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Room Name"
+label_settings = ExtResource("4_o0cd6")
+
+[node name="HScrollBar" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="KeyContainer" type="GridContainer" parent="UI/MarginContainer/VBoxContainer/HScrollBar"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HScrollBar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/HScrollBar"]
 layout_mode = 2
 
-[node name="GoldContainer" type="GridContainer" parent="UI/MarginContainer/HScrollBar/VBoxContainer"]
+[node name="GoldContainer" type="GridContainer" parent="UI/MarginContainer/VBoxContainer/HScrollBar/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PurpleContainer" type="GridContainer" parent="UI/MarginContainer/HScrollBar/VBoxContainer"]
+[node name="PurpleContainer" type="GridContainer" parent="UI/MarginContainer/VBoxContainer/HScrollBar/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="ClueCount" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 of 24"
+label_settings = ExtResource("4_o0cd6")
 
 [node name="KeySprite" type="TextureRect" parent="UI"]
 unique_name_in_owner = true
