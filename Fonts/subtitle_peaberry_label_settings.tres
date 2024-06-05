@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://7xj2sfcajpbq"]
+
+[ext_resource type="FontFile" uid="uid://cwilhj1hd4do8" path="res://Fonts/PeaberryDoublespace.ttf" id="1_52iqb"]
+
+[resource]
+font = ExtResource("1_52iqb")

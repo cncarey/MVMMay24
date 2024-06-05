@@ -1,7 +1,7 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b4kbn4k1bdngv"]
 
-[ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="1_tkiu6"]
+[ext_resource type="FontFile" uid="uid://cwilhj1hd4do8" path="res://Fonts/PeaberryDoublespace.ttf" id="1_s1yv5"]
 
 [resource]
-font = ExtResource("1_tkiu6")
+font = ExtResource("1_s1yv5")
 font_size = 8

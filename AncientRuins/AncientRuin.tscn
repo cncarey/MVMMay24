@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqk6x0xrtwgm2"]
+[gd_scene load_steps=7 format=3 uid="uid://cqk6x0xrtwgm2"]
 
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="1_lpck2"]
 [ext_resource type="Script" path="res://AncientRuins/AncientRuin.gd" id="1_lwabf"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_xx0kx"]
+[ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="4_24ede"]
+[ext_resource type="StyleBox" uid="uid://b05bmisk8x3jo" path="res://Menus/nomalButtonStyleBox.tres" id="4_rpa7y"]
+[ext_resource type="StyleBox" uid="uid://cr2h4oawpdqsu" path="res://Menus/hoverButtonStyleBox.tres" id="5_m4wh7"]
 
 [node name="AncientRuin" type="CanvasLayer"]
 script = ExtResource("1_lwabf")
@@ -54,6 +57,12 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.490196, 0.184314, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_fonts/font = ExtResource("4_24ede")
+theme_override_styles/normal = ExtResource("4_rpa7y")
+theme_override_styles/hover = ExtResource("5_m4wh7")
 text = "Close"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

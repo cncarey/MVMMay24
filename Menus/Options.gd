@@ -1,5 +1,7 @@
+class_name Options_Menu
 extends MarginContainer
 
+@onready var return_button = $VBoxContainer/ReturnContainer/Button
 
 #sound buses
 @onready var master_bus :int = AudioServer.get_bus_index("Master")
@@ -61,6 +63,8 @@ func sfxVolumeChanged(value: float):
 		AudioServer.set_bus_mute(sfx_bus, false)
 	pass
 
+func grabReturnFocus():
+	return_button.grab_focus()
 
 func return_pressed():
 	returnButton.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbudgpenk7mod"]
+[gd_scene load_steps=18 format=3 uid="uid://bbudgpenk7mod"]
 
 [ext_resource type="Script" path="res://Scenes/scene_template.gd" id="1_63tay"]
 [ext_resource type="PackedScene" uid="uid://cwxqv2deh8hr" path="res://Scenes/tileMap.tscn" id="1_cp7f5"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cxq44ooukv26n" path="res://Menus/Options.tscn" id="5_igooa"]
 [ext_resource type="AudioStream" uid="uid://ba0hp7n87plds" path="res://Assets/sounds/Pause.wav" id="6_m8uhd"]
 [ext_resource type="PackedScene" uid="uid://bf0u8fdomeqwh" path="res://UI/map.tscn" id="6_oa3xk"]
+[ext_resource type="StyleBox" uid="uid://b05bmisk8x3jo" path="res://Menus/nomalButtonStyleBox.tres" id="7_gsnu3"]
+[ext_resource type="FontFile" uid="uid://dudqd12fiexy" path="res://Fonts/Middle.ttf" id="7_uupyx"]
 [ext_resource type="AudioStream" uid="uid://bw021j1p7kcwl" path="res://Assets/sounds/Unpause.wav" id="7_vel1b"]
+[ext_resource type="StyleBox" uid="uid://cr2h4oawpdqsu" path="res://Menus/hoverButtonStyleBox.tres" id="8_mbaog"]
 [ext_resource type="AudioStream" uid="uid://ba0igax8hw3fv" path="res://Assets/sounds/MagicShine.ogg" id="9_o8xb6"]
 [ext_resource type="AudioStream" uid="uid://ba60i5ggykk8h" path="res://Assets/sounds/dorm-door-opening-6038.ogg" id="10_3ib8d"]
 [ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="11_0ysx7"]
@@ -112,7 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.27451, 0.27451, 0.27451, 1)
+color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="PauseCenter" type="CenterContainer" parent="UI/PauseMenu"]
 layout_mode = 0
@@ -151,6 +154,12 @@ theme_override_constants/margin_right = 10
 [node name="MapButton" type="Button" parent="UI/PauseMenu/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_colors/font_focus_color = Color(0.72549, 0.490196, 0.184314, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.992157, 0.890196, 0.34902, 1)
+theme_override_fonts/font = ExtResource("7_uupyx")
+theme_override_styles/normal = ExtResource("7_gsnu3")
+theme_override_styles/hover = ExtResource("8_mbaog")
 text = "Map"
 
 [node name="PauseSound" type="AudioStreamPlayer2D" parent="UI/PauseMenu"]

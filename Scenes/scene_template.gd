@@ -15,7 +15,7 @@ extends Node2D
 @onready var pause_sound = %PauseSound
 @onready var unpause_sound = $UI/UnpauseSound
 @onready var map = %Map
-@onready var options_container = %OptionsContainer
+@onready var options_container : Options_Menu = %OptionsContainer
 @onready var pause_center = $UI/PauseMenu/PauseCenter
 
 @onready var map_button = %MapButton
@@ -33,6 +33,7 @@ extends Node2D
 @onready var mainPlayer = $MainPlayer
 
 @onready var pass_through_sound = $PassThroughSound
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -179,10 +180,17 @@ func _input(event):
 	if event.is_action_pressed("Pause"):
 		pause()
 		pause_sound.play()
+		options_container.grabReturnFocus()
+		
+	if event.is_action_pressed("Map"):
+		pause()
+		pause_sound.play()
+		openMap()
 		
 func pause():
 	get_tree().paused = !get_tree().paused 
 	pause_menu.visible = !pause_menu.visible
+	#.grab_focus()
 	
 func resumePressed():
 	get_tree().paused = false
@@ -199,6 +207,7 @@ func openMap():
 	else:
 		options_container.hide()
 		map_button.text = "Close"
+		map_button.grab_focus()
 		var _map = map.duplicate()
 		pause_center.add_child(_map)
 		_map.visible = true
