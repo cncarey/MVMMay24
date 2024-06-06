@@ -3,6 +3,8 @@ extends Node2D
 @onready var right_sprite = $RightSprite
 @onready var jump_sprite = $JumpSprite
 @onready var pause_sprite = $PauseSprite
+@onready var map_sprite = $MapSprite
+@onready var sword_sprite = $SwordSprite
 
 @export var controlLayout : ControlLayout 
 
@@ -18,6 +20,10 @@ func _ready():
 			jump_sprite.texture = controlLayout.jump
 		if controlLayout.pauseButton != null:
 			pause_sprite.texture = controlLayout.pauseButton
+		if controlLayout.mapButton != null:
+			map_sprite.texture = controlLayout.mapButton
+		if controlLayout.swordButton !=null:
+			sword_sprite.texture = controlLayout.swordButton
 	pass # Replace with function body.
 
 

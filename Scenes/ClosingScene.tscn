@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://1yxrojdoq41t"]
+[gd_scene load_steps=3 format=3 uid="uid://1yxrojdoq41t"]
 
+[ext_resource type="Script" path="res://Scenes/ClosingScene.gd" id="1_u40ef"]
 [ext_resource type="LabelSettings" uid="uid://7xj2sfcajpbq" path="res://Fonts/subtitle_peaberry_label_settings.tres" id="1_udr8m"]
 
 [node name="ClosingScene" type="Node2D"]
+script = ExtResource("1_u40ef")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,7 +17,8 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
-text = "TODO You figured it out. Game over"
+text = "TODO You figured it out. Game over
+Press B to go back to main menu"
 label_settings = ExtResource("1_udr8m")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dfsycr8t565ip"]
+[gd_scene load_steps=23 format=3 uid="uid://dfsycr8t565ip"]
 
 [ext_resource type="Script" path="res://Objects/Twinkle.gd" id="1_alw5w"]
 [ext_resource type="Texture2D" uid="uid://d1hsq6pc8yge" path="res://Assets/Spark.png" id="2_jqe2i"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ba0igax8hw3fv" path="res://Assets/sounds/MagicShine.ogg" id="4_4nlsp"]
 [ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="4_46c5m"]
 [ext_resource type="Texture2D" uid="uid://b76ccydem41at" path="res://Assets/tiles.png" id="5_dojue"]
+[ext_resource type="PackedScene" uid="uid://bvwonuudbdwkk" path="res://Objects/twinkleHighlight.tscn" id="7_yvgay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11rpl"]
 atlas = ExtResource("2_jqe2i")
@@ -167,6 +168,9 @@ visible = false
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8kl4d")
 animation = &"RightDown"
+
+[node name="NinePatchRect" parent="." instance=ExtResource("7_yvgay")]
+visible = false
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

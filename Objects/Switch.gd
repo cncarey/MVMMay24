@@ -21,6 +21,7 @@ func setSwitchStatus(status: bool):
 	
 	Global.setSwitchStatuses(switchId, status)
 	if status:
+		is_invincible = true
 		ani.play("on")
 	else:
 		ani.play("off")
@@ -47,3 +48,4 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("Interact") && isTouching:
 		setSwitchStatus(!isOn)
 		switchToggled.emit(isOn)
+		is_invincible = true

@@ -124,7 +124,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
-text = "Version 0.0.4"
+text = "Version 0.0.5"
 label_settings = ExtResource("7_6ufjk")
 horizontal_alignment = 2
 vertical_alignment = 2

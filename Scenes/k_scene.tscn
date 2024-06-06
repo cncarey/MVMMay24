@@ -58,6 +58,13 @@ position = Vector2(-25.9499, -32.6002)
 [node name="Sign" parent="Twinkles/Twinkle" index="5"]
 position = Vector2(1.10001, -13.7)
 
+[node name="NinePatchRect" parent="Twinkles/Twinkle" index="6"]
+visible = true
+offset_left = -135.0
+offset_top = -68.0
+offset_right = 16.0
+offset_bottom = 26.0
+
 [node name="Switch" parent="Switches" index="0" instance=ExtResource("4_a87qu")]
 position = Vector2(155.5, 104)
 switchId = "K-1"

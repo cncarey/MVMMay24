@@ -76,7 +76,7 @@ layout_mode = 2
 [node name="RoomName" type="Label" parent="UI/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Room Name"
+text = "0 of 24"
 label_settings = ExtResource("4_o0cd6")
 
 [node name="HScrollBar" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
@@ -100,7 +100,6 @@ layout_mode = 2
 [node name="ClueCount" type="Label" parent="UI/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0 of 24"
 label_settings = ExtResource("4_o0cd6")
 
 [node name="KeySprite" type="TextureRect" parent="UI"]

@@ -9,7 +9,8 @@ extends Resource
 @export var cancel: Texture
 @export var dropdown: Texture
 @export var pauseButton: Texture
-
+@export var mapButton: Texture
+@export var swordButton: Texture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -4,6 +4,7 @@ extends HurtboxComponent
 @export var twinkleId: String
 @export var switchId: String
 
+@onready var twinkleArea = $NinePatchRect
 @onready var TouchIndicator = $InteractionIndicator
 @onready var touch_sound = $touchSound
 
@@ -53,6 +54,7 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 	if local_shape_index == 0:
 		isTouchingOuter = true
 		ani.show()
+		twinkleArea.show()
 		if touch_sound != null:
 			touch_sound.play_with_variance()
 			
@@ -66,6 +68,7 @@ func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if local_shape_index == 0:
 		isTouchingOuter = false
 		ani.hide()
+		twinkleArea.hide()
 		#TODO leave sound
 	if local_shape_index == 1:
 		isTouchingInner = false

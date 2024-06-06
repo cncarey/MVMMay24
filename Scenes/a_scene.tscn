@@ -81,7 +81,7 @@ returnDoorId = "G_A-3"
 isOpen = true
 
 [node name="MainPlayer" parent="." index="2"]
-position = Vector2(53.8794, 456.881)
+position = Vector2(34.2096, 461.445)
 
 [node name="Gem_Purple" parent="Gems" index="0" instance=ExtResource("3_uxss0")]
 position = Vector2(43.2386, 43.1133)
@@ -89,7 +89,7 @@ gemType = 1
 pickUpId = "A_Purple"
 
 [node name="TBMarker" parent="Gems/Gem_Purple" index="1"]
-position = Vector2(118.462, 97.4867)
+position = Vector2(-5.28136, 152.035)
 
 [node name="Platform" parent="." index="6" instance=ExtResource("4_rrve2")]
 position = Vector2(635, 136)
@@ -130,12 +130,18 @@ position = Vector2(95, 421)
 position = Vector2(170, 421)
 
 [node name="JumpSprite" type="Sprite2D" parent="Tutorial" index="2"]
-position = Vector2(75, 385)
+position = Vector2(548, 369)
 
 [node name="PauseSprite" type="Sprite2D" parent="Tutorial" index="3"]
-position = Vector2(150, 385)
+position = Vector2(61, 387.447)
 
-[node name="MoveLabel" type="Label" parent="Tutorial" index="4"]
+[node name="MapSprite" type="Sprite2D" parent="Tutorial" index="4"]
+position = Vector2(146.802, 386.745)
+
+[node name="SwordSprite" type="Sprite2D" parent="Tutorial" index="5"]
+position = Vector2(472.193, 393.492)
+
+[node name="MoveLabel" type="Label" parent="Tutorial" index="6"]
 offset_left = 110.0
 offset_top = 413.0
 offset_right = 154.0
@@ -144,20 +150,36 @@ text = "Move
 "
 label_settings = ExtResource("9_6uvci")
 
-[node name="JumpLabel" type="Label" parent="Tutorial" index="5"]
-offset_left = 90.0
-offset_top = 378.0
-offset_right = 135.0
-offset_bottom = 401.0
+[node name="JumpLabel" type="Label" parent="Tutorial" index="7"]
+offset_left = 563.0
+offset_top = 362.0
+offset_right = 608.0
+offset_bottom = 385.0
 text = "Jump"
 label_settings = ExtResource("9_6uvci")
 
-[node name="PauseLabel" type="Label" parent="Tutorial" index="6"]
-offset_left = 165.0
-offset_top = 379.0
-offset_right = 218.0
-offset_bottom = 402.0
+[node name="PauseLabel" type="Label" parent="Tutorial" index="8"]
+offset_left = 76.0
+offset_top = 381.447
+offset_right = 129.0
+offset_bottom = 404.447
 text = "Pause"
+label_settings = ExtResource("9_6uvci")
+
+[node name="MapLabel" type="Label" parent="Tutorial" index="9"]
+offset_left = 161.938
+offset_top = 381.0
+offset_right = 201.938
+offset_bottom = 404.0
+text = "Map"
+label_settings = ExtResource("9_6uvci")
+
+[node name="SwordLabel" type="Label" parent="Tutorial" index="10"]
+offset_left = 429.0
+offset_top = 409.0
+offset_right = 511.0
+offset_bottom = 432.0
+text = "Use Sword"
 label_settings = ExtResource("9_6uvci")
 
 [editable path="Doors/Door_B1"]
