@@ -81,6 +81,7 @@ min_value = -30.0
 max_value = 20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
@@ -91,19 +92,10 @@ label_settings = ExtResource("2_h4cjn")
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
 [node name="ReturnContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 26
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 50
 
 [node name="Button" type="Button" parent="VBoxContainer/ReturnContainer"]

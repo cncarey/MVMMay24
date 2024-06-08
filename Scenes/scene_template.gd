@@ -194,7 +194,7 @@ func onRuinClose():
 		get_tree().change_scene_to_file("res://Scenes/ClosingScene.tscn")
 		LevelTransition.fadeFromBlack()
 		pass
-	print(str(Global.foundClues.size()))
+	
 	if clue_count != null:
 		clue_count.text = str(Global.foundClues.size()) + " of 24"
 	pass
@@ -211,11 +211,17 @@ func _input(event):
 		openMap()
 		
 func pause():
+	if DisplayServer.mouse_get_mode() != DisplayServer.MOUSE_MODE_VISIBLE:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
+	
 	get_tree().paused = !get_tree().paused 
 	pause_menu.visible = !pause_menu.visible
 	#.grab_focus()
 	
 func resumePressed():
+	if DisplayServer.mouse_get_mode() != DisplayServer.MOUSE_MODE_HIDDEN:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
+	
 	get_tree().paused = false
 	unpause_sound.play()
 	pause_menu.visible = !pause_menu.visible

@@ -5,6 +5,8 @@ extends MarginContainer
 @onready var keyboardNext = %keyboardNext
 
 @onready var sfxPlayer: AudioStreamPlayer = $AudioStreamPlayer
+@onready var skip_progress = %skipProgress
+
 
 var MAX_WIDTH = 256
 
@@ -19,6 +21,14 @@ signal finishedDisplaying()
 
 func _ready():
 	self.scale = Vector2.ZERO
+
+func updatSkipProgress(val):
+	skip_progress.value = val
+	
+	if val <= 0:
+		skip_progress.hide()
+	else:
+		skip_progress.show()
 
 func displayText(textToDisplay: String, sfx: AudioStream):
 	text = textToDisplay

@@ -24,9 +24,9 @@ func _ready():
 	canvas_layer)
 
 
-func _input(event):
-	if event.is_action_pressed("Cancel"):
-		startGame()
+#func _input(event):
+#	if event.is_action_pressed("Cancel"):
+#		startGame()
 
 func finishLine(currentLineId: int):
 	

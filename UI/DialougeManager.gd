@@ -44,7 +44,30 @@ signal startNextLine(currentLineIndex)
 func textBoxOnFinishDisaplay():
 	canAdvanceNextLine = true
 	
+@onready var curPress : float = 0.0: 
+	set (value):
+		curPress = value
+		if textBox!= null:
+			textBox.updatSkipProgress(curPress)
+		if curPress > 1.5 && isActive:
+			resetTB()
+			textBox.queue_free()
+			finishedDisplaying.emit()
+			curPress = 0
+		elif !isActive:
+			curPress = 0
+	get:
+		return curPress
+
+func _process(delta):
+	if Input.is_action_pressed("Cancel") && isActive:
+		curPress += delta
+	pass	
+	
 func _unhandled_input(event):
+	if event.is_action_released("Cancel") && isActive:
+		curPress = 0
+	
 	if event.is_action_pressed("Accept") && isActive && canAdvanceNextLine:
 		textBox.queue_free()
 		
@@ -56,9 +79,9 @@ func _unhandled_input(event):
 		else:
 			showTextBox()
 			
-	if event.is_action_pressed("Cancel") && isActive:
-		resetTB()
-		textBox.queue_free()	
+	#if event.is_action_pressed("Cancel") && isActive:
+	#	resetTB()
+	#	textBox.queue_free()	
 
 func resetTB():
 	isActive = false

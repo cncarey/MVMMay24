@@ -10,6 +10,9 @@ var isPlaying = false
 signal onRuinClose()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if DisplayServer.mouse_get_mode() != DisplayServer.MOUSE_MODE_VISIBLE:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
+	
 	DialougeManager.finishedDisplaying.connect(textFininshed)
 	pass #
 
@@ -17,6 +20,9 @@ func textFininshed():
 	isPlaying = false
 	
 func onClose():
+	if DisplayServer.mouse_get_mode() != DisplayServer.MOUSE_MODE_HIDDEN:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
+	
 	onRuinClose.emit()
 	DialougeManager.resetTB()
 	DialougeManager.finishedDisplaying.disconnect(textFininshed)

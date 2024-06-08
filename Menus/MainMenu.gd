@@ -23,6 +23,9 @@ func _process(delta):
 	
 
 func _on_start_pressed():
+	if DisplayServer.mouse_get_mode() != DisplayServer.MOUSE_MODE_HIDDEN:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
+	
 	Global.resetGame()
 	await LevelTransition.fadeToBlack()
 	#TODO go to the opening cut scene
@@ -31,6 +34,9 @@ func _on_start_pressed():
 	pass # Replace with function body.
 
 func _on_continue_pressed():
+	if DisplayServer.mouse_get_mode() != DisplayServer.MOUSE_MODE_HIDDEN:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
+	
 	await LevelTransition.fadeToBlack()
 	get_tree().change_scene_to_file(Global.currentLocation)
 	LevelTransition.fadeFromBlack()

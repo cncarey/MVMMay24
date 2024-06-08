@@ -841,7 +841,7 @@ offset_top = -23.0
 offset_right = 31.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Press 'Space' to advance"
+text = "Press 'Q' to advance"
 label_settings = ExtResource("3_yks8g")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
@@ -858,7 +858,7 @@ theme_override_constants/margin_right = 10
 
 [node name="Label2" type="Label" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-text = "Hold B to skip"
+text = "Hold 'B' to skip"
 label_settings = ExtResource("3_yks8g")
 
 [node name="003-castle" type="Sprite2D" parent="CanvasLayer"]
