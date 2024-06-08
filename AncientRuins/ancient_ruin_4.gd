@@ -15,7 +15,7 @@ func _on_wizard():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["."], 
+		["That is one powerful wizard."], 
 		speachSound,
 		self)
 	
@@ -31,7 +31,7 @@ func _on_spell():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["."], 
+		["These gems have special powers."], 
 		speachSound,
 		self)
 	
@@ -47,7 +47,7 @@ func _on_kingdoms():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["."], 
+		["It looks like there's one foe each kingdom."], 
 		speachSound,
 		self)
 	
@@ -63,7 +63,7 @@ func _on_gems():
 	else:
 		isPlaying = true
 		DialougeManager.startDialogue(textbox_marker.global_position, 
-		["."], 
+		["They are so beautiful; I feel at peace."], 
 		speachSound,
 		self)
 	
