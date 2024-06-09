@@ -93,11 +93,18 @@ position = Vector2(144, 127.299)
 [node name="MovingPlatform_K-1" parent="." index="11" instance=ExtResource("2_0qksl")]
 position = Vector2(563, 125.299)
 switchId = "K-1"
+platformText = "pmqe"
 
 [node name="AnimationPlayer" parent="MovingPlatform_K-1" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_a722x")
 }
+
+[node name="SwitchLabel" parent="MovingPlatform_K-1" index="2"]
+offset_left = -20.0
+offset_top = 368.701
+offset_right = 20.0
+offset_bottom = 391.701
 
 [node name="MovingPlatform2" parent="." index="12" instance=ExtResource("2_0qksl")]
 position = Vector2(145, 205.299)

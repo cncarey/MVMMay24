@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://1vnf1art3bif"]
+[gd_scene load_steps=9 format=3 uid="uid://1vnf1art3bif"]
 
 [ext_resource type="Script" path="res://Objects/Switch.gd" id="1_q2bh7"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="2_3u4xv"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="2_dg8vk"]
+[ext_resource type="LabelSettings" uid="uid://iuvd7pba7jab" path="res://Fonts/switch_frenger_label_settings.tres" id="4_x5vqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfm7u"]
 atlas = ExtResource("2_dg8vk")
@@ -51,6 +52,13 @@ position = Vector2(-0.0371399, -31.0729)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_f8abr")
+
+[node name="PlatformLabel" type="Label" parent="."]
+offset_left = -12.1236
+offset_top = -25.5322
+offset_right = 27.8764
+offset_bottom = -2.53218
+label_settings = ExtResource("4_x5vqf")
 
 [connection signal="body_entered" from="." to="." method="switchEntered"]
 [connection signal="body_exited" from="." to="." method="switchExited"]

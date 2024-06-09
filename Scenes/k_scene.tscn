@@ -68,5 +68,6 @@ offset_bottom = 26.0
 [node name="Switch" parent="Switches" index="0" instance=ExtResource("4_a87qu")]
 position = Vector2(155.5, 104)
 switchId = "K-1"
+switchText = "pmqe"
 
 [editable path="Twinkles/Twinkle"]

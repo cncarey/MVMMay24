@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqw18lrqw3xa5"]
+[gd_scene load_steps=7 format=3 uid="uid://bqw18lrqw3xa5"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_068gq"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_1om5t"]
 [ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="3_xqsce"]
 [ext_resource type="PackedScene" uid="uid://b3e48ewhwy4k2" path="res://AncientRuins/ancient_ruin_4.tscn" id="4_iosrr"]
+[ext_resource type="PackedScene" uid="uid://d1vxi4wu8m6g8" path="res://Characters/Bat.tscn" id="5_ixrmb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vq1t"]
+size = Vector2(38, 320)
 
 [node name="SceneTemplate" instance=ExtResource("1_068gq")]
 roomName = "Room H"
@@ -27,3 +31,21 @@ position = Vector2(172.66, 308.891)
 position = Vector2(292, 336)
 RuinId = "H_Ruin1"
 ancientRuinPopup = ExtResource("4_iosrr")
+
+[node name="Bat" parent="." index="14" instance=ExtResource("5_ixrmb")]
+position = Vector2(51, 44)
+
+[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
+position = Vector2(86, 150)
+shape = SubResource("RectangleShape2D_2vq1t")
+
+[node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
+position = Vector2(141.8, 292.2)
+
+[node name="Marker2D2" type="Marker2D" parent="Bat/randPonits" index="1"]
+position = Vector2(316.8, 300.2)
+
+[node name="Marker2D3" type="Marker2D" parent="Bat/randPonits" index="2"]
+position = Vector2(432.8, 300.2)
+
+[editable path="Bat"]

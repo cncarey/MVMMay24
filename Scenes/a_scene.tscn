@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://33p72yt5hohm"]
+[gd_scene load_steps=14 format=3 uid="uid://33p72yt5hohm"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_iqbdi"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_kti2w"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Tutorial.gd" id="6_aqrxp"]
 [ext_resource type="Resource" uid="uid://nox2ourmpdho" path="res://Fonts/arrowsLayout.tres" id="7_a3e30"]
 [ext_resource type="LabelSettings" uid="uid://7xj2sfcajpbq" path="res://Fonts/subtitle_peaberry_label_settings.tres" id="9_6uvci"]
+[ext_resource type="PackedScene" uid="uid://d1vxi4wu8m6g8" path="res://Characters/Bat.tscn" id="9_bclls"]
 
 [sub_resource type="Animation" id="Animation_xvh0h"]
 length = 0.001
@@ -46,6 +47,9 @@ _data = {
 "RESET": SubResource("Animation_xvh0h"),
 "move": SubResource("Animation_wjm5v")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrory"]
+size = Vector2(110, 289)
 
 [node name="SceneA" instance=ExtResource("1_iqbdi")]
 roomName = "Room A"
@@ -94,12 +98,19 @@ position = Vector2(-5.28136, 152.035)
 [node name="Platform" parent="." index="6" instance=ExtResource("4_rrve2")]
 position = Vector2(635, 136)
 switchId = "C-1"
+platformText = "aklm"
 
 [node name="AnimationPlayer" parent="Platform" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_sp5dr")
 }
 autoplay = "RESET"
+
+[node name="SwitchLabel" parent="Platform" index="2"]
+offset_left = -23.0
+offset_top = 9.0
+offset_right = 17.0
+offset_bottom = 32.0
 
 [node name="MovingPlatform" parent="." index="11" instance=ExtResource("4_rrve2")]
 position = Vector2(897, 420)
@@ -182,6 +193,23 @@ offset_bottom = 432.0
 text = "Use Sword"
 label_settings = ExtResource("9_6uvci")
 
+[node name="Bat" parent="." index="17" instance=ExtResource("9_bclls")]
+position = Vector2(829, 28)
+
+[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
+position = Vector2(-48, 134.5)
+shape = SubResource("RectangleShape2D_qrory")
+
+[node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
+position = Vector2(-762.2, 249.8)
+
+[node name="Marker2D2" type="Marker2D" parent="Bat/randPonits" index="1"]
+position = Vector2(-254.6, 415.2)
+
+[node name="Marker2D3" type="Marker2D" parent="Bat/randPonits" index="2"]
+position = Vector2(48.4, 342.2)
+
 [editable path="Doors/Door_B1"]
 [editable path="Gems/Gem_Purple"]
 [editable path="Platform"]
+[editable path="Bat"]

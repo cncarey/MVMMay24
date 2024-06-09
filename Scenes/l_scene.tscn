@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hmdlubeffjri"]
+[gd_scene load_steps=12 format=3 uid="uid://hmdlubeffjri"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_rjwxq"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_xacuq"]
@@ -8,10 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cju7nviejjko6" path="res://Objects/ruin.tscn" id="6_7nhib"]
 [ext_resource type="PackedScene" uid="uid://d0t8ckn08e6r1" path="res://AncientRuins/ancient_ruin_1.tscn" id="7_bw77q"]
 [ext_resource type="PackedScene" uid="uid://0nbacdcey4ei" path="res://Objects/vase.tscn" id="8_gw3l3"]
+[ext_resource type="PackedScene" uid="uid://d1vxi4wu8m6g8" path="res://Characters/Bat.tscn" id="9_m4yyc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psymo"]
 atlas = ExtResource("5_bfhc7")
 region = Rect2(304, 161, 14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opssu"]
+size = Vector2(38, 207)
 
 [node name="SceneTemplate" instance=ExtResource("1_rjwxq")]
 roomName = "Room L"
@@ -55,5 +59,23 @@ position = Vector2(309.289, 248.777)
 [node name="Vase3" parent="Vases" index="2" instance=ExtResource("8_gw3l3")]
 position = Vector2(150.268, 392.617)
 
-[node name="ClueCount" parent="UI/MarginContainer/VBoxContainer" index="2"]
-text = ""
+[node name="Bat" parent="." index="14" instance=ExtResource("9_m4yyc")]
+position = Vector2(294, 59)
+
+[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
+position = Vector2(-9, 93.5)
+shape = SubResource("RectangleShape2D_opssu")
+
+[node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
+position = Vector2(-198.141, 155.267)
+
+[node name="Marker2D2" type="Marker2D" parent="Bat/randPonits" index="1"]
+position = Vector2(-52.4774, 257.798)
+
+[node name="Marker2D3" type="Marker2D" parent="Bat/randPonits" index="2"]
+position = Vector2(70.2056, 130.872)
+
+[node name="Marker2D4" type="Marker2D" parent="Bat/randPonits" index="3"]
+position = Vector2(407.92, 41.2107)
+
+[editable path="Bat"]

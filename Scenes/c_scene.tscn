@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c03qwkr3pe87i"]
+[gd_scene load_steps=13 format=3 uid="uid://c03qwkr3pe87i"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_rh8ry"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_jv3lm"]
@@ -7,12 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="4_o8iq5"]
 [ext_resource type="PackedScene" uid="uid://1vnf1art3bif" path="res://Objects/Switch.tscn" id="6_4km28"]
 [ext_resource type="PackedScene" uid="uid://0nbacdcey4ei" path="res://Objects/vase.tscn" id="7_sxqfc"]
+[ext_resource type="PackedScene" uid="uid://d1vxi4wu8m6g8" path="res://Characters/Bat.tscn" id="8_fl114"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vn81"]
 size = Vector2(419, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjldx"]
 size = Vector2(32, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_603o1"]
+size = Vector2(147, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_on1yv"]
+size = Vector2(18, 59)
 
 [node name="SceneC" instance=ExtResource("1_rh8ry")]
 roomName = "Room C"
@@ -87,6 +94,7 @@ position = Vector2(784.9, 297.9)
 [node name="Switch" parent="Switches" index="0" instance=ExtResource("6_4km28")]
 position = Vector2(796, 72)
 switchId = "C-1"
+switchText = "aklm"
 
 [node name="Vase" parent="Vases" index="0" instance=ExtResource("7_sxqfc")]
 position = Vector2(256.843, 296.244)
@@ -118,4 +126,41 @@ position = Vector2(854.648, 423.75)
 [node name="Vase10" parent="Vases" index="9" instance=ExtResource("7_sxqfc")]
 position = Vector2(835.148, 424.5)
 
+[node name="Bat" parent="." index="17" instance=ExtResource("8_fl114")]
+position = Vector2(347, 234)
+
+[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
+position = Vector2(63.5, -28.5)
+shape = SubResource("RectangleShape2D_603o1")
+
+[node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
+position = Vector2(-281.5, -75.5)
+
+[node name="Marker2D2" type="Marker2D" parent="Bat/randPonits" index="1"]
+position = Vector2(222, -194.5)
+
+[node name="Marker2D3" type="Marker2D" parent="Bat/randPonits" index="2"]
+position = Vector2(-91, 242.5)
+
+[node name="Marker2D4" type="Marker2D" parent="Bat/randPonits" index="3"]
+position = Vector2(287, 174)
+
+[node name="Bat2" parent="." index="18" instance=ExtResource("8_fl114")]
+position = Vector2(114, 379)
+
+[node name="CollisionShape2D" parent="Bat2/HurtboxComponent" index="0"]
+position = Vector2(-1, 19.5)
+shape = SubResource("RectangleShape2D_on1yv")
+
+[node name="Marker2D" type="Marker2D" parent="Bat2/randPonits" index="0"]
+position = Vector2(-90.5, 15.5)
+
+[node name="Marker2D2" type="Marker2D" parent="Bat2/randPonits" index="1"]
+position = Vector2(167.5, -130)
+
+[node name="Marker2D3" type="Marker2D" parent="Bat2/randPonits" index="2"]
+position = Vector2(217, 23)
+
 [editable path="Twinkles/Twinkle"]
+[editable path="Bat"]
+[editable path="Bat2"]

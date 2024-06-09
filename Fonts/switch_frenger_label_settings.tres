@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://iuvd7pba7jab"]
+
+[ext_resource type="FontFile" uid="uid://cxvm01563ejp" path="res://Fonts/FrengerType.otf" id="1_hqleu"]
+
+[resource]
+font = ExtResource("1_hqleu")

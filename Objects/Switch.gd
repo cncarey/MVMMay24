@@ -2,7 +2,9 @@ class_name Switch
 extends HurtboxComponent
 
 @export var switchId: String
+@export var switchText: String
 @onready var ani = $AnimatedSprite2D
+@onready var platform_label = $PlatformLabel
 
 @onready var TouchIndicator = $InteractionIndicator
 var isTouching : bool = false
@@ -12,6 +14,8 @@ signal switchToggled(isOn)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if platform_label!= null:
+		platform_label.text = switchText
 	if Global.foundSwitches.has(switchId):
 		if Global.switchStatuses.has(switchId):
 			setSwitchStatus(Global.switchStatuses[switchId])

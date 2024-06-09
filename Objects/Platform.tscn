@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr0hi22acwy8h"]
+[gd_scene load_steps=5 format=3 uid="uid://dr0hi22acwy8h"]
 
 [ext_resource type="Texture2D" uid="uid://u44eu675e5ey" path="res://Assets/ruinsTiles.png" id="1_k1fnq"]
 [ext_resource type="Script" path="res://Objects/Platform.gd" id="1_uepxw"]
+[ext_resource type="LabelSettings" uid="uid://iuvd7pba7jab" path="res://Fonts/switch_frenger_label_settings.tres" id="3_3uc48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xao8l"]
 size = Vector2(62, 5)
@@ -22,3 +23,8 @@ shape = SubResource("RectangleShape2D_xao8l")
 one_way_collision = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="SwitchLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = ExtResource("3_3uc48")

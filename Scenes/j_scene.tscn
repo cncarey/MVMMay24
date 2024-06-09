@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://w2q6aty5q84t"]
+[gd_scene load_steps=13 format=3 uid="uid://w2q6aty5q84t"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_3fg1r"]
 [ext_resource type="PackedScene" uid="uid://dr0hi22acwy8h" path="res://Objects/Platform.tscn" id="2_6cp7a"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_si6oq"]
 [ext_resource type="PackedScene" uid="uid://dfsycr8t565ip" path="res://Objects/Twinkle.tscn" id="3_fjh2v"]
 [ext_resource type="PackedScene" uid="uid://1vnf1art3bif" path="res://Objects/Switch.tscn" id="4_g8420"]
+[ext_resource type="PackedScene" uid="uid://d1vxi4wu8m6g8" path="res://Characters/Bat.tscn" id="6_xca32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcqcr"]
 size = Vector2(288, 200)
@@ -50,6 +51,9 @@ _data = {
 "move": SubResource("Animation_wpb5s")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwnvf"]
+size = Vector2(238, 476)
+
 [node name="SceneTemplate" instance=ExtResource("1_3fg1r")]
 roomName = "Room J"
 
@@ -72,7 +76,7 @@ doorId = "J_K-1"
 returnDoorId = "K_J-2"
 
 [node name="MainPlayer" parent="." index="2"]
-position = Vector2(358.256, 1368.92)
+position = Vector2(413.2, 1374.2)
 
 [node name="Twinkle" parent="Twinkles" index="0" instance=ExtResource("3_fjh2v")]
 position = Vector2(155.369, 961.859)
@@ -102,15 +106,23 @@ offset_bottom = 192.0
 [node name="Switch" parent="Switches" index="0" instance=ExtResource("4_g8420")]
 position = Vector2(505.812, 567.444)
 switchId = "J-1"
+switchText = "tgin"
 
 [node name="MovingPlatform_J-1" parent="." index="10" instance=ExtResource("2_6cp7a")]
 position = Vector2(529, 165)
 switchId = "J-1"
+platformText = "tgin"
 
 [node name="AnimationPlayer" parent="MovingPlatform_J-1" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_mwg2o")
 }
+
+[node name="SwitchLabel" parent="MovingPlatform_J-1" index="2"]
+offset_left = -414.5
+offset_top = 169.902
+offset_right = -374.5
+offset_bottom = 192.902
 
 [node name="MovingPlatform2" parent="." index="11" instance=ExtResource("2_6cp7a")]
 position = Vector2(328, 576)
@@ -130,5 +142,25 @@ position = Vector2(341.992, 1157.64)
 [node name="MovingPlatform7" parent="." index="16" instance=ExtResource("2_6cp7a")]
 position = Vector2(194.207, 1285.63)
 
+[node name="Bat" parent="." index="21" instance=ExtResource("6_xca32")]
+position = Vector2(216, 1115)
+
+[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
+position = Vector2(34, 53)
+shape = SubResource("RectangleShape2D_mwnvf")
+
+[node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
+position = Vector2(-106.8, 243.702)
+
+[node name="Marker2D2" type="Marker2D" parent="Bat/randPonits" index="1"]
+position = Vector2(-52.3, -249.298)
+
+[node name="Marker2D3" type="Marker2D" parent="Bat/randPonits" index="2"]
+position = Vector2(124.7, -237.298)
+
+[node name="Marker2D4" type="Marker2D" parent="Bat/randPonits" index="3"]
+position = Vector2(213.7, 185.202)
+
 [editable path="Twinkles/Twinkle"]
 [editable path="MovingPlatform_J-1"]
+[editable path="Bat"]
