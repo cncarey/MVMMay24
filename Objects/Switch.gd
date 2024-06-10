@@ -33,10 +33,12 @@ func setSwitchStatus(status: bool):
 func isNotIntractable():
 	is_invincible = true
 	ani.hide()
+	platform_label.hide()
 
 func isIntractable():
 	is_invincible = false
 	ani.show()
+	platform_label.show()
 	
 func switchEntered(body):
 	isTouching = true

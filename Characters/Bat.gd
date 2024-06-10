@@ -1,7 +1,6 @@
 extends Node2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var rand_ponits = $randPonits
-@onready var timer = $Timer
 
 var seen = false
 

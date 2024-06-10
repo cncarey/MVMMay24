@@ -47,6 +47,9 @@ func _ready():
 	if room_name != null:
 		room_name.text = roomName
 	
+	if Global.openedChests.has("AntientRuins"):
+		updateClues()
+	
 	updateKeyContainer(Global.keys)
 	updateGoldContainer(Global.gems_gold)
 	updatePurpleContainer(Global.gems_purple)
@@ -193,10 +196,12 @@ func onRuinClose():
 		await LevelTransition.fadeToBlack()
 		get_tree().change_scene_to_file("res://Scenes/ClosingScene.tscn")
 		LevelTransition.fadeFromBlack()
-		pass
 	
+	updateClues()
+	
+func updateClues():
 	if clue_count != null:
-		clue_count.text = str(Global.foundClues.size()) + " of 24"
+		clue_count.text = str(Global.foundClues.size()) + " of 24 Clues"
 	pass
 
 func _input(event):

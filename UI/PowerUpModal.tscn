@@ -1,15 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://byip7yy6o7w7k"]
+[gd_scene load_steps=7 format=3 uid="uid://byip7yy6o7w7k"]
 
 [ext_resource type="Script" path="res://UI/PowerUpModal.gd" id="1_2npl6"]
 [ext_resource type="Texture2D" uid="uid://c1f661njoru5f" path="res://Assets/divider.png" id="1_nsjcs"]
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="2_novf4"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_tb42u"]
 [ext_resource type="LabelSettings" uid="uid://lyux8pgux32t" path="res://Fonts/title_label_settings.tres" id="4_rgjtt"]
-[ext_resource type="Texture2D" uid="uid://durcx6wrr1k14" path="res://Assets/tilemap_white_packed.png" id="6_yebfa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3rry"]
-atlas = ExtResource("6_yebfa")
-region = Rect2(370, 194, 11, 11)
+[ext_resource type="PackedScene" uid="uid://diiufr8xsxb2e" path="res://Objects/B_AdvaceIcon.tscn" id="6_plolo"]
 
 [node name="PowerUpModal" type="MarginContainer"]
 script = ExtResource("1_2npl6")
@@ -104,5 +100,5 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-texture = SubResource("AtlasTexture_r3rry")
+[node name="InteractionIndicator" parent="Control" instance=ExtResource("6_plolo")]
+position = Vector2(3, 3)

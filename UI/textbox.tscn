@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://UI/Textbox.gd" id="1_3b5hn"]
 [ext_resource type="Texture2D" uid="uid://dn75uv8gri3sp" path="res://Assets/panel-border.png" id="2_dpu5i"]
 [ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="2_pcbtj"]
-[ext_resource type="PackedScene" uid="uid://cm7niitqdtly8" path="res://Objects/AdvaceIcon.tscn" id="3_rco6o"]
+[ext_resource type="PackedScene" uid="uid://cm7niitqdtly8" path="res://Objects/Q_AdvaceIcon.tscn" id="3_7quub"]
 [ext_resource type="LabelSettings" uid="uid://b4kbn4k1bdngv" path="res://Fonts/default_label_settings.tres" id="3_upwlo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_was6q"]
@@ -50,7 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="keyboardNext" parent="NinePatchRect/Control" instance=ExtResource("3_rco6o")]
+[node name="keyboardNext" parent="NinePatchRect/Control" instance=ExtResource("3_7quub")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(2, 2)
