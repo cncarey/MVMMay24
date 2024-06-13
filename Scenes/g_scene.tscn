@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2cbxb2x6iny6"]
+[gd_scene load_steps=14 format=3 uid="uid://c2cbxb2x6iny6"]
 
 [ext_resource type="PackedScene" uid="uid://bbudgpenk7mod" path="res://Scenes/scene_template.tscn" id="1_mkkib"]
 [ext_resource type="PackedScene" uid="uid://bge1gm6xfqgal" path="res://Objects/Door.tscn" id="2_5kh7u"]
@@ -16,6 +16,9 @@ size = Vector2(428, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjhm7"]
 size = Vector2(23.6681, 34.8737)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc1kc"]
+size = Vector2(54, 201)
 
 [node name="SceneTemplate" instance=ExtResource("1_mkkib")]
 roomName = "Room G"
@@ -130,6 +133,10 @@ position = Vector2(357.552, 968.664)
 
 [node name="Bat" parent="." index="19" instance=ExtResource("9_amqhh")]
 position = Vector2(667, 644)
+
+[node name="CollisionShape2D" parent="Bat/Area2D" index="0"]
+position = Vector2(5, 89.5)
+shape = SubResource("RectangleShape2D_lc1kc")
 
 [node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
 position = Vector2(-542, 308.7)

@@ -37,3 +37,7 @@ func addClue(clue, label: Label):
 			Global.foundClues[clue["id"]] = clue
 	# id, display text, part of speach
 	pass
+	
+func checkClue(clueId: String, value: String, label: Label):
+	if Global.foundClues.has(clueId):
+		label.text = value

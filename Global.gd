@@ -13,11 +13,11 @@ var currentLocation : String = ""
 var lastLocation: String = ""
 var visitedRooms : Dictionary = {}
 var openedDoors : Dictionary = {}
-var openedChests : Dictionary = {} #{"DoubleJump": true, "TemporalPlunge": true, "AntientRuins": true}
+var openedChests : Dictionary = {"DoubleJump": true, "TemporalPlunge": true, "AntientRuins": true}
 var collectedKeys : Dictionary = {}
 var collectedGems : Dictionary = {}
 var foundSwitches : Dictionary = {}
-var guardianStatuses : Dictionary = {} # {"TemporalPlunge": true, "AntientRuins": true}
+var guardianStatuses : Dictionary = {"TemporalPlunge": true, "AntientRuins": true}
 var foundTwinkles: Dictionary = {}
 var foundClues: Dictionary = {}
 

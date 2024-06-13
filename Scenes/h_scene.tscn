@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b3e48ewhwy4k2" path="res://AncientRuins/ancient_ruin_4.tscn" id="4_iosrr"]
 [ext_resource type="PackedScene" uid="uid://d1vxi4wu8m6g8" path="res://Characters/Bat.tscn" id="5_ixrmb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vq1t"]
-size = Vector2(38, 320)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tcpk"]
+size = Vector2(25, 318)
 
 [node name="SceneTemplate" instance=ExtResource("1_068gq")]
 roomName = "Room H"
@@ -37,9 +37,9 @@ ancientRuinPopup = ExtResource("4_iosrr")
 [node name="Bat" parent="." index="14" instance=ExtResource("5_ixrmb")]
 position = Vector2(51, 44)
 
-[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
-position = Vector2(86, 150)
-shape = SubResource("RectangleShape2D_2vq1t")
+[node name="CollisionShape2D" parent="Bat/Area2D" index="0"]
+position = Vector2(74.5, 149)
+shape = SubResource("RectangleShape2D_3tcpk")
 
 [node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
 position = Vector2(141.8, 292.2)

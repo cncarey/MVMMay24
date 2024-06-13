@@ -48,8 +48,8 @@ _data = {
 "move": SubResource("Animation_wjm5v")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrory"]
-size = Vector2(110, 289)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6fq"]
+size = Vector2(112, 289)
 
 [node name="SceneA" instance=ExtResource("1_iqbdi")]
 roomName = "Room A"
@@ -196,9 +196,9 @@ label_settings = ExtResource("9_6uvci")
 [node name="Bat" parent="." index="17" instance=ExtResource("9_bclls")]
 position = Vector2(829, 28)
 
-[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
-position = Vector2(-48, 134.5)
-shape = SubResource("RectangleShape2D_qrory")
+[node name="CollisionShape2D" parent="Bat/Area2D" index="0"]
+position = Vector2(-49, 134.5)
+shape = SubResource("RectangleShape2D_1x6fq")
 
 [node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
 position = Vector2(-762.2, 249.8)

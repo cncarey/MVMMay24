@@ -1,7 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://d1vxi4wu8m6g8"]
+[gd_scene load_steps=32 format=3 uid="uid://d1vxi4wu8m6g8"]
 
 [ext_resource type="Script" path="res://Characters/Bat.gd" id="1_s7ner"]
-[ext_resource type="Script" path="res://Components/hurtbox_component.gd" id="1_t3cw5"]
 [ext_resource type="Texture2D" uid="uid://b3u4nc6wn5ko7" path="res://Assets/BatFlying.png" id="2_6acvo"]
 [ext_resource type="Texture2D" uid="uid://dox4un34tngno" path="res://Assets/BatIdle.png" id="2_x1usp"]
 [ext_resource type="Texture2D" uid="uid://bchfknoh5aej5" path="res://Assets/BatCeilingOut.png" id="4_lb8ai"]
@@ -209,12 +208,11 @@ animations = [{
 [node name="Bat" type="Node2D"]
 script = ExtResource("1_s7ner")
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_t3cw5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -224,5 +222,5 @@ autoplay = "idle"
 
 [node name="randPonits" type="Node2D" parent="."]
 
-[connection signal="body_entered" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_hurtbox_component_hurt"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="leftCeiling"]

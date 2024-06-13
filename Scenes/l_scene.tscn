@@ -14,8 +14,8 @@
 atlas = ExtResource("5_bfhc7")
 region = Rect2(304, 161, 14, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_opssu"]
-size = Vector2(38, 207)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o22pn"]
+size = Vector2(16, 206)
 
 [node name="SceneTemplate" instance=ExtResource("1_rjwxq")]
 roomName = "Room L"
@@ -63,9 +63,9 @@ position = Vector2(150.268, 392.617)
 [node name="Bat" parent="." index="14" instance=ExtResource("9_m4yyc")]
 position = Vector2(294, 59)
 
-[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
-position = Vector2(-9, 93.5)
-shape = SubResource("RectangleShape2D_opssu")
+[node name="CollisionShape2D" parent="Bat/Area2D" index="0"]
+position = Vector2(-2, 93)
+shape = SubResource("RectangleShape2D_o22pn")
 
 [node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
 position = Vector2(-198.141, 155.267)

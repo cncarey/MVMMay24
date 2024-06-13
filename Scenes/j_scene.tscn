@@ -52,8 +52,8 @@ _data = {
 "move": SubResource("Animation_wpb5s")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwnvf"]
-size = Vector2(238, 476)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttm6y"]
+size = Vector2(23, 304)
 
 [node name="SceneTemplate" instance=ExtResource("1_3fg1r")]
 roomName = "Room J"
@@ -181,9 +181,9 @@ position = Vector2(241.55, 156.25)
 [node name="Bat" parent="." index="21" instance=ExtResource("6_xca32")]
 position = Vector2(216, 1115)
 
-[node name="CollisionShape2D" parent="Bat/HurtboxComponent" index="0"]
-position = Vector2(34, 53)
-shape = SubResource("RectangleShape2D_mwnvf")
+[node name="CollisionShape2D" parent="Bat/Area2D" index="0"]
+position = Vector2(1.5, 142)
+shape = SubResource("RectangleShape2D_ttm6y")
 
 [node name="Marker2D" type="Marker2D" parent="Bat/randPonits" index="0"]
 position = Vector2(-106.8, 243.702)

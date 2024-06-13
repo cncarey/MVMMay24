@@ -25,9 +25,11 @@ script = ExtResource("2_mtwcm")
 
 [node name="SecretMeeting" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="0"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 14)
 layout_mode = 2
 text = "?"
 label_settings = ExtResource("3_8qk5k")
+autowrap_mode = 2
 
 [node name="Treaty" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
@@ -37,15 +39,21 @@ label_settings = ExtResource("3_8qk5k")
 
 [node name="Kingdom1" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(55, 14)
 layout_mode = 2
 text = "?"
 label_settings = ExtResource("3_8qk5k")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Kingdom2" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer" index="3"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(55, 14)
 layout_mode = 2
 text = "?"
 label_settings = ExtResource("3_8qk5k")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="036-group-discussion" type="Sprite2D" parent="Sprites" index="0"]
 position = Vector2(170, 87)
