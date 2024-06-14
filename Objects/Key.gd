@@ -13,6 +13,7 @@ func onPickUp():
 func addKey():	
 	var _c = collected.instantiate()
 	_c.global_position = global_position
+	_c.stream = sound
 	get_parent().add_child(_c)
 	
 	Global.collectedKeys[pickUpId] = true

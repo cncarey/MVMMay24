@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0l5is5q2f0au"]
+[gd_scene load_steps=7 format=3 uid="uid://b0l5is5q2f0au"]
 
 [ext_resource type="PackedScene" uid="uid://diy8qh6tf7sco" path="res://Objects/PickUp.tscn" id="1_vt2lm"]
 [ext_resource type="Script" path="res://Objects/Key.gd" id="2_2dsr6"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="3_crb88"]
+[ext_resource type="AudioStream" uid="uid://berf28oq35r3v" path="res://Assets/sounds/key-get.ogg" id="4_uxb8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xs21"]
 size = Vector2(10, 5)
@@ -12,6 +13,7 @@ size = Vector2(12, 8)
 
 [node name="Key" instance=ExtResource("1_vt2lm")]
 script = ExtResource("2_2dsr6")
+sound = ExtResource("4_uxb8h")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_crb88")
@@ -24,3 +26,6 @@ shape = SubResource("RectangleShape2D_8xs21")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("RectangleShape2D_cgs0v")
+
+[node name="VariablePitchAudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("4_uxb8h")

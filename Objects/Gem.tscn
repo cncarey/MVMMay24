@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce36676gjyd1v"]
+[gd_scene load_steps=12 format=3 uid="uid://ce36676gjyd1v"]
 
 [ext_resource type="PackedScene" uid="uid://diy8qh6tf7sco" path="res://Objects/PickUp.tscn" id="1_ypjuy"]
 [ext_resource type="Script" path="res://Objects/Gem.gd" id="2_2ygvq"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="3_1mjwr"]
 [ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="3_yq37p"]
+[ext_resource type="AudioStream" uid="uid://bm15jkwjsyaq7" path="res://Assets/sounds/chime-sound.ogg" id="4_q88pe"]
 
 [sub_resource type="Animation" id="Animation_u16wi"]
 length = 0.001
@@ -70,6 +71,7 @@ radius = 7.0
 script = ExtResource("2_2ygvq")
 gemType = 0
 speachSound = ExtResource("3_yq37p")
+sound = ExtResource("4_q88pe")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1.5, 1.5)
