@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://by52cb0uia3yf"]
+[gd_scene load_steps=25 format=3 uid="uid://by52cb0uia3yf"]
 
 [ext_resource type="Texture2D" uid="uid://bh8r6lijixolq" path="res://Assets/Character_Sprite_Sheet.png" id="1_q384h"]
 [ext_resource type="Script" path="res://Characters/MainCharacter.gd" id="1_vig4w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Characters/Camera2D.gd" id="3_sh6eo"]
 [ext_resource type="AudioStream" uid="uid://c73jj7s5k0qs5" path="res://Assets/sounds/Swipe.wav" id="4_hnkur"]
 [ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="5_t3buh"]
+[ext_resource type="AudioStream" uid="uid://bygnspkf51g7" path="res://Assets/sounds/FootstepsRunning.ogg" id="8_e0k2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm53p"]
 
@@ -153,7 +154,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VariablePitchAudioStreamPlayer")
+tracks/5/path = NodePath("SwipeSound")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -233,7 +234,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VariablePitchAudioStreamPlayer")
+tracks/5/path = NodePath("SwipeSound")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -297,6 +298,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_il2sc"]
 resource_name = "fall_right"
@@ -350,6 +365,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_hvkko"]
 resource_name = "idle_left"
@@ -402,6 +431,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_x107q"]
 resource_name = "idle_right"
@@ -453,6 +496,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_hnony"]
@@ -517,6 +574,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 2)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StepSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_0vorm"]
 resource_name = "jump_right"
@@ -579,6 +650,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 2)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StepSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5s7mq"]
@@ -672,6 +757,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dak3o"]
 resource_name = "run_right"
@@ -724,6 +823,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StepSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n02o1"]
@@ -793,9 +906,16 @@ script = ExtResource("3_s2kgx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CapsuleShape2D_pj2ko")
 
-[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SwipeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hnkur")
+volume_db = -3.0
+bus = &"SFx"
 script = ExtResource("5_t3buh")
 
 [node name="DustMarker" type="Marker2D" parent="."]
 position = Vector2(-0.712669, 10.0625)
+
+[node name="StepSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_e0k2c")
+volume_db = -6.0
+bus = &"SFx"
