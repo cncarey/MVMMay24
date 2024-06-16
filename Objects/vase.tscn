@@ -87,6 +87,7 @@ scale_amount = Vector2(1.2, 1.2)
 
 [node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lhopb")
+volume_db = -30.0
 bus = &"SFx"
 script = ExtResource("5_r6h6m")
 

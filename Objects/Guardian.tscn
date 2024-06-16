@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca1er6yso3wt0"]
+[gd_scene load_steps=8 format=3 uid="uid://ca1er6yso3wt0"]
 
 [ext_resource type="Script" path="res://Objects/Guardian.gd" id="1_rq71a"]
 [ext_resource type="AudioStream" uid="uid://cwmtoy11ahqqc" path="res://Assets/sounds/talk.wav" id="2_1n74p"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="2_bjlge"]
 [ext_resource type="Texture2D" uid="uid://dvfaxhqef1dcj" path="res://Assets/cemetaryTiles.png" id="2_feb4b"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="3_4abq7"]
+[ext_resource type="AudioStream" uid="uid://c10w0vhlqc62x" path="res://Assets/sounds/sword-slash-and-swing-185432.ogg" id="6_6aeut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hofh1"]
 size = Vector2(84, 42)
@@ -43,6 +44,10 @@ visible = false
 position = Vector2(0.149437, -31.376)
 
 [node name="TBMarker" type="Marker2D" parent="."]
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6aeut")
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="guardianEntered"]
 [connection signal="body_exited" from="." to="." method="guardianExited"]

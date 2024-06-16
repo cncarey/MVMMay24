@@ -28,6 +28,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var tilemap :TileMap
 @onready var dust = preload("res://Characters/dust.tscn")
 @onready var dust_marker = $DustMarker
+@onready var land_sound = $LandSound
 
 
 func _ready():
@@ -86,6 +87,7 @@ func moveState(delta):
 		state = playerStates.Attack
 
 func createDust():
+	land_sound.play()
 	var _d = dust.instantiate()
 	_d.global_position = dust_marker.global_position
 	get_parent().add_child(_d)
@@ -152,7 +154,7 @@ func handleJump():
 				createDust()
 			
 func _input(event):
-	if event.is_action_pressed("Down") && is_on_floor() && Global.openedChests.has("TemporalPlunge"):
+	if event.is_action_pressed("Down") && is_on_floor() && Global.canPlayerMover && Global.openedChests.has("TemporalPlunge"):
 		position.y  += 1
 			
 func handleAcceleration(direction: float, delta):

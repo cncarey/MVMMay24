@@ -4,6 +4,9 @@ extends HurtboxComponent
 const gold = "_gold"
 const purple = "_purple"
 
+@onready var gem_sound = $GemSound
+
+
 @export var GuardianId : String
 
 @onready var gem_gold = $GemGold
@@ -61,6 +64,9 @@ func _unhandled_input(event):
 				
 		if Global.guardianStatuses.has(GuardianId + gold) and Global.guardianStatuses.has(GuardianId + purple) && Global.canPlayerMover:
 			#TODO if it's not in the list screenshake
+			if !Global.openedChests.has(powerUpName):
+				gem_sound.play()
+			
 			Global.openedChests[powerUpName] = true
 			Global.canPlayerMover = false
 			var _powerUp = powerUp.instantiate()

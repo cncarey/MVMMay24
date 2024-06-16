@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://1vnf1art3bif"]
+[gd_scene load_steps=11 format=3 uid="uid://1vnf1art3bif"]
 
 [ext_resource type="Script" path="res://Objects/Switch.gd" id="1_q2bh7"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="2_3u4xv"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="2_dg8vk"]
 [ext_resource type="LabelSettings" uid="uid://iuvd7pba7jab" path="res://Fonts/switch_frenger_label_settings.tres" id="4_x5vqf"]
+[ext_resource type="AudioStream" uid="uid://jdjq4cjhhlww" path="res://Assets/sounds/switch-93378.ogg" id="5_bhv28"]
+[ext_resource type="AudioStream" uid="uid://w1pbl5d6jdsk" path="res://Assets/sounds/stones-falling-6375.ogg" id="6_h0n0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfm7u"]
 atlas = ExtResource("2_dg8vk")
@@ -59,6 +61,16 @@ offset_top = -25.5322
 offset_right = 27.8764
 offset_bottom = -2.53218
 label_settings = ExtResource("4_x5vqf")
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bhv28")
+volume_db = -15.0
+bus = &"SFx"
+
+[node name="platformSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_h0n0r")
+volume_db = -15.0
+bus = &"SFx"
 
 [connection signal="body_entered" from="." to="." method="switchEntered"]
 [connection signal="body_exited" from="." to="." method="switchExited"]

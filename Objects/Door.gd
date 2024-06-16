@@ -9,6 +9,7 @@ extends Area2D
 @onready var lock = $lock
 
 @onready var locked_sound = $LockedSound
+@onready var unlock_sound = $UnlockSound
 
 @export var speachSound : AudioStream
 @onready var tb_marker = $TBMarker
@@ -44,7 +45,12 @@ func _unhandled_input(event):
 			#check if you have a key and unlock the door
 			if Global.tryTakeKeys(1):
 				lock.hide()
+				unlock_sound.play()
 				Global.openedDoors[doorId] = true
+				Global.canPlayerMover = false
+				await get_tree().create_timer(1.5).timeout
+				Global.canPlayerMover = true
+				
 				goThroughDoor()
 			else:
 				if locked_sound != null:

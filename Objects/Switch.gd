@@ -5,6 +5,8 @@ extends HurtboxComponent
 @export var switchText: String
 @onready var ani = $AnimatedSprite2D
 @onready var platform_label = $PlatformLabel
+@onready var switch_sound = $SwitchSound
+@onready var platform_sound = $platformSound
 
 @onready var TouchIndicator = $InteractionIndicator
 var isTouching : bool = false
@@ -53,5 +55,7 @@ func switchExited(body):
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("Interact") && isTouching:
 		setSwitchStatus(!isOn)
+		switch_sound.play()
+		platform_sound.play()
 		switchToggled.emit(isOn)
 		is_invincible = true
