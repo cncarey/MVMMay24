@@ -54,7 +54,7 @@ func _unhandled_input(event):
 				goThroughDoor()
 			else:
 				if locked_sound != null:
-					locked_sound.play_with_variance()
+					locked_sound.play()
 				if Global.openedDoors.size() <= 0:
 					DialougeManager.startDialogue( tb_marker.global_position, 
 					["There's got to be a key around here somewhere."], 

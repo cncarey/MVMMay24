@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b1sou16f4qj6" path="res://Assets/villageTiles.png" id="2_nylme"]
 [ext_resource type="PackedScene" uid="uid://bsloe4rthghr6" path="res://Objects/InteractionIndicator.tscn" id="3_6npkr"]
 [ext_resource type="Texture2D" uid="uid://jytq0lfmeqms" path="res://Assets/dungeonTiles.png" id="4_uoge5"]
-[ext_resource type="Script" path="res://Components/variable_pitch_audio_stream_player.gd" id="7_1pusg"]
 [ext_resource type="AudioStream" uid="uid://deuxvhrfw7crk" path="res://Assets/sounds/unlock-the-door-2-99745.ogg" id="7_smeih"]
+[ext_resource type="AudioStream" uid="uid://hrbyhceda0vs" path="res://Assets/sounds/lock-the-door-46014.ogg" id="7_xdswp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y4o0"]
 size = Vector2(50, 58)
@@ -36,15 +36,15 @@ texture = ExtResource("4_uoge5")
 region_enabled = true
 region_rect = Rect2(161, 85, 13, 11)
 
-[node name="LockedSound" type="AudioStreamPlayer" parent="."]
-volume_db = -15.0
-bus = &"SFx"
-script = ExtResource("7_1pusg")
-
 [node name="TBMarker" type="Marker2D" parent="."]
 
 [node name="UnlockSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_smeih")
+volume_db = -15.0
+bus = &"SFx"
+
+[node name="LockedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xdswp")
 volume_db = -15.0
 bus = &"SFx"
 
